@@ -29,3 +29,17 @@ class BankAccount(private var balance: Double) {
 		}
 	}
 }
+
+fun main() {
+	val account = BankAccount(1000.0)
+	println("Initial balance: ${account.getBalance()}")
+
+	account.deposit(500.0)
+	println("Balance after deposit: ${account.getBalance()}")
+
+	account.withdraw(200.0)
+	println("Balance after withdrawal: ${account.getBalance()}")
+
+	account.withdraw(3000.0)
+	// We can't withdraw more than the current balance, so this will print out "Withdrawal not allowed" to the standard output.
+}
