@@ -39,8 +39,8 @@ fun main() {
 	stack.push(1)
 	stack.push(2)
 	stack.push(3)
-	println("Top of the stack: ${stack.peek()}")
+	println("Top of the stack: ${stack.peek()}") // 3
 	stack.pop()
-	println("Top of the stack after pop: ${stack.peek()}")
-	stack.printStack()
+	println("Top of the stack after pop: ${stack.peek()}") // 2
+	stack.printStack() // 2 \n 1
 }
