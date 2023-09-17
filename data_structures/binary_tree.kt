@@ -4,3 +4,5 @@
 // The main topics like "Introduction", "Chapter 1", "Chapter 2" can be seen as root or intermediate nodes.
 // Subtopics or sections within chapters can be seen as children.
 // When each topic is limited to have only two subtopics for simplicity's sake, this structure resembles a binary tree.
+
+data class TreeNode<T>(var value: T, var left: TreeNode<T>? null, var right: TreeNode<T>? = null)
