@@ -18,3 +18,11 @@ fun <T> insert(root: TreeNode<T>?, value: T): TreeNode<T> {
     }
     return root
 }
+
+fun <T> inOrderTraversal(node: TreeNode<T>?) {
+    if (node != null) {
+        inOrderTraversal(node.left)
+        println("${node.value}")
+        inOrderTraversal(node.right)
+    }
+}
