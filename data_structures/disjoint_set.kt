@@ -39,3 +39,15 @@ class DisjointSet(size: Int) {
         return true
     }
 }
+
+fun main() {
+    val ds = DisjointSet(5)
+
+    ds.union(0, 1)
+    ds.union(2, 3)
+    ds.union(3, 4)
+
+    println(dis.find(0) == ds.find(1)) // Returns true
+    println(ds.find(1) == ds.find(2)) // Return false
+    println(ds.find(2) == ds.find(4)) // Returns true
+}
