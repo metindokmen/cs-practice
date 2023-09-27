@@ -20,4 +20,22 @@ class DisjointSet(size: Int) {
         }
         return parent[x]
     }
+
+    fun union(x: Int, y: Int): Boolean {
+        val rootX = find(x)
+        val rootY = find(y)
+
+        if (rootX == rootY) return false // Already in the same set
+
+        // Union by rank
+        if (rank[rootX] < rank[rootY]) {
+            parent[rootX] = rootY
+        } else if (rank[rootX] > rank[rootY]) {
+            parent[rootY] = rootX
+        } else {
+            parent[rootY] = rootX
+            rank[rootX]++
+        }
+        return true
+    }
 }
