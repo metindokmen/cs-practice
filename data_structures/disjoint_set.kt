@@ -10,3 +10,14 @@
 // a) combine two groups.
 // b) check if two users are part of the same group.
 
+class DisjointSet(size: Int) {
+    private val parent = IntArray(size) { it } // Every element is its own parent at first.
+    private val rank = IntArray(size)
+
+    fun find(x: Int): Int {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]) // Path comparison
+        }
+        return parent[x]
+    }
+}
