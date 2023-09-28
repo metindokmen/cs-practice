@@ -47,7 +47,7 @@ fun main() {
     ds.union(2, 3)
     ds.union(3, 4)
 
-    println(dis.find(0) == ds.find(1)) // Returns true
-    println(ds.find(1) == ds.find(2)) // Return false
-    println(ds.find(2) == ds.find(4)) // Returns true
+    println(dis.find(0) == ds.find(1)) // Output: true
+    println(ds.find(1) == ds.find(2)) // Output: false
+    println(ds.find(2) == ds.find(4)) // Output: true
 }
