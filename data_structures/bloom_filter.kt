@@ -6,3 +6,21 @@
 // Given the vast number of words, storing them all would require significant memory.
 // A Bloom Filter can efficiently represent this dictionary, allowing the spell checker to quickly ascertain if a word is likely in the dictionary or definitely not in it.
 
+class BloomFilter(private val size: Int, private val hashFunction: List<(String) -> Int>) {
+    private val bitset = BitSet(size)
+
+    fun add(item: String) {
+        for (hashFunc in hashFunctions) {
+            val hash = hashFunc(item) % size
+            bitset.set(hash)
+        }
+    }
+
+    fun mightContain(item: String): Boolean {
+        for (hashFunc in hashFunctions) {
+            val hash = hashFunc(item) % size
+            if (!bitset.get(hash)) return false
+        }
+        return true
+    }
+}
