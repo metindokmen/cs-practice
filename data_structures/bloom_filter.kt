@@ -24,3 +24,16 @@ class BloomFilter(private val size: Int, private val hashFunction: List<(String)
         return true
     }
 }
+
+fun main() {
+    val hashFunc1: (String) -> Int = { it.hashCode() }
+    val hashFunc2: (String) -> Int = { it.reverse().hashCode() }
+    val bloomFilter = BloomFilter(1000, listOf(hashFunc1, hashFunc2))
+
+    bloomFilter.add("apple")
+    bloomFilter.add("banana")
+
+    println(bloomFilter.mightContain("apple")) // Output: true
+    println(bloomFilter.mightContain("banana")) // Output: true
+    println(bloomFilter.mightContain("cherry")) // Output: false - or occasionally might show true (false positive)
+}
