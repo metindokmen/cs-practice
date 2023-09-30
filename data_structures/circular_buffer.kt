@@ -36,3 +36,17 @@ class CircularBuffer<T>(private val size: Int) {
     fun isFull() = (end == start && buffer[end] != null)
     fun isEmpty() = (end == start && buffer[start] == null)
 }
+
+fun main() {
+    val buffer = CircularBuffer<Int>(3)
+
+    buffer.write(1)
+    buffer.write(2)
+    buffer.write(3)
+    println(buffer.read()) // Prints 1
+    buffer.write(4)
+    println(buffer.read()) // Prints 2
+    println(buffer.read()) // Prints 3
+    println(buffer.read()) // Prints 4
+    println(buffer.read()) // null (Buffer is empty)
+}
