@@ -5,3 +5,9 @@
 // Think of an express train service between cities. There are local trains that stop at every city, and then there are express trains that skip many cities and only stop at major hubs.
 // If you're travelling a long distance, you might take an express train and then switch to a local train at the last hub.
 // This is how a Skip List works. The "express" linked lists allow us to skip over many elements, and the "local" linked lists provide fine-grained traversal.
+
+class SkipListNode<T: Comperable<T>>(val value: T) {
+    val nextNodes: MutableList<SkipListNode<T>?> = mutableListOf()
+
+    fun level(): Int = nextNodes.size
+}
