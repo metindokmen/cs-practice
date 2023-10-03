@@ -11,3 +11,26 @@ class SkipListNode<T: Comperable<T>>(val value: T) {
 
     fun level(): Int = nextNodes.size
 }
+
+class SkipList<T: Comparable<T>>(private val maxLevel: Int) {
+    private val head = SkipListNode<T?>(null)
+    private val random = java.util.Random()
+
+    init {
+        for (i in 0 until maxLevel) {
+            head.nextNodes.add(null)
+        }
+    }
+
+    fun find() {
+        // @TODO: Implement
+    }
+
+    fun insert() {
+        // @TODO: Implement
+    }
+
+    fun delete() {
+        // @TODO: Implement
+    }
+}
