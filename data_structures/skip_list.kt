@@ -50,7 +50,15 @@ class SkipList<T: Comparable<T>>(private val maxLevel: Int) {
         }
     }
 
-    fun delete() {
-        // @TODO: Implement
+    fun delete(value: T) {
+        var current = head
+        for (i in maxLevel - 1 downTo 0) {
+            while (current.nextNodes[i] != null && current.nextNodes[i]!!.value < value) {
+                current = current.nextNodes[i]!!
+            }
+            if (current.nextNodes[i]?.value == value) {
+                current.nextNodes[i] = current.nextNodes[i]!!.nextNodes[i]
+            }
+        }
     }
 }
