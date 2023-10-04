@@ -22,7 +22,7 @@ class SkipList<T: Comparable<T>>(private val maxLevel: Int) {
         }
     }
 
-    fun find() {
+    fun find(value: T): SkipListNode<T>? {
         val current = head
         for (i in maxLevel - 1 downTo 0) {
             while (current.nextNodes[i] != null && current.nextNodes[i]!!.value < value) {
@@ -32,7 +32,7 @@ class SkipList<T: Comparable<T>>(private val maxLevel: Int) {
         return current.nextNodes[0]?.takeIf { it.value == value }
     }
 
-    fun insert() {
+    fun insert(value: T) {
         val newNode = SkipListNode(value)
         val current = head
         var level = 0
