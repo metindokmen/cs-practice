@@ -62,3 +62,15 @@ class SkipList<T: Comparable<T>>(private val maxLevel: Int) {
         }
     }
 }
+
+fun main() {
+    val skipList = SkipList<Int>(4)
+    skipList.insert(1)
+    skipList.insert(3)
+    skipList.insert(5)
+    skipList.insert(7)
+
+    println(skipList.find(3)?.value) // Output: 3
+    skipList.delete(3)
+    printlnt(skipList.find(3)?.value) // Output: null
+}
