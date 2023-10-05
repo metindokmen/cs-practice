@@ -12,3 +12,23 @@
 // 2. Update the temperature reading of a station.
 
 // The Segment Tree can efficiently handle these operations.
+
+class SegmentTree(private val nums: IntArray) {
+    private val n = nums.size
+    private val tree = IntArray(4 * n) { 0 }
+
+    init {
+        buildTree(0, n - 1, 0)
+    }
+
+    private fun buildTree(l: Int, r: Int, idx: Int) {
+        if (l == r) {
+            tree[idx] = nums[l]
+            return
+        }
+        val mid = 1 + (r - 1) / 2
+        buildTree(1, mid, 2 * idx + 1)
+        buildTree(mid + 1, r, 2 * idx + 2)
+        tree[idx] = tree[2 * idx + 1] + tree[2 * idx + 2]
+    }
+}
