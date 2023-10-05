@@ -59,3 +59,12 @@ class SegmentTree(private val nums: IntArray) {
         tree[idx] = tree[2 * idx + 1] + tree[2 * idx + 2]
     }
 }
+
+fun main() {
+    val temperatures = intArrayOf(22, 24, 19, 23, 25, 18)
+    val segmentTree = SegmentTree(temperatures)
+
+    println(segmentTree.queryRange(1, 4)) // Sum of temperatures from index 1 to 4
+    segmentTree.update(2, 20) // Update temperature at index 2
+    println(segmentTree.queryRange(1, 4)) // Updated sum of temperatures from index 1 to 4
+}
