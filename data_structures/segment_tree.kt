@@ -43,4 +43,19 @@ class SegmentTree(private val nums: IntArray) {
         return query(l, mid, i, j, 2 * idx + 1) + query(mid + 1, r, i, j, 2 * idx + 2)
     }
 
+    fun update(i: Int, value: Int) {
+        update(0, n - 1, i, value, 0)
+    }
+
+    private fun update(l: Int, r: Int, i: Int, value: Int, idx: Int) {
+        if (l == r) {
+            tree[idx] = value
+            nums[i] = value
+            return
+        }
+        val mid = l + (r - 1) / 2
+        if (i <= mid) update(l, mid, i, value, 2 * idx + 1)
+        else update(mid + 1, r, i, value, 2 * idx + 2)
+        tree[idx] = tree[2 * idx + 1] + tree[2 * idx + 2]
+    }
 }
