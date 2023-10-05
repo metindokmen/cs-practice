@@ -31,4 +31,16 @@ class SegmentTree(private val nums: IntArray) {
         buildTree(mid + 1, r, 2 * idx + 2)
         tree[idx] = tree[2 * idx + 1] + tree[2 * idx + 2]
     }
+
+    fun queryRange(i: Int, j: Int): Int {
+        return query(0, n -1, i, j, 0)
+    }
+
+    private fun query(l: Int, r: Int, i: Int, j: Int, idx: Int): Int {
+        if (i > r || j < l) return 0
+        if (i <= l && j >= r) return tree[idx]
+        val mid = l + (r - 1) / 2
+        return query(l, mid, i, j, 2 * idx + 1) + query(mid + 1, r, i, j, 2 * idx + 2)
+    }
+
 }
