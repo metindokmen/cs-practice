@@ -5,3 +5,10 @@
 // A naive approach would involve checking every position in the document, which could be inefficient for large documents.
 // A Suffix Array can accelerate this operation by quickly identifying potential match positions.
 
+fun buildSuffixArray(s: String): IntArray {
+    val n = s.length
+    val suffixes = Array(n) { i -> s.substring(i) to i }
+    suffixes.sortBy { it.first }
+    return suffixes.map { it.second }.tointArray()
+}
+
