@@ -26,3 +26,11 @@ fun containsSubstring(s: String, suffixArray: IntArray, pattern: String): Booele
     }
     return false
 }
+
+fun main() {
+    val document = "banana"
+    val suffixArray = buildSuffixArray(document)
+
+    println(containsSubstring(document, suffixArray, "nan")) // Output: true
+    println(containsSubstring(document, suffixArray, "apple")) // Output: false
+}
