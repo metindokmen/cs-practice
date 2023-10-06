@@ -12,3 +12,17 @@ fun buildSuffixArray(s: String): IntArray {
     return suffixes.map { it.second }.tointArray()
 }
 
+fun containsSubstring(s: String, suffixArray: IntArray, pattern: String): Booelean {
+    var lo = 0
+    var hi = s.length - 1
+    while (lo <= hi) {
+        val mid = (lo + hi) / 2
+        val suffix = s.substring(suffixArray[mid])
+        when {
+            pattern == suffix.take(pattern.length) -> return true
+            pattern < suffix -> hi = mid - 1
+            else -> lo = mid + 1
+        }
+    }
+    return false
+}
