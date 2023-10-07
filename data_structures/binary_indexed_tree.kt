@@ -34,3 +34,14 @@ class BinaryIndexedTree(size: Int) {
         return prefixSum(right) - prefixSum(left - 1)
     }
 }
+
+fun main() {
+    val sales = BinaryIndexedTree(31) // For a month
+
+    sales.update(5, 10) // 10 books sold on day 5
+    sales.update(10, 20) // 20 books sold on day 10
+    sales.update(15, 5) // 5 books sold on day 15
+
+    println(sales.rangeSum(5, 15)) // 35 books sold between day 5 and day 15
+    println(sales.rangeSum(1, 10)) // 30 books sold between day 1 and day 10.
+}
