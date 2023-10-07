@@ -29,4 +29,8 @@ class BinaryIndexedTree(size: Int) {
         }
         return sum
     }
+
+    fun rangeSum(left: Int, right: Int): Int {
+        return prefixSum(right) - prefixSum(left - 1)
+    }
 }
