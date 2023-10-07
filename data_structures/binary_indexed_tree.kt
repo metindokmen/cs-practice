@@ -19,4 +19,14 @@ class BinaryIndexedTree(size: Int) {
             i += i and -i // Move to the parent index
         }
     }
+
+    fun prefixSum(index: Int): Int {
+        var i = index + 1
+        var sum = 0
+        while (i > 0) {
+            sum += tree[i]
+            i -= i and -i // Move to the parent index
+        }
+        return sum
+    }
 }
