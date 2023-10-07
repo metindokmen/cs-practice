@@ -9,3 +9,14 @@
 
 // A Binary Indexed Tree can efficiently handle these operations.
 
+class BinaryIndexedTree(size: Int) {
+    private val tree = IntArray(size + 1)
+
+    fun update(index: Int, value: Int) {
+        var i = index + 1
+        while (i < tree.size) {
+            tree[i] += value
+            i += i and -i // Move to the parent index
+        }
+    }
+}
