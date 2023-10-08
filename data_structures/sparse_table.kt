@@ -32,3 +32,11 @@ class SparseTable(private val arr: IntArray) {
         return maxOf(table[left][k], table[right - (1 shl k) + 1][k])
     }
 }
+
+fun main() {
+    val stockPrices = intArrayOf(100, 113, 110, 85, 105, 102, 86, 63, 81, 101)
+    val sparseTable = SparseTable(stockPrices)
+
+    println(sparseTable.queryMax(0, 4)) // Maximum stock price from day 0 to day 4 -> 113
+    println(sparseTable.queryMax(3, 9)) // Maximum stock price from day 3 to day 9 -> 105
+}
