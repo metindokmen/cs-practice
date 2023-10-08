@@ -25,4 +25,10 @@ class SparseTable(private val arr: IntArray) {
             }
         }
     }
+
+    fun queryMax(left: Int, right: Int): Int {
+        val len = right - left + 1
+        val k = (Math.log(len.toDouble()) / Math.log(2.0)).toInt()
+        return maxOf(table[left][k], table[right - (1 shl k) + 1][k])
+    }
 }
