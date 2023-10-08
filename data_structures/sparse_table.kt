@@ -3,3 +3,26 @@
 
 // Imagine you're analyzing stock prices over several days, and you want to quickly determine the hgihest price in any given range of days.
 // Building a Sparse Table on the stock prices can allow you to query the maximum price in any range of days in constant time.
+
+class SparseTable(private val arr: IntArray) {
+    private val n = arr.size
+    private val logN = (Math.log(n.toDouble()) / Math.log(2.0)).toInt() + 1
+    private val table: Array<IntArray> = Array(n) { IntArray(logN) }
+
+    init {
+        build()
+    }
+
+    private fun build() {
+        for (i in 0 until n) {
+            table[i][0] = arr[i]
+        }
+        for (j in 1 until logN) {
+            for (i in 0 until n) {
+                if (i + (1 shl j) <= n) {
+                    table[i][j] = maxOf(table[i][j - 1], table[i + (1 shl (j - 1))][j - 1])
+                }
+            }
+        }
+    }
+}
