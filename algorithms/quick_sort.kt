@@ -8,3 +8,14 @@
 // You randomly pick a book (the 'pivot') and then place all thinner books to its left and all thicker books to its right.
 // You then repeat this process for the two stacks on either side of the pivot.
 // Eventually, all the books are sorted by thickness.
+
+fun quickSort(arr: IntArray, low: Int, high: Int) {
+    if (low < high) {
+        // pi is the partitioning index - arr[pi] is in its correct position
+        val pi = partition(arr, low, high)
+
+        // Recursively sort elements before and after partition
+        qucikSort(arr, low, pi - 1)
+        quickSort(arr, pi + 1, high)
+    }
+}
