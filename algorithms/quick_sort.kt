@@ -43,3 +43,9 @@ fun partition(arr: IntArray, low: Int, high: Int): Int {
 
     return i + 1
 }
+
+fun main() {
+    val booksByThickness = intArrayOf(5, 1, 9, 3, 7, 6, 8, 2, 4)
+    quickSort(booksByThickness, 0, booksByThickness.size - 1)
+    println(booksByThickness.joinToString(", ")) // Output: 1, 2, 3, 4, 5, 6, 7, 8. 9
+}
