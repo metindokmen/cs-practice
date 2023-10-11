@@ -32,3 +32,15 @@ fun dijkstra(graph: List<List<Edge>>, start: Int): IntArray {
 
     return dist
 }
+
+fun main() {
+    val graph = listOf(
+        listOf(Edge(1, 4), Edge(2, 2)), // Neighbors of node 0
+        listOf(Edge(2, 5), Edge(3, 2)), // Neighbors of node 1
+        listOf(Edge(3, 3)), // Neighbors of node 2
+        listOf()
+    )
+
+    val distancesFromNode0 = dijkstra(graph, 0)
+    println(distancesFromNode0.joinToString(", ")) // Output: 0, 4, 2, 5
+}
