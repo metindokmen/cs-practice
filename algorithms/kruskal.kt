@@ -13,3 +13,9 @@ fun find(parent: IntArray, i: Int): Int {
     }
     return parent[i]
 }
+
+fun union(parent: IntArray, x: Int, y: Int) {
+    val xRoot = find(parent, x)
+    val yRoot = find(parent, y)
+    parent[xRoot] = yRoot
+}
