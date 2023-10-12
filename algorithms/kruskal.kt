@@ -33,3 +33,16 @@ fun kruskal(edges: List<Edge>, vertices: Int): List<Edge> {
     }
     return result
 }
+
+fun main() {
+    val edges = listOf(
+        Edge(0, 1, 10),
+        Edge(0, 2, 6),
+        Edge(0, 3, 5),
+        Edge(1, 3, 15),
+        Edge(2, 3, 4)
+    )
+
+    val mst = kruskal(edges, 4) // Minimum Spanning Tree
+    mst.forEach { println("${it.u} - ${it.v} => ${it.weight}") }
+}
