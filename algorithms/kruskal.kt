@@ -19,3 +19,17 @@ fun union(parent: IntArray, x: Int, y: Int) {
     val yRoot = find(parent, y)
     parent[xRoot] = yRoot
 }
+
+fun kruskal(edges: List<Edge>, vertices: Int): List<Edge> {
+    val result = mutableListOf<Edge>()
+    val parent = IntArray(vertices) { it }
+    edges.sortedBy { it.weight }.forEach { edge ->
+        val x = find(parent, edge.u)
+        val y = find(parent, edge.v)
+        if (x != y) {
+            result.add(edge)
+            union(parent, x, y)
+        }
+    }
+    return result
+}
