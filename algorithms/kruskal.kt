@@ -4,3 +4,12 @@
 // Imagine a group of islands, and you're tasked with building bridges to connect all of them.
 // Bridges have different costs based on the distance and difficulty of construction.
 // Using Kruskal's Algorithm, you can find the most cost-effective way to connect all the islands without forming any cycles (loops).
+
+data class Edge(val u: Int, val v: Int, val weight: Int)
+
+fun find(parent: IntArray, i: Int): Int {
+    if (parent[i] != i) {
+        parent[i] = find(parent, parent[i])
+    }
+    return parent[i]
+}
