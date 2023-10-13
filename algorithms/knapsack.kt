@@ -26,3 +26,11 @@ fun knapsack(values: IntArray, weights: IntArray, capacity: Int): Int {
 
     return dp[n][capacity]
 }
+
+fun main() {
+    val values = intArrayOf(60, 100, 120)
+    val weights = intArrayOf(10, 20, 30)
+    val capacity = 50
+
+    println(knapsack(values, weights, capacity)) // Output: 220
+}
