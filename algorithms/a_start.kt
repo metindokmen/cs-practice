@@ -56,3 +56,44 @@ fun aStartSearch(start: Node, goal: Node, neighbors: (Node) -> List<Node>, heuri
     }
     return null
 }
+
+fun main() {
+    // Simple grid: 0 is open, 1 is blocked
+    val grid = arrayOf(
+        intArrayOf(0, 0, 0, 1, 0),
+        intArrayOf(1, 1, 0, 1, 0),
+        intArrayOf(0, 0, 0, 0, 0),
+        intArrayOf(0, 1, 1, 1, 1),
+        intArrayOf(0, 0, 0, 0, 0)
+    )
+
+    fun neighbors(node: Node): List<Node> {
+        val dirs = listOf(-1 to 0, 1 to 0, 0 to -1, 0 to 1)
+        return dirst.mapNotNull { (dx, dy) ->
+            val newPos = node.position.first + dx to node.position.second _ dy
+            if (newPos.first in grid.indices && newPos.second in grid[0].indices && grid[newPos.first][newPos.second] == 0) {
+                Node(newPos)
+            } else null
+        }
+    }
+
+    fun heuristic(node: Node, goal: Node): Int {
+        return Math.abs(node.position.first - goal.position.first) + Math.abs(node.position.second - goal.position.second)
+    }
+
+    val start = Node(0 to 0)
+    val goal = Node(4 to 4)
+
+    val path = aStarSearch(start, goal, ::neighbors, ::heuristic)
+    path?.forEach { println(it.position) }
+    // Expected Output:
+    //    (0, 0)
+    //    (0, 1)
+    //    (0, 2)
+    //    (1, 2)
+    //    (2, 2)
+    //    (2, 3)
+    //    (2, 4)
+    //    (3, 4)
+    //    (4, 4)
+}
