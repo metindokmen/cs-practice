@@ -53,3 +53,15 @@ fun computeLPSArray(pattern: String): IntArray {
     }
     return lps
 }
+
+fun main() {
+    val text = "ABABDABACDABABCABAB"
+    val pattern = "ABABCABAB"
+    val matches = KMPSearch(text, pattern)
+
+    if (matches.isEmpty()) {
+        println("Pattern not found in the text.")
+    } else {
+        println("Pattern found at indices: ${matches.joinToString(", ")}")
+    }
+}
