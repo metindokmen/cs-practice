@@ -4,3 +4,30 @@
 // Imagine you are reading a book and you want to find a particular word or phrase in it.
 // Rather than reading every word from the start every time you want to find a match,
 // you can use the KMP algorithm which efficiently skips portions of the text to improve the search.
+
+fun KMPSearch(text: String, pattern: String): List<Int> {
+    val lps = computeLPSArray(pattern)
+    val indices = mutableListOf<Int>()
+
+    var i = 0 // Index for text[]
+    var j = 0 // Index for pattern[]
+    while (i < text.length) {
+        if (pattern[j] == text[i]) {
+            i++
+            j++
+        }
+        if (j == pattern.length) {
+            indices.add(i - j)
+            j = lps[j - 1]
+        } else if (i < text.length && pattern[j] != text[i]) {
+            if (j != 0) {
+                j = lps[j - 1]
+            } else {
+                i++
+            }
+        }
+    }
+    return indices
+}
+
+fun computeLPSArray() {} // @TODO: Implement
