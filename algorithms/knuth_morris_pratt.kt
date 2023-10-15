@@ -30,4 +30,26 @@ fun KMPSearch(text: String, pattern: String): List<Int> {
     return indices
 }
 
-fun computeLPSArray() {} // @TODO: Implement
+fun computeLPSArray(pattern: String): IntArray {
+    val n = pattern.length
+    val lps = IntArray(n)
+    var length = 0
+    var i = 1
+    lps[0] = 0
+
+    while (i < n) {
+        if (pattern[i] == pattern[length]) {
+            length++
+            lps[i] = length
+            i++
+        } else {
+            if (length != 0) {
+                length = lps[length - 1]
+            } else {
+                lps[i] = length
+                i++
+            }
+        }
+    }
+    return lps
+}
