@@ -22,3 +22,16 @@ fun binarySearch(arr: IntArray, target: Int): Int {
     }
     return -1
 }
+
+fun main() {
+    val numbers = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val target = 7
+
+    val result = binarySearch(numbers, target)
+
+    if (result != -1) {
+        println("Element $target found at index $result")
+    } else {
+        println("Element $target not found in the array.")
+    }
+}
