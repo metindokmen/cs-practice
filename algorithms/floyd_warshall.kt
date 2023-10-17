@@ -26,3 +26,25 @@ fun floydWarshall(graph: Array<IntArray>): Array<IntArray> {
 
     return distance
 }
+
+fun main() {
+    val INF = Int.MAX_VALUE
+    val graph = arrayOf(
+        intArrayOf(0, 3, INF, 5),
+        intArrayOf(2, 0, 3, INF),
+        intArrayOf(INF, INF, 0, 7),
+        intArrayOf(6, 8, INF, 0)
+    )
+
+    val distanceMatrix = floydWarshall(graph)
+    for (i in distanceMatrix.indices) {
+        for (j in distanceMatrix[i].indices) {
+            if (distanceMatrix[i][j] == INF) {
+                print("INF ")
+            } else {
+                print("${distanceMatrix[i][j]}")
+            }
+        }
+        println()
+    }
+}
