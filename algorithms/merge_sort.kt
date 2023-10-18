@@ -19,4 +19,30 @@ fun mergeSort(list: MutableList<Int>): MutableList<Int> {
     return merge(mergeSort(leftList), mergeSort(rightList))
 }
 
-fun merge() {} // @TODO: Implement
+fun merge(left: MutableList<Int>, right: MutableList<Int>): MutableList<Int> {
+    val merged = mutableListOf<Int>()
+    var leftIndex = 0
+    var rightIndex = 0
+
+    while (leftIndex < left.size && rightIndex < right.size) {
+        if (left[leftIndex] < right[rightIndex]) {
+            merged.add(left[leftIndex])
+            leftIndex++
+        } else {
+            merged.add(right[rightIndex])
+            rightIndex++
+        }
+    }
+
+    while (leftIndex < left.size) {
+        merged.add(left[leftIndex])
+        leftIndex++
+    }
+
+    while (rightIndex < right.size) {
+        merged.add(right[rightIndex])
+        rightIndex++
+    }
+
+    return merged
+}
