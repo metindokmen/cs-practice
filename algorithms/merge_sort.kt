@@ -46,3 +46,9 @@ fun merge(left: MutableList<Int>, right: MutableList<Int>): MutableList<Int> {
 
     return merged
 }
+
+fun main() {
+    val numbers = mutableListOf(38, 27, 43, 3, 9, 82, 10)
+    val sortedNumbers = mergeSort(numbers)
+    println(sortedNumbers) // Output: [3, 9, 10, 27, 38, 43, 82]
+}
