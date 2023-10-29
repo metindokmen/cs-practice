@@ -5,3 +5,40 @@
 // The maze can be visualized as a graph where each room is a node, and each door connecting two rooms is an edge.
 // By using BFS, starting from your current room, you'd first explore all the immediate neighboring rooms, then the neighbors of those neighbors, and so on, until you find the exit.
 // This ensures you find the shortest path to the exit.
+
+import java.util.LinkedList
+import java.util.Queue
+
+class Graph(private val numVertices: Int) {
+    private val adjList = MutableList<MutableList<Int>> = ArrayList()
+
+    init {
+        for (i in 0 until numVertices) {
+            adjList.add(mutableListOf())
+        }
+    }
+
+    fun addEdge(v: Int, w: Int) {
+        adjList[v].add(w)
+    }
+
+    fun BFS(startingVertex: Int) {
+        val visited = BooleanArray(numVertices)
+        val queue: Queue<Int> = LinkedList()
+
+        visited[startingVertex] = true
+        queue.add(startingVertex)
+
+        while (queue.isNotEmpty()) {
+            val currentIndex = queue.poll()
+            print("$currentIndex")
+
+            for (i in adjList[currentVertex]) {
+                if (!visited[i]) {
+                    visited[i] = true
+                    queue.add(i)
+                }
+            }
+        }
+    }
+}
