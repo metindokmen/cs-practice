@@ -4,3 +4,33 @@
 // Supporse you're exploring a cave network. You start at the entrance and at each junction, you choose a tunnel to explore.
 // You go as deep as you can, backtracking only when you reach a dead end.
 // In computer science, this approach of exhaustive exploration is askin to the Depth-First Search algorithm.
+
+class Graph(private val numVertices: Int) {
+    private val adjList: MutableList<MutableList<Int>> = ArrayList()
+
+    init {
+        for (i in 0 until numVertices) {
+            adjList.add(mutableListOf())
+        }
+    }
+
+    fun addEdge(v: Int, w: Int) {
+        adjList[v].add(w)
+    }
+
+    private fun DFSUtil(v: Int, visited: BooleanArray) {
+        visited[v] = true
+        print("$v ")
+
+        for (i in adjList[v]) {
+            if (!visited[i]) {
+                DFSUtil(i, visited)
+            }
+        }
+    }
+
+    fun DFS(startingVertex: Int) {
+        val visited = BooleanArray(numVertices)
+        DFSUtil(startingVertex, visited)
+    }
+}
