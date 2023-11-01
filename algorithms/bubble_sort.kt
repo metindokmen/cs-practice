@@ -27,3 +27,9 @@ fun bubbleSort(arr: IntArray): IntArray {
 
     return arr
 }
+
+fun main() {
+    val numbers = intArrayOf(64, 34, 25, 12, 22, 11, 90)
+    val sortedNumbers = bubbleSort(numbers)
+    println("Sorted Array: ${sortedNumbers.joinToString(", ")}")
+}
