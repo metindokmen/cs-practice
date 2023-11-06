@@ -25,3 +25,16 @@ fun heapify(arr: IntArray, n: Int, i: Int) {
         heapify(arr, n, largest)
     }
 }
+
+fun heapSort(arr: IntArray) {
+    val n = arr.size
+
+    for (i in n / 2 - 1 downTo 0) {
+        heapify(arr, n, i)
+    }
+
+    for (i in n - 1 downTo 0) {
+        arr[0] = arr[i].also { arr[i] = arr[0] }
+        heapify(arr, i, 0)
+    }
+}
