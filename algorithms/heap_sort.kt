@@ -38,3 +38,9 @@ fun heapSort(arr: IntArray) {
         heapify(arr, i, 0)
     }
 }
+
+fun main() {
+    val numbers = intArrayOf(12, 11, 13, 5, 6, 7)
+    heapSort(numbers)
+    println("Sorted array: ${numbers.joinToString(", ")}")
+}
