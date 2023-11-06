@@ -6,3 +6,22 @@
 // A good approach would be to arrange them into a pile (heap) where the most urgent document is always on top.
 // After you complete each document, you rearrange the pile to put the next most urgent document on top.
 // This is similar to how Heap sort works with numbers.
+
+fun heapify(arr: IntArray, n: Int, i: Int) {
+    var largest = i
+    val left = 2 * i + 1
+    val right = 2 * i + 2
+
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left
+    }
+
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right
+    }
+
+    if (largest != i) {
+        arr[i] = arr[largest].also { arr[largest] = arr[i] }
+        heapify(arr, n, largest)
+    }
+}
