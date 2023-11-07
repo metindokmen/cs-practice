@@ -30,3 +30,10 @@ fun countingSort(arr: IntArray, maxVal: Int): IntArray {
 
     return output
 }
+
+fun main() {
+    val scores = intArrayOf(50, 99, 98, 85, 50, 70, 65, 85, 100, 65)
+    val maxScore = 100 // Assuming scores are from 0 to 100
+    val sortedSocres = countingSort(scores, maxScore)
+    println("Sorted scores: ${sortedSocres.joinToString(", ")}")
+}
