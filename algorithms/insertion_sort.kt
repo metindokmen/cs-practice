@@ -20,3 +20,9 @@ fun insertionSort(arr: IntArray) {
         arr[j + 1] = key
     }
 }
+
+fun main() {
+    val numbers = intArrayOf(12, 11, 13, 5, 6)
+    insertionSort(numbers)
+    println("Sorted array: ${numbers.joinToString(", ")}")
+}
