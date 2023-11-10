@@ -31,3 +31,19 @@ fun countingSortForRadix(input: IntArray, placeValue: Int) {
         input[i] = output[i]
     }
 }
+
+fun radixSort(arr: IntArray) {
+    val maxElement = arr.maxOrNull() ?: return
+    val placeValue = 1
+
+    while (maxElement / placeValue > 0) {
+        countingSortForRadix(arr, placeValue)
+        placeValue *= 10
+    }
+}
+
+fun main() {
+    val data = intArrayOf(170, 45, 75, 90, 802, 24, 2, 66)
+    radixSort(data)
+    println("Sorted array: ${data.joinToString(", ")}")
+}
