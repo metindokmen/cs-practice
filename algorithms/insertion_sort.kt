@@ -5,3 +5,18 @@
 // Imagine you're palying a card game where you need to keep your hand of cards sorted at all times.
 // As you draw each new card, you insert it into its proper place within your already sorted hand, shifting the other cards as neccessary.
 // This process is similar to how the Insertion Sort algorithm works.
+
+fun insertionSort(arr: IntArray) {
+    for (i in 1 until arr.size) {
+        val key = arr[i]
+        var j = i - 1
+
+        // Move elements of arr[0..i-1], that are greater than key,
+        // to one position ahead of their current position
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j]
+            j--
+        }
+        arr[j + 1] = key
+    }
+}
