@@ -27,3 +27,9 @@ fun selectionSort(arr: IntArray) {
         arr[i] = temp
     }
 }
+
+fun main() {
+    val numbers = intArrayOf(64, 25, 12, 22, 11)
+    selectionSort(numbers)
+    println("Sorted array: ${numbers.joinToString(", ")}")
+}
