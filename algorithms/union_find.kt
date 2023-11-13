@@ -28,3 +28,20 @@ class UnionFind(private val size: Int) {
         return find(x) == find(y)
     }
 }
+
+fun main() {
+    val uf = UnionFind(10)
+
+    // Create some connections between elements
+    uf.union(1, 2)
+    uf.union(2, 3)
+    uf.union(4, 5)
+    uf.union(6, 7)
+    uf.union(5, 6)
+
+    // Check if certain elements are connected
+    println("Are 1 and 3 connected? ${uf.connected(1, 3)}") // Expected Output: true
+    println("Are 4 and 7 connected? ${uf.connected(4, 7)}") // Expected Output: true
+    println("Are 3 and 5 connected? ${uf.connected(3, 5)}") // Expected Output: true
+    println("Are 8 and 9 connected? ${uf.connected(8, 9)}") // Expected Output: false
+}
