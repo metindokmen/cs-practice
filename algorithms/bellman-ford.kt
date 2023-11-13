@@ -32,3 +32,24 @@ class Graph(private val vertices: Int, private val edges: List<Edge>) {
         return distance
     }
 }
+
+fun main() {
+    val edges = listOf(
+        Edge(0, 1, -1),
+        Edge(0, 2, 4),
+        Edge(1, 2, 3),
+        Edge(1, 3, 2),
+        Edge(1, 4, 2),
+        Edge(3, 2, 5),
+        Edge(3, 1, 1),
+        Edge(4, 3, -3)
+    )
+
+    val graph = Graph(5, edges)
+    val distances = graph.bellmanFord(0)
+
+    println("Vertex Distance from Source")
+    for (i in distances.indices) {
+        println("$i \t\t ${distances[i]}")
+    }
+}
