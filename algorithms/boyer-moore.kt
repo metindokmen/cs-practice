@@ -35,3 +35,15 @@ fun boyerMooreSearch(text: String, pattern: String): Int {
     }
     return -1 // Pattern not found
 }
+
+fun main() {
+    val text = "ABAAABCD"
+    val pattern = "ABC"
+    val position = boyerMooreSearch(text, pattern)
+
+    if (position == -1) {
+        println("Pattern not found")
+    } else {
+        println("Pattern found at index: $position")
+    }
+}
