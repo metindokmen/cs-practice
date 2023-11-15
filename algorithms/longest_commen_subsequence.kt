@@ -5,3 +5,42 @@
 // Suppose you're working with two versions of a text document and you want to find the longest sequence of words (or characters) that appears in both versions.
 // This is a common problem in version control systems and text comparison tools.
 // The Longest Commong Subsequence algorithm can efficiently find this sequence.
+
+fun lcs(X: String, Y: String): String {
+    val m = X.length
+    val n = Y.length
+    val L = Array(m + 1) { IntArray(n + 1) }
+
+    // Building the L[m+1][n+1] in bottom-up fashion
+    for (i in 0..m) {
+        for (j in 0..n) {
+            if (i == 0 || j == 0) {
+                L[i][j] = 0
+            } else if (X[i - 1] == y[j - 1]) {
+                L[i][j] = L[i - 1][j - 1] + 1
+            } else {
+                L[i][j] = maxOf(L[i - 1][j], L[i][j - 1])
+            }
+        }
+    }
+
+    // Reconstructing the LCS from L
+    var index = L[m][n]
+    var lcs = CharArray(index)
+
+    var i = m
+    var j = n
+    while (i > 0 && j > 0) {
+        if (X[i - 1] == Y[j - 1]) {
+            lcs[--index] = X[i - 1]
+            i--
+            j--
+        } else if (L[i - 1][j] > L[i][j - 1]) {
+            i--
+        } else {
+            j--
+        }
+    }
+
+    return String(lcs)
+}
