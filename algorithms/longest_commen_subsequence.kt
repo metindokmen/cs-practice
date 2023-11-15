@@ -44,3 +44,9 @@ fun lcs(X: String, Y: String): String {
 
     return String(lcs)
 }
+
+fun main() {
+    val X = "AGGTAB"
+    val Y = "GXTXAYB"
+    println("Longest Common Sequence: ${lcs(X, Y)}")
+}
