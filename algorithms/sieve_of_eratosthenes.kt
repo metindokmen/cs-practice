@@ -8,3 +8,24 @@
 // Then you move to the next uncrossed numbers, circle it (as it's a prime), and cross out all its multiples.
 // You continue this process until you've circled all prime numbers up to 100.
 // This process is very similar to how the Sieve of Eratosthenes algorithm identifies prime numbers.
+
+fun sieveOfEratosthenes(n: Int): List<Int> {
+    val prime = BooleanArray(n + 1) { true }
+    var p = 2
+
+    while (p * p <= n) {
+        if (prime[p]) {
+            for (i in p * p..n step p) {
+                prime[i] = false
+            }
+        }
+    }
+
+    val primeNumbers = mutableListOf<Int>()
+    for (i in 2..n) {
+        if (prime[i]) {
+            primeNumbers.add(i)
+        }
+    }
+    return primeNumbers
+}
