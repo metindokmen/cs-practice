@@ -29,3 +29,8 @@ fun sieveOfEratosthenes(n: Int): List<Int> {
     }
     return primeNumbers
 }
+
+fun main() {
+    val n = 100
+    println("Prime numbers up to $n: ${sieveOfEratosthenes(n).joinToString(", ")}")
+}
