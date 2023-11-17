@@ -45,3 +45,14 @@ fun rabinKarp(text: String, pattern: String): Int {
     }
     return -1
 }
+
+fun main() {
+    val text = "ABCCDDAEFG"
+    val pattern = "CDD"
+    val result = rabinKarp(text, pattern)
+    if (result != -1) {
+        println("Pattern found at index: $result")
+    } else {
+        println("Pattern not found")
+    }
+}
