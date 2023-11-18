@@ -5,3 +5,19 @@
 // Imagine you're analyzing stock market prices over a period, and you want to find the best time to buy and sell to maximize profit.
 // You have a list of changes in stock price each day (which can be positive or negative).
 // Kadane's Algorithm can be used to find the time period (subarray) where the sum of these changes (profit or loss) is the highest.
+
+fun maxSubArraySum(a: IntArray): Int {
+    var maxSoFar = Int.MAX_VALUE
+    var maxEndingHere = 0
+
+    for (i in a.indices) {
+        maxEndingHere += a[i]
+        if (maxSoFar < maxEndingHere) {
+            maxSoFar = maxEndingHere
+        }
+        if (maxEndingHere < 0) {
+            maxEndingHere = 0
+        }
+    }
+    return maxSoFar
+}
