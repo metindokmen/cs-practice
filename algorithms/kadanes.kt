@@ -21,3 +21,8 @@ fun maxSubArraySum(a: IntArray): Int {
     }
     return maxSoFar
 }
+
+fun main() {
+    val a = intArrayOf(-2, -3, 4, -1, -2, 1, 5, -3)
+    printn("Maximum contiguous sum is ${maxSubArraySum(a)}")
+}
