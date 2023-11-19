@@ -8,3 +8,16 @@
 // These points could represent the locations of various landmarks.
 // The convex hull is the smallest convex oolygon that encompasses all these points.
 // Using the Graham Scan algorithm, you can efficiently compute this convex polygon.
+
+data class Point(val x: Int, val y: Int)
+
+fun orientation(p: Point, q: Point, r: Point): Int {
+    val val1 = (q.y - p.y) * (r.x - q.x)
+    val val2 = (q.x - p.x) * (r.y - q.y)
+
+    return when {
+        val1 == val2 -> 0   // colinear
+        val1 > val2 -> 1    // clockwise
+        else -> 2           // counterclockwise
+    }
+}
