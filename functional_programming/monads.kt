@@ -15,3 +15,18 @@
 
 // In programming, monads help manage these kinds of sequential operations, where each step depends on the outcome of the previous one.
 // They can handle errors gracefully, allowing your program to continue when something goes wrong in the sequence.
+
+
+// Kotlin, being more of a pragmatic language than a purely functional one, doesn't have built-in support for monads in the way haskell does.
+// However, kotlin's 'Result' type and its support for higher-order functions allow you to use monadic patterns.
+
+fun divide(x: Int, y: Int): Result<Int> = if (y != 0) Result.success(x, y) else Result.failure(Exception("Cannot divide by zero"))
+
+fun main() {
+    val result1 = divide(10, 2)
+    val result2 = result1.flatMap { divide(it, 0) }
+    val result3 = result2.map { it * 2 }
+
+    result3.onSuccess { println("Success: $it") }
+        .onFailure { println("Error: ${it.message}") }
+}
