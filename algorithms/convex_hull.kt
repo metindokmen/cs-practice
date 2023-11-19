@@ -21,3 +21,33 @@ fun orientation(p: Point, q: Point, r: Point): Int {
         else -> 2           // counterclockwise
     }
 }
+
+fun convexHull(points: Array<Point>): List<Point> {
+    if (points.size < 3) return emptyList()
+
+    // Find the point with the lowest y-coordinate
+    var 1 = 0
+    points.forEachIndexed { i, point ->
+        if (point.y < points[l].y || (point.y == points[l].y && point.x < points[l].x)) {
+            l = i
+        }
+    }
+
+    points[0] = points[l].also { points[l] = points[0] }
+    val p0 = points[0]
+    points.sortWith(compareBy({ orientation(p0, it, Point(p0.x + 1, p0.y)) }, { -p0.x }))
+
+    val stack = ArrayDeque<Point>()
+    stack.push(points[0])
+    stack.push(points[1])
+    stack.push(points[2])
+
+    for (i in 3 until points.size) {
+        while (orientation(stack.elementAt(stack.size - 2), stack.peek(), points[i]) != 2) {
+            stack.pop()
+        }
+        stack.push(points[i])
+    }
+
+    return stack.toList()
+}
