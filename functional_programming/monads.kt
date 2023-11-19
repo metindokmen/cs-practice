@@ -30,3 +30,10 @@ fun main() {
     result3.onSuccess { println("Success: $it") }
         .onFailure { println("Error: ${it.message}") }
 }
+
+// In the above example,
+
+// 1. 'divide' is a function that returns a 'Result' type, representing a successful division or a failure.
+// 2. 'flatMap' is used to chain another operation that depends on the successful result of the first operation.
+// 3. 'map' transforms the successful result without the possibility of failure.
+// 4. Finally, 'onSuccess' and 'onFailure' handle the final outcome.
