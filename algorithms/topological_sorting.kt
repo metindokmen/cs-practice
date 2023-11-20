@@ -7,3 +7,34 @@
 // For instance, you can't start painting a house until the construction is finished.
 // In such scenarios, determining an order in which undertake tasks while respecting their dependencies is crucial.
 // This is where topoplogical sorting comes in handy.
+
+class Graph(private val vertices: int) {
+    private val adjList = Array(vertices) { mutableListOf<Int>() }
+
+    fun addEdge(v: Int, w: Int) {
+        adjList[v].add(w)
+    }
+
+    private fun topologicalSortUtil(v: Int, visited: BooleanArray, stack: ArrayDeque<Int>) {
+        visited[v] = true
+        for (i in adjList[v]) {
+            if (!visited[i]) {
+                topologicalSortUtil(i, visited, stack)
+            }
+        }
+        stack.addFirst(v)
+    }
+
+    fun topologicalSort(): List<Int> {
+        val stack = ArrayDeque<Int>()
+        val visited = BooleanArray(vertices) { false }
+
+        for (i in 0 until vertices) {
+            if (!visited[i]) {
+                topologicalSortUtil(i, visited, stack)
+            }
+        }
+
+        return stack.toList()
+    }
+}
