@@ -57,3 +57,18 @@ class Graph(private val vertices: Int) {
         return scc
     }
 }
+
+fun main() {
+    val g = Graph(5)
+    g.addEdge(1, 0)
+    g.addEdge(0, 2)
+    g.addEdge(2, 1)
+    g.addEdge(0, 3)
+    g.addEdge(3, 4)
+
+    val scc = g.tarjanSCC()
+    println("Strongly Connected Components:")
+    scc.forEach { component ->
+        println(component.joinToString(", "))
+    }
+}
