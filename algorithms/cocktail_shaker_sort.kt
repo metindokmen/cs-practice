@@ -31,3 +31,9 @@ fun cocktailShakerSort(arr: IntArray) {
         }
     } while (swapped)
 }
+
+fun main() {
+    val arr = intArrayOf(5, 3, 4, 1, 2)
+    cocktailShakerSort(arr)
+    println("Sorted Array: ${arr.joinToString()}")
+}
