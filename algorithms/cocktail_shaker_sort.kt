@@ -4,3 +4,8 @@
 // This bidirectional approach helps in moving items to their positions faster,
 // thus improving performance over the regular Bubble Sort in certain cases,
 // especially where items at the end need to be moved to the beginning.
+
+// Consider organizing a bookshelf where you want to order books by height.
+// Starting from one end, you compare adjacent books, swapping them to put the taller one on the right.
+// When you reach the other end, you reverse direction and do the same, this time moving the shorter book to the left.
+// This back-and-forth process, akin to the movement of a cocktail shaker, continues until all books are in order.
