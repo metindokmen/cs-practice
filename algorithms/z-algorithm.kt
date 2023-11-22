@@ -26,3 +26,15 @@ fun zAlgorithm(s: String): IntArray {
     }
     return z
 }
+
+fun search(text: String, pattern: String): List<Int> {
+    val concatenated = "$pattern$$text"
+    val z = zAlgorithm(concatenated)
+    val result = mutableListOf<Int>()
+    for (i in pattern.length until concatenated.length) {
+        if (z[i] == pattern.length) {
+            result.add(i - pattern.length - 1)
+        }
+    }
+    return result
+}
