@@ -38,3 +38,10 @@ fun search(text: String, pattern: String): List<Int> {
     }
     return result
 }
+
+fun main() {
+    val text = "ababcababaad"
+    val pattern = "ababa"
+    val occurrences = search(text, pattern)
+    println("Pattern found at indices: $occurrences")
+}
