@@ -54,3 +54,17 @@ fun bfs(rGraph: Array<IntArray>, s: Int, t: Int, parent: IntArray): Boolean {
     }
     return visited[t]
 }
+
+fun main() {
+    val graph = arrayOf(
+        intArrayOf(0, 16, 13, 0, 0, 0),
+        intArrayOf(0, 0, 10, 12, 0, 0),
+        intArrayOf(0, 4, 0, 0, 14, 0),
+        intArrayOf(0, 0, 9, 0, 0, 20),
+        intArrayOf(0, 0, 0, 7, 0, 4),
+        intArrayOf(0, 0, 0, 0, 0, 0)
+    )
+    val source = 0
+    val sink = 5
+    println("The maximum possible flow is ${fordFulkerson(graph, source, sink)}")
+}
