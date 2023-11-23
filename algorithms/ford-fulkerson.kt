@@ -6,3 +6,30 @@
 // Consider a network of water pipes connecting a reservoir to a village.
 // Each pipe has a capacity limit, and you want to determine the maximum amount of water that can be transported from the reservoir to the village through this network of pipes.
 // This is a classic example of a Maximum Flow Problem.
+
+fun fordFulkerson(graph: Array<IntArray>, source: Int, sink: Int): Int {
+    val residualGraph = graph.map { it.clone() }.toTypedArray()
+    val parent = IntArray(graph.size) { -1 }
+    var maxFlow = 0
+
+    while (bfs(residualGraph, source, sink, parent)) {
+        var pathFlow = Int.MAX_VALUE
+        var s = sink
+        while (s != source) {
+            pathFlow = minOf(pathFlow, residualGraph[parent[s]][s])
+            s = parent[s]
+        }
+
+        // Update residual capacities and reverse edges
+        var v = sink
+        while (v != source) {
+            val u = parent[v]
+            residualGraph[u][v] -= pathFlow
+            residualGraph[v][u] += pathFlow
+            v = parent[v]
+        }
+
+        maxFlow += pathFlow
+    }
+    return maxFlow
+}
