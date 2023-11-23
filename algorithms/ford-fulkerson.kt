@@ -33,3 +33,24 @@ fun fordFulkerson(graph: Array<IntArray>, source: Int, sink: Int): Int {
     }
     return maxFlow
 }
+
+fun bfs(rGraph: Array<IntArray>, s: Int, t: Int, parent: IntArray): Boolean {
+    val visited = BooleanArray(rGraph.size) { false }
+    val queue = ArrayDeque<Int>()
+    queue.add(s)
+    visited[s] = true
+    parent[s] = -1
+
+    while (queue.isNotEmpty()) {
+        val u = queue.removeFirst()
+
+        for (v in rGraph.indices) {
+            if (!visited[v] && rGraph[u][v] > 0) {
+                queue.add(v)
+                parent[v] = u
+                visited[v] = true
+            }
+        }
+    }
+    return visited[t]
+}
