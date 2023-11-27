@@ -35,3 +35,8 @@ fun longestPalindromicSubstring(s: String): String {
     val start = (centerIndex - maxLen) / 2
     return s.substring(start, start + maxLen)
 }
+
+fun main() {
+    val str = "abcbadad"
+    println("Longest Palindromic Substring: ${longestPalindromicSubstring(str)}")
+}
