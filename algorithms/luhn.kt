@@ -21,3 +21,8 @@ fun isValidLuhnNumber(number: String): Boolean {
     }
     return sum % 10 == 0
 }
+
+fun main() {
+    val creditCardNumber = "4532015112830366"
+    println("Is the credit card number valid? ${isValidLuhnNumber(creditCardNumber)}")
+}
