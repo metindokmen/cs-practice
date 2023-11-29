@@ -27,3 +27,15 @@ fun primsAlgorithm(graph: Array<IntArray>): Int {
     key.forEach { totalWeight += it }
     return totalWeight
 }
+
+fun minKey(key: IntArray, mstSet: BooleanArray): Int {
+    var min = Int.MAX_VALUE
+    var minIndex = -1
+    for (v in key.indices) {
+        if (!mstSet[v] && key[v] < min) {
+            min = key[v]
+            minIndex = v
+        }
+    }
+    return minIndex
+}
