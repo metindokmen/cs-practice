@@ -39,3 +39,14 @@ fun minKey(key: IntArray, mstSet: BooleanArray): Int {
     }
     return minIndex
 }
+
+fun main() {
+    val graph = arrayOf(
+        intArrayOf(0, 2, 0, 6, 0),
+        intArrayOf(2, 0, 3, 8, 5),
+        intArrayOf(0, 3, 0, 0, 7),
+        intArrayOf(6, 8, 0, 0, 9),
+        intArrayOf(0, 5, 7, 9, 0)
+    )
+    println("Total weight of MST: ${primsAlgorithm(graph)}")
+}
