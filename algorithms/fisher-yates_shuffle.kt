@@ -4,3 +4,16 @@
 // Imagine you are creating a digital card game and need to shuffle the deck of cards randomly.
 // The Fisher-Yates Shuffle Algorithm is an efficient way to randomly shuffle the elements in an array, ensuring each possible permutation is equally likely.
 // This algorithm is also commonly used in algorithms that need random sampling, like in generating a random playlist from a set of songs.
+
+fun <T> shuffle(array: Array<T>) {
+    val rnd = java.util.Random()
+
+    for (i in array.indices.reversed()) {
+        val index = rnd.nextInt(i + 1)
+
+        // Simple swap
+        val a = array[index]
+        array[index] = array[i]
+        array[i] = a
+    }
+}
