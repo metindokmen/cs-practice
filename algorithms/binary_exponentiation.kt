@@ -18,3 +18,10 @@ fun binaryExponentiation(x: Long, n: Long, m: Long): Long {
     }
     return result
 }
+
+fun main() {
+    val x: Long = 2 // Base
+    val n: Long = 10 // Exponent
+    val m: Long = 1_000_000_007 // modulus to keep the result small
+    println("$x$n mod $m = ${binaryExponentiation(x, n, m)}")
+}
