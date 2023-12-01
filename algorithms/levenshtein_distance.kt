@@ -27,3 +27,9 @@ fun levenshetein(a: String, b: String): Int {
 
     return dp[a.length][b.length]
 }
+
+fun main() {
+    val word1 = "kitten"
+    val word2 = "sitting"
+    println("The Levenshtein distance between '$word1' and '$word2' is ${levenshetein(word1, word2)}")
+}
