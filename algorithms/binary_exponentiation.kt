@@ -5,3 +5,16 @@
 // where P is the principal amount, r is the annual interest rate, n is the number of times interest is compounded per year, and t is the time in years.
 // Binary exponentiation can efficiently calculate powers like (1 + r/n)nt even for large nt.
 
+fun binaryExponentiation(x: Long, n: Long, m: Long): Long {
+    var x = x % m
+    var n = n
+    var result: Long = 1
+    while (n > 0) {
+        if (n and 1L == 1L) {
+            result = result * x % m
+        }
+        x = x * x % m
+        n = n shr 1
+    }
+    return result
+}
