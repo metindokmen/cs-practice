@@ -36,3 +36,10 @@ fun exponentialSearch(arr: IntArray, key: Int): Int {
 
     return binarySearch(arr, i / 2, minOf(i, arr.size - 1), key)
 }
+
+fun main() {
+    val arr = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    val key = 5
+    val result = exponentialSearch(arr, key)
+    println("Element $key is found at index: $result")
+}
