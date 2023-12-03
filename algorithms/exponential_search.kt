@@ -25,3 +25,14 @@ fun binarySearch(arr: IntaArray, left: Int, right: Int, key: Int): Int {
     }
     return -1
 }
+
+fun exponentialSearch(arr: IntArray, key: Int): Int {
+    if (arr[0] == key) return 0
+
+    var i = 1
+    while (i < arr.size && arr[i] <= key) {
+        i *= 2
+    }
+
+    return binarySearch(arr, i / 2, minOf(i, arr.size - 1), key)
+}
