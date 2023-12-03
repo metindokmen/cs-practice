@@ -11,3 +11,17 @@
 // If you know the range where the book number might lie, it would be inefficient to start from the beginning.
 // Instead, you could use exponential search to quickly narrow down the range, and then use binary search within that range.
 // This is particularly efficient when the element to be searched is closer to the beginning of the array.
+
+fun binarySearch(arr: IntaArray, left: Int, right: Int, key: Int): Int {
+    var l = left
+    var r = right
+    while (l <= r) {
+        val mid = 1 + (r - l) / 2
+        when {
+            arr[mid] == key -> return mid
+            arr[mid] < key -> l = mid + 1
+            else -> r = mid - 1
+        }
+    }
+    return -1
+}
