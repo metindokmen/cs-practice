@@ -21,3 +21,9 @@ fun maxSumSubarrayOfSizeK(arr: IntArray, k: Int): Int {
         }
     }
 }
+
+fun main() {
+    val stockPrices = intArrayOf(100, 180, 260, 310, 40, 535, 695)
+    val k = 3
+    println("Maximum profit for $k days is: ${maxSumSubarrayOfSizeK(stockPrices, k)}")
+}
