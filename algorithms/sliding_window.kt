@@ -4,3 +4,20 @@
 
 // Suppose you're analyzing stock prices, and you want to find the maximum profit you can by buying and selling once within a given number of days.
 // Using the Sliding Window technique, you can keep track of the minimum price seen so far and the maximum profit that can be made each day as you move through the price list.
+
+fun maxSumSubarrayOfSizeK(arr: IntArray, k: Int): Int {
+    var maxSum = 0
+    var windowSum = 0
+    var windowStart = 0
+
+    for (windowEnd in arr.indices) {
+        windowSum += arr[windowEnd] // Add the next element to the window
+
+        // Slide the window if we've hit the size 'k'
+        if (windowEnd >= k - 1) {
+            maxSum = maxOf(maxSum, windowSum) // Update the maximum sum if needed
+            windowSum -= arr[windowStart]     // Subtract the element going out of the window
+            windowStart++                     // Slide the window ahead
+        }
+    }
+}
