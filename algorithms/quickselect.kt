@@ -31,3 +31,9 @@ fun partition(arr: IntArray, low: Int, high: Int): Int {
     arr[i] = arr[high].also { arr[high] = arr[i] }
     return i
 }
+
+fun main() {
+    val times = intArrayOf(24, 52, 17, 30, 44, 27, 42, 13, 36, 29)
+    val k = 5
+    println("The ${k}th fastest runner finished in ${quickSelect(times, k)} minutes.")
+}
