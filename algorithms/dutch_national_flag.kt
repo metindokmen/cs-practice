@@ -7,3 +7,6 @@
 // Unknown objects
 
 // The algorithm iterates through the array, expanding the regions as it encounters each color.
+
+// Imagine you have balls of three different colors (red, white, and blue) and you want to sort them so that the same colors are grouped together.
+// This problem is analogous to the Dutch National Flag problem, where you're given an array with three different numbers and you need to sort them in place so that the same numbers are grouped together.
