@@ -6,3 +6,31 @@
 // Each person ranks all members of the opposite sex in order of preference.
 // The goal is to find a stable matching, where no two people would prefer to be with each other over their current partners.
 // The Gale-Shapley algorithm can solve this problem by finding a stable matching.
+
+fun stableMarriage(menPreferences: Array<IntArray>, womenPreferences: Array<IntArray>): IntArray {
+    val numPairs = menPreferences.size
+    val womenPartner = IntArray(numPairs) { -1 }
+    val menEngaged = BooleanArray(numPairs) { false }
+    val womenProposalCount = IntArray(numPairs) { 0 }
+
+    while (menEngaged.contains(false)) {
+        for (man in 0 until numPairs) {
+            if (!menEngaged[man]) {
+                val woman = menPreferences[man][womenProposalCount[man]]
+                if (womenPartner[woman] == <-1) {
+                    womenPartner[woman] = man
+                    menEngaged[man] = true
+                } else {
+                    val currentPartner = womenPartner[woman]
+                    if (womenPreferences[woman].indexOf(man) < womenPreferences[woman].indexOf(currentPartner) {
+                            womenPartner[woman] = man
+                            menEngaged[man] = true
+                            menEngaged[currentPartner] = false
+                        }
+                }
+                womenProposalCount[man]++
+            }
+        }
+    }
+    return womenPartner
+}
