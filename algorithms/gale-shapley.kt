@@ -34,3 +34,21 @@ fun stableMarriage(menPreferences: Array<IntArray>, womenPreferences: Array<IntA
     }
     return womenPartner
 }
+
+fun main() {
+    val menPreferences = arrayOf(
+        intArrayOf(1, 0, 3, 2),
+        intArrayOf(0, 1, 2, 3),
+        intArrayOf(0, 2, 3, 1),
+        intArrayOf(1, 3, 2, 0)
+    )
+    val womenPreferences = arrayOf(
+        intArrayOf(0, 1, 3, 2),
+        intArrayOf(1, 0, 2, 3),
+        intArrayOf(0, 1, 2, 3),
+        intArrayOf(0, 1, 2, 3)
+    )
+
+    val pairs = stableMarriage(menPreferences, womenPreferences)
+    println("Women's partners are: ${pairs.contentToString()}")
+}
