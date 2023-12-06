@@ -18,3 +18,8 @@ fun lenghtOfLIS(nums: IntArray): Int {
 
     return dp.maxOrNull() ?: 1
 }
+
+fun main() {
+    val grades = intArrayOf(2, 5, 3, 7, 11, 8, 10, 13, 6)
+    println("The longest period of consistent improvement is ${lenghtOfLIS(grades)} grading periods.")
+}
