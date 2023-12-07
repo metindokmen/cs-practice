@@ -15,3 +15,15 @@ fun linearSearch(data: IntArray, valueToFind: Int): Int {
     }
     return -1 // Return -1 if the value is not found
 }
+
+fun main() {
+    val dataArray = intArrayOf(23, 45, 1, 2, 8, 19, 3)
+    val searchValue = 8
+    val resultIndex = linearSearch(dataArray, searchValue)
+
+    if (resultIndex != -1) {
+        println("Value $searchValue found at index: $resultIndex")
+    } else {
+        println("Value $searchValue not found in the array.")
+    }
+}
