@@ -8,9 +8,31 @@
 // Huffman Coding provides an efficient way of encoding characters based on their frequency in the text.
 // Characters that occur more frequently are encoded with shorter codes, and less frequent characters with longer codes, reducing the overall size of the text.
 
+import java.util.PriorityQueue
+
 class HuffmanNode(var char: Char, var frequency: Int) : Comparable<HuffmanNode> {
     var left: HuffmanNode? = null
     var right: HuffmanNode? = null
 
     override fun compareTo(other: HuffmanNode): Int = this.frequency - other.frequency
+}
+
+fun buildTree(frequencies: Map<Char, Int>): HuffmanNode {
+    val priorityQueue = PriorityQueue<HuffmanNode>()
+
+    frequencies.forEach { (char, freq) ->
+        priorityQueue.add(HuffmanNode(char, freq))
+    }
+
+    while (priorityQueue.size > 1) {
+        val left = priorityQueue.poll()
+        val right = priorityQueue.poll()
+        val sum = left.frequency + right.frequency
+        val node = HuffmanNode("-", sum)
+        node.left = left
+        node.right = right
+        priorityQueue.add(node)
+    }
+
+    return priorityQueue.poll()
 }
