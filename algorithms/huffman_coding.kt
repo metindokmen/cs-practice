@@ -36,3 +36,12 @@ fun buildTree(frequencies: Map<Char, Int>): HuffmanNode {
 
     return priorityQueue.poll()
 }
+
+fun printCodes(node: HuffmanNode, prefix: String = "") {
+    if (node.left == null && node.right == null) {
+        println("${node.char}: $prefix")
+        return
+    }
+    printCodes(node.left!!, prefix + "0")
+    printCodes(node.right!!, prefix + "1")
+}
