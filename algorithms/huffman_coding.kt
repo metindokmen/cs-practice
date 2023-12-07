@@ -45,3 +45,12 @@ fun printCodes(node: HuffmanNode, prefix: String = "") {
     printCodes(node.left!!, prefix + "0")
     printCodes(node.right!!, prefix + "1")
 }
+
+fun main() {
+    val text = "This is an example for huffman encoding"
+    val frequencies = text.groupingBy { it }.eachCount()
+
+    val root = buildTree(frequencies)
+    println("Character Encoding:")
+    printCodes(root)
+}
