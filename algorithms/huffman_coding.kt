@@ -7,3 +7,10 @@
 // You need to encode text in a way that reduces its size for storage or transmission.
 // Huffman Coding provides an efficient way of encoding characters based on their frequency in the text.
 // Characters that occur more frequently are encoded with shorter codes, and less frequent characters with longer codes, reducing the overall size of the text.
+
+class HuffmanNode(var char: Char, var frequency: Int) : Comparable<HuffmanNode> {
+    var left: HuffmanNode? = null
+    var right: HuffmanNode? = null
+
+    override fun compareTo(other: HuffmanNode): Int = this.frequency - other.frequency
+}
