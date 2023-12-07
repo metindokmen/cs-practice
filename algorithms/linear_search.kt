@@ -6,3 +6,12 @@
 // Imagine you're looking for a specific book in a small library.
 // You start at one end of the shelf and examine each book in turn until you find the one you're looking for.
 // This method, where you check every item sequentially until the desired one is found, is the essence of the Linear Search algorithm.
+
+fun linearSearch(data: IntArray, valueToFind: Int): Int {
+    for ((index, value) in data.withIndex()) {
+        if (value == valueToFind) {
+            return index // Return the index where the value is found
+        }
+    }
+    return -1 // Return -1 if the value is not found
+}
