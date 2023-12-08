@@ -6,3 +6,7 @@
 // You want to find the largest square tile size that can be used to tile the floor withput cutting any tiles, given the length and width of the floor.
 // The GCD of the floor's length and width will give you the size of the largest square tile that can be used.
 // This is where the Euclidean Algorithm is useful.
+
+fun gcd(a: Int, b: Int): Int {
+    return if (b == 0) a else gcd(b, a % b)
+}
