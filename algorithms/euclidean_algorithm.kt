@@ -10,3 +10,11 @@
 fun gcd(a: Int, b: Int): Int {
     return if (b == 0) a else gcd(b, a % b)
 }
+
+fun main() {
+    val length = 60
+    val width = 48
+    val tileSize = gcd(length, width)
+
+    println("The largest square tile size for the floor is: $tileSize")
+}
