@@ -20,3 +20,8 @@ fun towerOfHanoi(n: Int, fromRod: String, toRod: String, auxRod: String) {
     println("Move disk $n from rod $fromRod to rod $toRod")
     towerOfHanoi(n - 1, auxRod, toRod, fromRod)
 }
+
+fun main() {
+    val numberOfDisks = 3
+    towerOfHanoi(numberOfDisks, "A", "C", "B")
+}
