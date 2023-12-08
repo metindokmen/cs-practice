@@ -9,3 +9,14 @@
 // 1. Only one disk can be moved at a time.
 // 2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack.
 // 3. No disk may be placed on top of a smaller disk.
+
+fun towerOfHanoi(n: Int, fromRod: String, toRod: String, auxRod: String) {
+    if (n == 1) {
+        println("Move disk 1 from rod $fromRod to rod $toRod")
+        return
+    }
+
+    towerOfHanoi(n - 1, fromRod, auxRod, toRod)
+    println("Move disk $n from rod $fromRod to rod $toRod")
+    towerOfHanoi(n - 1, auxRod, toRod, fromRod)
+}
