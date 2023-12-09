@@ -38,3 +38,13 @@ class AhoCorasick {
 
     // Additional methods to build failure links would be implemented inside this class.
 }
+
+fun main() {
+    val ac = AhoCorasick()
+    ac.insert("word1")
+    ac.insert("word2")
+    ac.insert("word3")
+
+    val text = "Sample text containing word2"
+    println("Does the text contain any words? ${ac.search(text)}")
+}
