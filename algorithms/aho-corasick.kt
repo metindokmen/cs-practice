@@ -10,3 +10,31 @@ class TrieNode {
     val children = mutableMapOf<Char, TrieNode>()
     var isEndOfWord = false
 }
+
+class AhoCorasick {
+    private val root = TrieNode()
+
+    fun insert(word: String) {
+        var currentNode = root
+        for (ch in word) {
+            currentNode = currentNode.children.computeIfAbsent(ch) { TrieNode() }
+        }
+        currentNode.isEndOfWord = true
+    }
+
+    fun search(text: String): Boolean {
+        var currentNode = root
+        for (ch in text) {
+            while (currentNode != root && ch !in currentNode.children) {
+                currentNode = currentNode.children['#'] ?: root // Backtrack using failure link
+            }
+            currentNode = currentNode.children[ch] ?: root
+            if (currentNode.isEndOfWord) {
+                return true
+            }
+        }
+        return false
+    }
+
+    // Additional methods to build failure links would be implemented inside this class.
+}
