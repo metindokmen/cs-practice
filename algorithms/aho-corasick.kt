@@ -5,3 +5,8 @@
 // Imagine you're developing a content moderation system for a social media platform.
 // You have a list of prohibited words and phrases, and you need to scan through user posts to identify any occurrences of these terms.
 // The Aho-Corasick algorithm can efficiently search for multiple patterns (prohibited words) in a text (user post) simultaneously.
+
+class TrieNode {
+    val children = mutableMapOf<Char, TrieNode>()
+    var isEndOfWord = false
+}
