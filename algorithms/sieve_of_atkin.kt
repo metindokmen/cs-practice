@@ -40,3 +40,9 @@ fun sieveOfAtkin(limit: Int): List<Int> {
 
     return prime.indices.filter { prime[it] }
 }
+
+fun main() {
+    val limit = 20
+    val primes = sieveOfAtkin(limit)
+    println("Primes up to $limit: $primes")
+}
