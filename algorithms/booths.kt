@@ -30,3 +30,8 @@ fun leastLexicographicRotation(s: String): String {
 
     return concatenated.substring(k, k + len)
 }
+
+fun main() {
+    val str = "bbaaccaadd"
+    println("Lexicographically smallest rotation: ${leastLexicographicRotation(str)}")
+}
