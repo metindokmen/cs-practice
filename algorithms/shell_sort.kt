@@ -24,3 +24,9 @@ fun shellSort(arr: IntArray) {
         gap /= 2
     }
 }
+
+fun main() {
+    val numbers = intArrayOf(23, 29, 15, 19, 31, 7, 9, 5, 2)
+    shellSort(numbers)
+    println("Sorted array: ${numbers.joinToString(", ")}")
+}
