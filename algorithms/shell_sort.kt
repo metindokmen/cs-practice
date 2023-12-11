@@ -6,3 +6,21 @@
 // Instead of comparing each book only with its immediate neighbor (as in insertion sort), you start by comparing books that are farther apart
 // and gradually reduce this gap. This method can quickly bring books that are far out of place closer to their correct position, thus speeding up the sorting process.
 // This is eseentially what the Shell Sort algorithm does.
+
+fun shellSort(arr: IntArray) {
+    var n = arr.size
+    var gap = n / 2
+
+    while (gap > 0) {
+        for (i in gap until n) {
+            val temp = arr[i]
+            var j = i
+            while (j >= gap && arr[j - gap] > temp) {
+                arr[j] = arr[j - gap]
+                j -= gap
+            }
+            arr[j] = temp
+        }
+        gap /= 2
+    }
+}
