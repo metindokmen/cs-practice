@@ -49,3 +49,9 @@ fun cycleSort(arr: IntArray) {
         }
     }
 }
+
+fun main() {
+    val arr = intArrayOf(20, 40, 50, 10, 30)
+    cycleSort(arr)
+    println("Sorted array: ${arr.joinToString(", ")}")
+}
