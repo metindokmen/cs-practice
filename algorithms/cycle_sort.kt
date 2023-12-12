@@ -6,3 +6,46 @@
 // Your task is to sort the deck such that each card is placed in its correct position with the minimum number of writes (or movements).
 // Cycle Sort is an in-place sorting algorithm that is optimal in terms of the number of memory writes.
 // It's especially useful when memory write is a costly operation.
+
+fun cycleSort(arr: IntArray) {
+    var writes = 0
+
+    for (cycleStart in 0 until arr.lastIndex) {
+        var item = arr[cycleStart]
+        var pos = cycleStart
+        for (i in cycleStart + 1 until arr.size) {
+            if (arr[i] < item) {
+                pos++
+            }
+        }
+
+        if (pos == cycleStart) {
+            continue
+        }
+
+        while (item == arr[pos]) {
+            pos++
+        }
+        val temp = arr[pos]
+        arr[pos] = item
+        item = temp
+        writes++
+
+        while (pos != cycleStart) {
+            pos = cycleStart
+            for (i in cycleStart + 1 until arr.size) {
+                if (arr[i] < item) {
+                    pos++
+                }
+            }
+
+            while (item == arr[pos]) {
+                pos++
+            }
+            val temp2 = arr[pos]
+            arr[pos] = item
+            item = temp2
+            writes++
+        }
+    }
+}
