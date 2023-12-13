@@ -34,3 +34,7 @@ fun bitonicSort(a: IntArray, low: Int, cnt: Int, dir: Int) {
         bitonicMerge(a, low, cnt, dir)
     }
 }
+
+fun sort(a: IntArray, up: Boolean) {
+    bitonicSort(a, 0, a.size, if (up) 1 else 0)
+}
