@@ -38,3 +38,9 @@ fun bitonicSort(a: IntArray, low: Int, cnt: Int, dir: Int) {
 fun sort(a: IntArray, up: Boolean) {
     bitonicSort(a, 0, a.size, if (up) 1 else 0)
 }
+
+fun main() {
+    val a = intArrayOf(3, 7, 4, 8, 6, 2, 1, 5)
+    sort(a, true)
+    println("Sorted array: ${a.joinToString(", ")}")
+}
