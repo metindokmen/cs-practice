@@ -14,3 +14,14 @@ fun compAndSwap(a: IntArray, i: Int, j: Int, dir: Int) {
         a[j] = temp
     }
 }
+
+fun bitonicMerge(a: IntArray, low: Int, cnt: Int, dir: Int) {
+    if (cnt > 1) {
+        val k = cnt / 2
+        for (i in low until low + k) {
+            compAndSwap(a, i, i + k, dir)
+        }
+        bitonicMerge(a, low, k, dir)
+        bitonicMerge(a, low + k, k, dir)
+    }
+}
