@@ -44,3 +44,19 @@ fun solveNQUtil(board: Array<IntArray>, col: Int, n: Int): Boolean {
     }
     return false
 }
+
+fun solveNQ(n: Int) {
+    val board = Array(n) { IntArray(n) { 0 } }
+
+    if (!solveNQUtil(board, 0, n)) {
+        println("Solution does not exist")
+        return
+    }
+
+    for (i in 0 until n) {
+        for (j in 0 until n) {
+            println("${board[i][j]}")
+        }
+        println()
+    }
+}
