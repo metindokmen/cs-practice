@@ -6,3 +6,11 @@
 // In such a scenario, traditional sorting algorithms might not be efficient due to their sequential nature.
 // Bitonic Sort, however, is designed for parallel processing, where multiple comparisons and swaps can be executed simultaneously,
 // significantly reducing the sorting time.
+
+fun compAndSwap(a: IntArray, i: Int, j: Int, dir: Int) {
+    if (dir == (a[i] > a[j]).compareTo(false)) {
+        val temp = a[i]
+        a[i] = a[j]
+        a[j] = temp
+    }
+}
