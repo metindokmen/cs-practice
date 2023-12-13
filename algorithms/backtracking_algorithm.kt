@@ -29,3 +29,18 @@ fun isSafe(board: Array<IntArray>, row: Int, col: Int, n: Int): Boolean {
 
     return true
 }
+
+fun solveNQUtil(board: Array<IntArray>, col: Int, n: Int): Boolean {
+    if (col >= n) return true
+
+    for (i in 0 until n) {
+        if (isSafe(board, i, col, n)) {
+            board[i][col] = 1
+
+            if (solveNQUtil(board, col + 1, n)) return true
+
+            board[i][col] = 0 // BACKTRACK
+        }
+    }
+    return false
+}
