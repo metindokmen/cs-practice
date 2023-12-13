@@ -25,3 +25,12 @@ fun bitonicMerge(a: IntArray, low: Int, cnt: Int, dir: Int) {
         bitonicMerge(a, low + k, k, dir)
     }
 }
+
+fun bitonicSort(a: IntArray, low: Int, cnt: Int, dir: Int) {
+    if (cnt > 1) {
+        val k = cnt / 2
+        bitonicSort(a, low, k, 1)
+        bitonicSort(a, low + k , k, 0)
+        bitonicMerge(a, low, cnt, dir)
+    }
+}
