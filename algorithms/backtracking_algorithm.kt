@@ -60,3 +60,8 @@ fun solveNQ(n: Int) {
         println()
     }
 }
+
+fun main() {
+    val n = 4
+    solveNQ(4)
+}
