@@ -18,3 +18,15 @@ fun isBCNF(relation: Relation): Boolean {
     // A relation is in BCNF if for every one of its non-trivial functional dependencies X -> Y, X is a superkey
     return true // Placeholder
 }
+
+fun decomposeToBCNF(relation: Relation): Set<Relation> {
+    // Decompose the given relation into a set of relations that are in BCNF
+    if (isBCNF(relation)) {
+        return setOf(relation)
+    }
+
+    // Placeholder: Decomposition logic based on the properties of the given relation
+    // Typically involves identifying functional dependencies that violate BCNF and decomposing accordingly
+
+    return setOf() // Placeholder
+}
