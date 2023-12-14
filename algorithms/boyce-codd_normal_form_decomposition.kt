@@ -30,3 +30,17 @@ fun decomposeToBCNF(relation: Relation): Set<Relation> {
 
     return setOf() // Placeholder
 }
+
+fun main() {
+    // Example usage
+    val attributes = setOf("Course", "Professor", "Department")
+    val dependencies = setOf(
+        FunctionalDependency(setOf("Course"), setOf("Professor")),
+        FunctionalDependency(setOf("Course"), setOf("Department"))
+    )
+
+    val relation = Relation(attributes, dependencies)
+    val decomposedRelations = decomposeToBCNF(relation)
+
+    println("Decomposed Relations: $decomposedRelations")
+}
