@@ -12,3 +12,9 @@ data class Relation(val attributes: Set<String>, val dependencies: Set<Functiona
 
 // Represents a functional dependency, e.g., "A -> B"
 data class FunctionalDependency(val determinant: Set<String>, val dependent: Set<String>)
+
+fun isBCNF(relation: Relation): Boolean {
+    // Logic to determine if the relation is in BCNF
+    // A relation is in BCNF if for every one of its non-trivial functional dependencies X -> Y, X is a superkey
+    return true // Placeholder
+}
