@@ -42,3 +42,13 @@ fun acceptanceProbability(currentEnergy: Double, newEnergy: Double, temperature:
     if (newEnergy < currentEnergy) return 1.0
     return exp((currentEnergy - newEnergy) / temperature)
 }
+
+fun main() {
+    val startSolution = 0.0 // Starting point
+    val temp = 10000.0 // Initial temperature
+    val coolingRate = 0.003 // Cooling rate
+    val endTemp = 1.0 // Ending temperature
+
+    val bestSolution = simulatedAnnealing(startSolution, temp, coolingRate, endTemp)
+    println("Best Solution: $bestSolution")
+}
