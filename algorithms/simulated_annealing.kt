@@ -37,3 +37,8 @@ fun objectiveFunction(value: Double): Double {
     // Hypothetical objective function, e.g., f(x) = (x-2)^2
     return (value - 2) * (value - 2)
 }
+
+fun acceptanceProbability(currentEnergy: Double, newEnergy: Double, temperature: Double): Double {
+    if (newEnergy < currentEnergy) return 1.0
+    return exp((currentEnergy - newEnergy) / temperature)
+}
