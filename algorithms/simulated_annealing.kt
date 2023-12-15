@@ -32,3 +32,8 @@ fun simulatedAnnealing(startSolution: Double, temp: Double, coolingRate: Double,
     }
     return bestSolution
 }
+
+fun objectiveFunction(value: Double): Double {
+    // Hypothetical objective function, e.g., f(x) = (x-2)^2
+    return (value - 2) * (value - 2)
+}
