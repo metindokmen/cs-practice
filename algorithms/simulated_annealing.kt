@@ -5,3 +5,30 @@
 // Imagine you're trying to solve a complex optimization problem, like finding the most efficient route for a delivery truck that needs to visit multiple locations.
 // Traditional algorithms might get stuck in a local minimum, where they find a good solution, but not the best one.
 // Simulated Annealing, insipred by the process of annealing in metallurgy, offers a way to escape these local minima and search for a global minimum (or maximum) by allowing "bad" moves with decreasing probablility as the "temprerature" decreases.
+
+import kotlin.math.exp
+import kotlin.random.Random
+
+fun simulatedAnnealing(startSolution: Double, temp: Double, coolingRate: Double, endTemp: Double): Double {
+    var currentSolution = startSolution
+    var bestSolution = startSolution
+    var currentTemp = temp
+
+    while (currentTemp > endTemp) {
+        val newSolution = currentSolution + (Random.nextDouble() - 0.5)
+
+        val currentEnergy = objectiveFunction(currentSolution)
+        val newEnergy = objectiveFunction(newSolution)
+
+        if (acceptanceProbability(currentEnergy, newEnergy, currentTemp) > Random.nextDouble()) {
+            currentSolution = newSolution
+        }
+
+        if (objectiveFunction(currentSolution) < objectiveFunction(bestSolution)) {
+            bestSolution = currentSolution
+        }
+
+        currentTemp *= 1 - coolingRate
+    }
+    return bestSolution
+}
