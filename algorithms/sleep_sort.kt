@@ -6,3 +6,15 @@
 // Sleep Sort works in a similar way by creating a separate process or thread for each item in the array to be sorted.
 // Each thread sleeps for an amount of time proportional to the item's value, then outputs the item.
 // The result is that items are "woken up" (output) in ascending order.
+
+import kotlinx.coroutines.*
+
+fun sleepSort(numbers: IntArray) = runBlocking {
+    val jobs = numbers.map { number ->
+        launch {
+            delay(number.toLong() * 100) // Sleep porportional to the number
+            println(number)
+        }
+    }
+    jobs.forEach { it.join() } // Wait for all coroutines to finish
+}
