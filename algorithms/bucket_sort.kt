@@ -21,3 +21,23 @@ fun insertionSort(arr: MutableList<Int>) {
         arr[j + 1] = key
     }
 }
+
+fun bucketSort(arr: IntArray): List<Int> {
+    val maxVal = arr.maxOrNull() ?: 0
+    val bucketCount = maxVal / 10 + 1
+    val buckets: Array<MutableList<Int>> = Array(bucketCount) { mutableListOf() }
+
+    // Distribute the elements into buckets
+    for (i in arr.indices) {
+        val index = arr[i] / 10
+        buckets[index].add(arr[i])
+    }
+
+    // Sort each bucket and merge them
+    val sortedArray = mutableListOf<Int>()
+    for (bucket in buckets) {
+        insertionSort(bucket)
+        sortedArray.addAll(bucket)
+    }
+    return sortedArray
+}
