@@ -5,3 +5,15 @@
 // Imagine you're a geologist analyzing the outer boundary of a set of sample points on a map.
 // These points represent the locations where certain minerals were found, and you want to determine the smallest convex polygon that encloses all these points.
 // This is essentially what the Gift Wrapping Algorithm does: It find the convex hull, which is the smallest convex polygon that encloses all the given points.
+
+data class Point(val x: Int, val y: Int)
+
+fun orientation(p: Point, q: Point, r: Point): Int {
+    val val1 = (q.y - p.y) * (r.x - q.x)
+    val val2 = (q.x - p.x) * (r.y - q.y)
+    return when {
+        val1 == val2 -> 0   // Collinear
+        val1 > val2 -> 1    // Clockwise
+        else -> 2           // Counterclockwise
+    }
+}
