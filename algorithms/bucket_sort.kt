@@ -41,3 +41,9 @@ fun bucketSort(arr: IntArray): List<Int> {
     }
     return sortedArray
 }
+
+fun main() {
+    val scores = intArrayOf(47, 75, 85, 50, 90, 92, 88, 66)
+    val sortedScores = bucketSort(scores)
+    println("Sorted Scores: $sortedScores")
+}
