@@ -17,3 +17,27 @@ fun orientation(p: Point, q: Point, r: Point): Int {
         else -> 2           // Counterclockwise
     }
 }
+
+fun convexHull(points: Array<Point>): List<Point> {
+    if (points.size < 3) return emptyList()
+
+    val hull = mutableListOf<Point>()
+    var l = 0
+    points.forEachIndexed { i, point ->
+        if (point.x < points[l].x) l = i
+    }
+
+    var p = l
+    do {
+        hull.add(points[p])
+        var q = (p + 1) % points.size
+        for (i in points.indices) {
+            if (orientation(points[p], points[i], points[q]) == 2) {
+                q = i
+            }
+        }
+        p = q
+    } while (p != 1)
+
+    return hull
+}
