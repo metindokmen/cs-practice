@@ -8,3 +8,16 @@
 // Finally, you sort the exams within each bucket and then combine them back.
 // This method can be much faster for such a specific case, especially with a large number of exams.
 // This is essentially what Bucket Sort does.
+
+fun insertionSort(arr: MutableList<Int>) {
+    for (i in 1 until arr.size) {
+        val key = arr[i]
+        var j = i - 1
+
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j]
+            j--
+        }
+        arr[j + 1] = key
+    }
+}
