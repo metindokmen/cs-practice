@@ -38,3 +38,8 @@ fun drawLine(x0: Int, y0: Int, x1: Int, y1: Int): List<Pair<Int, Int>> {
 
     return pixels
 }
+
+fun main() {
+    val linePixels = drawLine(0, 0, 8, 6)
+    println("Line Pixels: $linePixels")
+}
