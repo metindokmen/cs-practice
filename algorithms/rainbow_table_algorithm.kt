@@ -17,3 +17,11 @@ fun String.toMD5(): String {
     val digest = md.digest(this.toByteArray())
     return digest.joinToString("") { "%02x".format(it) }
 }
+
+fun createRainbowTable(words: List<String>): Map<String, String> {
+    val table = mutableMapOf<String, String>()
+    for (word in words) {
+        table[word.toMD5()] = word
+    }
+    return table
+}
