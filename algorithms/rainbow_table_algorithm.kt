@@ -25,3 +25,12 @@ fun createRainbowTable(words: List<String>): Map<String, String> {
     }
     return table
 }
+
+fun main() {
+    val words = listOf("password", "123456", "12345678", "password1", "qwerty")
+    val rainbowTable = createRainbowTable(words)
+
+    // Example of using the table
+    val hashToCrack = "5f4dcc3b5aa765d61d8327deb882cf99" // MD5 for "password"
+    println("Cracked Password: ${rainbowTable(hashToCrack)}")
+}
