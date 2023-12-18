@@ -9,3 +9,11 @@
 // A Rainbow Table offers a more efficient method.
 // It's precomputed table for reversing cryptographic hash functions, primarily used for cracking password hashes.
 // By using a Rainbow Table, you can quickly look up the corresponding plaintext for a given hash.
+
+import java.security.MessageDigest
+
+fun String.toMD5(): String {
+    val md = MessageDigest.getInstance("MD5")
+    val digest = md.digest(this.toByteArray())
+    return digest.joinToString("") { "%02x".format(it) }
+}
