@@ -32,3 +32,45 @@ fun subtractMatrix(A: Matrix, B: Matrix): Matrix {
     }
     return diff
 }
+
+fun strasssen(A: Matrix, B: Matrix): Matrix {
+    val n = A.size
+    if (n == 1) {
+        return arrayOf(arrayOf(A[0][0] * B[0][0]))
+    }
+
+    val mid = n / 2
+    val a11 = Array(mid) { i -> Array(mid) { j -> A[i][j] } }
+    val a12 = Array(mid) { i -> Array(mid) { j -> A[i][j + mid] } }
+    val a21 = Array(mid) { i -> Array(mid) { j -> A[i + mid][j] } }
+    val a22 = Array(mid) { i -> Array(mid) { j -> A[i + mid][j + mid] } }
+
+    val b11 = Array(mid) { i -> Array(mid) { j -> B[i][j] } }
+    val b12 = Array(mid) { i -> Array(mid) { j -> B[i][j + mid] } }
+    val b21 = Array(mid) { i -> Array(mid) { j -> B[i + mid][j] } }
+    val b22 = Array(mid) { i -> Array(mid) { j -> B[i + mid][j + mid] } }
+
+    val m1 = strassen(addMatrix(a11, a22), addMatrix(b11, b22))
+    val m2 = strassen(addMatrix(a21, a22), b11)
+    val m3 = strassen(a11, subtractMatrix(b12, b22))
+    val m4 = strassen(a22, subtractMatrix(b21, b11))
+    val m5 = strassen(addMatrix(a11, a12), b22)
+    val m6 = strassen(subtractMatrix(a21, a11), addMatrix(b11, b12))
+    val m7 = strassen(subtractMatrix(a12, a22), addMatrix(b21, b22))
+
+    val c11 = addMatrix(subtractMatrix(addMatrix(m1, m4), m5), m7)
+    val c12 = addMatrix(m3, m5)
+    val c21 = addMatrix(m2, m4)
+    val c22 = addMatrix(subtractMatrix(addMatrix(m1, m3), m2), m6)
+
+    val C = Array(n) { Array(n) { 0 } }
+    for (i in 0 until mid) {
+        for (j in 0 until mid) {
+            C[i][j] = c11[i][j]
+            C[i][j + mid] = c12[i][j]
+            C[i + mid][j] = c21[i][j]
+            C[i + mid][j + mid] = c22[i][j]
+        }
+    }
+    return C
+}
