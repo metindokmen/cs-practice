@@ -21,3 +21,14 @@ fun addMatrix(A: Matrix, B: Matrix): Matrix {
 
     return sum
 }
+
+fun subtractMatrix(A: Matrix, B: Matrix): Matrix {
+    val n = A.size
+    val diff = Array(n) { Array(n) { 0 } }
+    for (i in 0 until n) {
+        for (j in 0 until n) {
+            diff[i][j] = A[i][j] - B[i][j]
+        }
+    }
+    return diff
+}
