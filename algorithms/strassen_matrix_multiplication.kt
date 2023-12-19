@@ -74,3 +74,21 @@ fun strasssen(A: Matrix, B: Matrix): Matrix {
     }
     return C
 }
+
+fun main() {
+    val A = arrayOf(
+        arrayOf(1, 2),
+        arrayOf(3, 4)
+    )
+
+    val B = arrayOf(
+        arrayOf(5, 6),
+        arrayOf(7, 8)
+    )
+
+    val product = strasssen(A, B)
+
+    for (row in product) {
+        println(row.joinToString(" "))
+    }
+}
