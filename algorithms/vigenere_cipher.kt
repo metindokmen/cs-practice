@@ -31,3 +31,14 @@ fun vigenereCipherDecrypt(cipherText: String, keyword: String): String {
         }
     }.joinToString("")
 }
+
+fun main() {
+    val originalText = "Life is too short to be coding in Java, man"
+    val keyword = "Kotlin"
+    val encrypted = vigenereCipherEncrypt(originalText, keyword)
+    val decrypted = vigenereCipherDecrypt(encrypted, keyword)
+
+    println("Original: $originalText")
+    println("Encrypted: $encrypted")
+    println("Decrypted: $decrypted")
+}
