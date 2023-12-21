@@ -18,3 +18,16 @@ fun vigenereCipherEncrypt(text: String, keyword: String): String {
         }
     }.joinToString("")
 }
+
+fun vigenereCipherDecrypt(cipherText: String, keyword: String): String {
+    val adjustedKey = keyword.toUpperCase().repeat((cipherText.length / keyword.length) + 1)
+    return cipherText.mapIndexed { index, c ->
+        if (c in 'A'..'Z') {
+            val shift = adjustedKey[index] - 'A'
+            val shiftedChar = c - shift
+            if (shiftedChar < 'A') shiftedChar + 26 else shiftedChar
+        } else {
+            c
+        }
+    }.joinToString("")
+}
