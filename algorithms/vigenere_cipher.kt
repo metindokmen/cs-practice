@@ -5,3 +5,16 @@
 // Imagine you're sending confidential messages in a scenario where basic encryption is needed.
 // While simple ciphers like Caesar's cipher are easy to break due to their predictability, the Vigenere Cipher provides a more secure alternative.
 // It uses a keyword to vary the shift of each letter in the plaintext, making it less susceptible to traditional frequency analysis attacks.
+
+fun vigenereCipherEncrypt(text: String, keyword: String): String {
+    val adjustedKey = keyword.toUpperCase().repeat((text.length / keyword.length) + 1)
+    return text.toUpperCase().mapIndexed { index, c ->
+        if (c in 'A'..'Z') {
+            val shift = adjustedKey[index] - 'A'
+            val shiftedChar = c + shift
+            if (shiftedChar > 'Z') shiftedChar - 26 else shiftedChar
+        } else {
+            c
+        }
+    }.joinToString("")
+}
