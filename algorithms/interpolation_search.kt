@@ -24,3 +24,15 @@ fun interpolationSearch(arr: Array<Int>, key: Int): Int {
 
     return if (arr[low] == key) low else - 1
 }
+
+fun main() {
+    val arr = arrayOf(10, 12, 13, 16, 18, 19, 20, 21, 22, 23, 24, 33, 35, 42, 47)
+    val key = 18
+    val index = interpolationSearch(arr, key)
+
+    if (index != -1) {
+        println("Element found at index: $index")
+    } else {
+        println("Element not found")
+    }
+}
