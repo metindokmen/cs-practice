@@ -9,3 +9,19 @@
 //O T L N
 
 // This kind of pattern is common in certain types of artistic text rendering or playful user interfaces.
+
+fun convertToZigzag(s: String, numRows: Int): String {
+    if (numRows == 1) return s
+
+    val rows = MutableList(minOf(numRows, s.length)) { StringBuilder() }
+    var curRow = 0
+    var goingDown = false
+
+    for (c in s) {
+        rows[curRow].append(c)
+        if (curRow == 0 || curRow == numRows - 1) goingDown = !goingDown
+        curRow += if (goingDown) 1 else -1
+    }
+
+    return rows.joinToString("") { it.toString() }
+}
