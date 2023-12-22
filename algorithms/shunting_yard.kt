@@ -40,3 +40,7 @@ fun shuntingYard(expression: String): String {
 
 fun String.isDouble(): Boolean = this.toDoubleOrNull() != null
 
+fun main() {
+    val expression = "3 + 4 * 2 / (1 - 5) ^ 2 ^ 3"
+    println("Postfix: ${shuntingYard(expression)}")
+}
