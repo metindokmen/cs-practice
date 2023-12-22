@@ -37,3 +37,6 @@ fun shuntingYard(expression: String): String {
 
     return outputQueue.joinToString(" ")
 }
+
+fun String.isDouble(): Boolean = this.toDoubleOrNull() != null
+
