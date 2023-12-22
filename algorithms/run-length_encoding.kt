@@ -25,3 +25,9 @@ fun runLengthEncode(input: String): String {
     sp.append(prev).append(count)
     return sb.toString()
 }
+
+fun main() {
+    val input = "AAAABBBCCDAA"
+    val encoded = runLengthEncode(input)
+    println("Encoded: $encoded")
+}
