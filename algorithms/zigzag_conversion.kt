@@ -25,3 +25,10 @@ fun convertToZigzag(s: String, numRows: Int): String {
 
     return rows.joinToString("") { it.toString() }
 }
+
+fun main() {
+    val input = "KOTLIN"
+    val numRows = 2
+    val zigzag = convertToZigzag(input, numRows)
+    println(zigzag)
+}
