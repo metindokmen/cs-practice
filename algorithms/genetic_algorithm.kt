@@ -45,3 +45,13 @@ fun geneticAlgorithm(population: MutableList<Individual>, generations: Int): Ind
     }
     return population.maxByOrNull { it.fitness } ?: population.first()
 }
+
+fun main() {
+    val population = MutableList(10) { Individual(IntArray(5) { (0..1).random() }) }
+    population.forEach { it.fitness = calculateFitness(it) }
+
+    val generations = 20
+    val fittest = geneticAlgorithm(population, generations)
+
+    println("Fittest Individual: ${fittest.genes.joinToString()} with fitness ${fittest.fitness}")
+}
