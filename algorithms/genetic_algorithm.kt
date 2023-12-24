@@ -7,3 +7,8 @@
 // A genetic algorithm can evolve solutions over generations, much like natural selection, to find an optimal or near-optimal solution that represents the best racing strategy.
 
 data class Individual(val genes: IntArray, var fitness: Int = 0)
+
+fun calculateFitness(individual: Individual): Int {
+    // Define a fitness function
+    return individual.genes.sum()
+}
