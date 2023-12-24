@@ -21,3 +21,17 @@ fun isPrime(n: Int, k: Int): Boolean {
     }
     return true
 }
+
+fun millerTest(d: Int, n: Int): Boolean {
+    var a = 2 + Random.nextInt(n - 4)
+    var x = power(a, d, n)
+    if (x == 1 || x == n - 1) return true
+
+    while (d != n - 1) {
+        x = (x * x) % n
+        d *= 2
+        if (x == 1) return false
+        if (x == n - 1) return true
+    }
+    return false
+}
