@@ -48,3 +48,9 @@ fun power(base: Intm exponent: Int, mod: Int): Int {
     }
     return res
 }
+
+fun main() {
+    val number = 31
+    val k = 5
+    println("$number is prime? ${isPrime(number, k)}")
+}
