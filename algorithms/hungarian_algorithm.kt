@@ -5,3 +5,16 @@
 // Each team has a preference for certain times and fields, and each field-time slot combination can only accomodate one team.
 // The goal is to find the assignment that maximizes overall satisfaction or minimizes total cost.
 // The Hungarian Algorithm is perfect for this kind of optimization problem, commonly known as the assignment problem.
+
+typealias CostMatrix = Array<IntArray>
+
+fun hungarianAlgorithm(costMatrix: CostMatrix): IntArray {
+    // Step 1: Subtract row minima
+    // Step 2: Subtract column minima
+    // Step 3: Cover all zeros with a minimum number of lines
+    // Step 4: Create additional zeros
+    // Repeat steps 3 and 4 until an optimal assignment is possible
+
+    // Placeholder for implementation
+    return intArrayOf()
+}
