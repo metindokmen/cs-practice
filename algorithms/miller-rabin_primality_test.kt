@@ -35,3 +35,16 @@ fun millerTest(d: Int, n: Int): Boolean {
     }
     return false
 }
+
+fun power(base: Intm exponent: Int, mod: Int): Int {
+    var res = 1
+    var base = base % mod
+
+    var exponent = exponent
+    while (exponent > 0) {
+        if (exponent and 1 == 1) res = (res * base) % mod
+        exponent = exponent shr 1
+        base = (base * base) % mod
+    }
+    return res
+}
