@@ -27,3 +27,10 @@ fun crossover(parent1: Individual, parent2: Individual): Individual {
     }
     return Individual(genes)
 }
+
+fun mutate(individual: Individual) {
+    // Randomly mutate the individual's genes
+    individual.genes.indices.random().let { index ->
+        individual.genes[index] = (individual.genes[index] + 1) % 2 // Example mutation
+    }
+}
