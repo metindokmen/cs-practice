@@ -17,3 +17,13 @@ fun selection(population: List<Individual>): Pair<Individual, Individual> {
     // Select two individuals based on fitness
     return population.sortedByDescending { it.fitness }.take(2).let { it[0] to it[1] }
 }
+
+fun crossover(parent1: Individual, parent2: Individual): Individual {
+    // Create a new offspring
+    val crossoverPoint = parent1.genes.size / 2
+    val genes = parent1.genes.copyOf()
+    for (i in crossoverPoint until parent2.genes.size) {
+        genes[i] = parent2.genes[i]
+    }
+    return Individual(genes)
+}
