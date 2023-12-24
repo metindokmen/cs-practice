@@ -34,3 +34,14 @@ fun mutate(individual: Individual) {
         individual.genes[index] = (individual.genes[index] + 1) % 2 // Example mutation
     }
 }
+
+fun geneticAlgorithm(population: MutableList<Individual>, generations: Int): Individual {
+    for (i in 0 until generations) {
+        val (parent1, parent2) = selection(population)
+        val offspring = crossover(parent1, parent2)
+        mutate(offspring)
+        offspring.fitness = calculateFitness(offspring)
+        population.add(offspring)
+    }
+    return population.maxByOrNull { it.fitness } ?: population.first()
+}
