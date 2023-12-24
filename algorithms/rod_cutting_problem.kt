@@ -18,3 +18,10 @@ fun rodCutting(prices: IntArray, length: Int): Int {
     }
     return revenue[length]
 }
+
+fun main() {
+    val prices = intArrayOf(1, 5, 8, 9, 10, 17, 17, 20, 24, 30)
+    val rodLength = 4
+    val maxRevenue = rodCutting(prices, rodLength)
+    println("Maximum Revenue: $maxRevenue")
+}
