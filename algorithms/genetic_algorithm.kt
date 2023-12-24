@@ -5,3 +5,5 @@
 // Imagine you're designing an AI for a racing game, where the goal is to find the optimal path and speed for completing a track in the shortest time.
 // There are countless combinations of turns, accelerations, and braking points.
 // A genetic algorithm can evolve solutions over generations, much like natural selection, to find an optimal or near-optimal solution that represents the best racing strategy.
+
+data class Individual(val genes: IntArray, var fitness: Int = 0)
