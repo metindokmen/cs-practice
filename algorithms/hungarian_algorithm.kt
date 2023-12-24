@@ -18,3 +18,14 @@ fun hungarianAlgorithm(costMatrix: CostMatrix): IntArray {
     // Placeholder for implementation
     return intArrayOf()
 }
+
+fun main() {
+    val costMatrix = arrayOf(
+        intArrayOf(4, 2, 3),
+        intArrayOf(2, 3, 2),
+        intArrayOf(3, 2, 4)
+    )
+
+    val assignment = hungarianAlgorithm(costMatrix)
+    println("Optimal Assignment: ${assignment.joinToString()}")
+}
