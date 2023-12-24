@@ -6,3 +6,18 @@
 // Imagine you're developing a security application where you need to generate large prime numbers for encryption keys, like in RSA encryption.
 // Checking if large numbers are prime using simple methods (like trial division) is computationally expensive.
 // The Miller-Rabin Primality Test provides a probabilistic method to quickly check if a number is prime, which is particularly useful for large numbers.
+
+import kotlin.random.Random
+
+fun isPrime(n: Int, k: Int): Boolean {
+    if (n <= 1 || n == 4) return false
+    if (n <= 3) return true
+
+    var d = n - 1
+    while (d % 2 == 0) d /= 2
+
+    repeat(k) {
+        if (!millerTest(d, n)) return false
+    }
+    return true
+}
