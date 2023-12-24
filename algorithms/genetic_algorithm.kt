@@ -12,3 +12,8 @@ fun calculateFitness(individual: Individual): Int {
     // Define a fitness function
     return individual.genes.sum()
 }
+
+fun selection(population: List<Individual>): Pair<Individual, Individual> {
+    // Select two individuals based on fitness
+    return population.sortedByDescending { it.fitness }.take(2).let { it[0] to it[1] }
+}
