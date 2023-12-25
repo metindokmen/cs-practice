@@ -17,7 +17,7 @@ class Game {
         return listOf() // Placeholder
     }
 
-    fun makemove(move: Move) {
+    fun makeMove(move: Move) {
         // Make a move
     }
 
@@ -35,4 +35,37 @@ data class Move(val position: Int, val player: Player)
 
 enum class Player {
     AI, HUMAN
+}
+
+fun minimax(game: Game, depth: Int, alpha: Int, beta: Int, maximizingPlayer: Boolean): Int {
+    if (depth == 0 || game.isGameOver()) {
+        return game.evaluateBoard()
+    }
+
+    var alpha = alpha
+    var beta = beta
+
+    if (maximizingPlayer) {
+        var maxEval = Int.MIN_VALUE
+        for (move in game.getValidMoves()) {
+            game.makeMove(move)
+            val eval = minimax(game, depth - 1, alpha, beta, false)
+            game.undoMove(move)
+            maxEval = maxOf(maxEval, eval)
+            alpha = maxOf(alpha, eval)
+            if (beta <= alpha) break
+        }
+        return maxEval
+    } else {
+        var minEval = Int.MAX_VALUE
+        for (move in game.getValidMoves()) {
+            game.makeMove(move)
+            val eval = minimax(game, depth - 1, alpha, beta, true)
+            game.undoMove(move)
+            minEval = minOf(minEval, eval)
+            beta = minOf(beta, eval)
+            if (beta <= alpha) break
+        }
+        return minEval
+    }
 }
