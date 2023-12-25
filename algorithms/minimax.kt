@@ -30,3 +30,9 @@ class Game {
         return 0 // Placeholder
     }
 }
+
+data class Move(val position: Int, val player: Player)
+
+enum class Player {
+    AI, HUMAN
+}
