@@ -14,3 +14,15 @@ fun quadraticBezier(p0: Point, p1: Point, p2: Point, t: Double): Point {
     val y = (1 - t).pow(2) * p0.y + 2 * (1 - t) * t * p1.y + t.pow(2) * p2.y
     return Point(x, y)
 }
+
+fun main() {
+    val p0 = Point(0.0, 0.0) // Start point
+    val p1 = Point(1.0, 2.0) // Control point
+    val p2 = Point(2.0, 0.0) // End point
+
+    val points = (0..100).map { it / 100.0 }.map { t ->
+        quadraticBezier(p0, p1, p2, t)
+    }
+
+    println("Quadratic Bezier Curve Points: $points")
+}
