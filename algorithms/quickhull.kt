@@ -26,3 +26,16 @@ fun quickHull(points: List<Point>): List<Point> {
 
     return convexHull
 }
+
+fun findHull(convexHull: MutableList<Point>, points: List<Point>, p: Point, q: Point) {
+    if (points.isEmpty()) return
+
+    val farthestPoint = points.maxByOrNull { distanceToLine(it, p, q) }!!
+    convexHull.add(farthestPoint)
+
+    val leftSetP = points.filter { isLeftOfLine(it, p, farthestPoint) }
+    val leftSetQ = points.filter { isleftOfLine(it, farthestPoint, q) }
+
+    findHull(convexHull, leftSetP, p, farthestPoint)
+    findHull(convexHull, leftSetQ, farthestPoint, q)
+}
