@@ -43,3 +43,9 @@ fun findHull(convexHull: MutableList<Point>, points: List<Point>, p: Point, q: P
 fun isLeftOfLine(point: Point, lineStart: Point, lineEnd: Point): Boolean {
     return (lineEnd.x - lineStart.x) * (point.y - lineStart.y) - (lineEnd.y - lineStart.y) * (point.x - lineStart.x) > 0
 }
+
+fun distanceToLine(point: Point, lineStart: Point, lineEnd: Point): Double {
+    val num = Math.abs((lineEnd.y - lineStart.y) * point.x - (lineEnd.x - lineStart.x) * point.y + lineEnd.x * lineStart.y - lineEnd.y * lineStart.x)
+    val den = Math.sqrt(((lineEnd.y - lineStart.y).pow(2) + (lineEnd.x - lineStart.x).pow(2)).toDouble())
+    return num / den
+}
