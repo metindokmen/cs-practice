@@ -39,3 +39,7 @@ fun findHull(convexHull: MutableList<Point>, points: List<Point>, p: Point, q: P
     findHull(convexHull, leftSetP, p, farthestPoint)
     findHull(convexHull, leftSetQ, farthestPoint, q)
 }
+
+fun isLeftOfLine(point: Point, lineStart: Point, lineEnd: Point): Boolean {
+    return (lineEnd.x - lineStart.x) * (point.y - lineStart.y) - (lineEnd.y - lineStart.y) * (point.x - lineStart.x) > 0
+}
