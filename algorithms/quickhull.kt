@@ -49,3 +49,9 @@ fun distanceToLine(point: Point, lineStart: Point, lineEnd: Point): Double {
     val den = Math.sqrt(((lineEnd.y - lineStart.y).pow(2) + (lineEnd.x - lineStart.x).pow(2)).toDouble())
     return num / den
 }
+
+fun main() {
+    val points = listOf(Point(0.0, 3.0), Point(2.0, 2.0), Point(1.0, 1.0), Point(2.0, 1.0), Point(3.0, 0.0), Point(0.0, 0.0), Point(3.0, 3.0))
+    val hull = quickHull(points)
+    println("Convex Hull: $hull")
+}
