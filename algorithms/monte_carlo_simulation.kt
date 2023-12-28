@@ -24,3 +24,9 @@ fun estimatePi(numSamples: Int): Double {
 
     return 4.0 * insideCircle / numSamples
 }
+
+fun main() {
+    val numSamples = 1_000_000
+    val piEstimate = estimatePi(numSamples)
+    println("Estimated Pi: $piEstimate")
+}
