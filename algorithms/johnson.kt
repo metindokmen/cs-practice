@@ -18,3 +18,13 @@ fun johnsonsAlgorithm(graph: Graph): Map<Pair<Int, Int>, Int> {
     / Placeholder for implementation
     return mapOf() // Return a map of shortest paths
 }
+
+class Graph(val vertices: Int) {
+    val edges = mutableListOf<Edge>()
+
+    fun addEdge(source: Int, dest: Int, weight: Int) {
+        edges.add(Edge(source, dest, weight))
+    }
+
+    // Additional methods for Bellman-Ford and Dijkstra's algorithm would be implemented here
+}
