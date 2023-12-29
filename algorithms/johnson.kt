@@ -28,3 +28,7 @@ class Graph(val vertices: Int) {
 
     // Additional methods for Bellman-Ford and Dijkstra's algorithm would be implemented here
 }
+
+data class Edge(val source: Int, val dest: Int, val weight: Int)
+
+// Usage example would depend on the specific implementation details
