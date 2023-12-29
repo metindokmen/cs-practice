@@ -25,3 +25,12 @@ fun baumWelchAlgorithm(hmm: HiddenMarkovModel, observedSequences: List<List<Stri
         // Check for convergence or repeat for a fixed number of iterations
     } while (/* convergence criteria or fixed number of iterations */)
 }
+
+fun main() {
+    // Example initialization of an HMM and a set of observed sequences
+    val hmm = HiddenMarkovModel()
+    val observedSequences = listOf(/* ... observed data ... */)
+
+    baumWelchAlgorithm(hmm, observedSequences)
+    // After training, hmm parameters should be optimized to fit the observed data
+}
