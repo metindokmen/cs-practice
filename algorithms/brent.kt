@@ -11,3 +11,33 @@ fun f(x: Int): Int {
     // Example function for the sequence
     return (x * x + 1) % 255
 }
+
+fun brentsAlgorithm(x0: Int): Pair<Int, Int> {
+    var power = 1
+    var lam = 1
+    var tortoise = x0
+    var hare = f(x0) // f(x) is the sequence generator function
+
+    while (tortoise != hare) {
+        if (power == lam) {
+            tortoise = hare
+            power *= 2
+            lam = 0
+        }
+        hare = f(hare)
+        lam += 1
+    }
+
+    var mu = 0
+    tortoise = x0
+    hare = x0
+    repeat(lam) { hare = f(hare) }
+
+    while (tortoise != hare) {
+        tortoise = f(tortoise)
+        hare = f(hare)
+        mu += 1
+    }
+
+    return Pair(lam, mu) // lam is the length of the cycle, mu is the start position of the cycle
+}
