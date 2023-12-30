@@ -41,3 +41,9 @@ fun brentsAlgorithm(x0: Int): Pair<Int, Int> {
 
     return Pair(lam, mu) // lam is the length of the cycle, mu is the start position of the cycle
 }
+
+fun main() {
+    val x0 = 2 // Starting point of the sequence
+    val (lam, mu) = brentsAlgorithm(x0)
+    println("Cycle length: $lam, Starting position: $mu")
+}
