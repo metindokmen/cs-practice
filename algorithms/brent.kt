@@ -6,3 +6,8 @@
 // The heart rate data is a sequence that might exhibit cyclic patterns, indicating regular or irregular heart rhythms.
 // Detecting these cycles efficiently is crucial.
 // Brent's Algorithm is an effective method for finding the length of the cycle and the start of the cycle in such sequences.
+
+fun f(x: Int): Int {
+    // Example function for the sequence
+    return (x * x + 1) % 255
+}
