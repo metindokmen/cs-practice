@@ -5,3 +5,18 @@
 // Imagine you're creating a search engine, and you need to rank websites based on their importance and relevance.
 // The PageRank algorithm can help with this.
 // It ranks each website based on the number and quality of links to it, under the assumption that more important websites are likely to receive more links from other websites.
+
+fun pageRank(links: Map<Int, List<Int>>, numIterations: Int = 100, dampingFactor: Double = 0.85): Map<Int, Double> {
+    val numPages = links.size
+    var ranks = links.keys.associateWith { 1.0 / numPages }
+
+    for (i in 0 until numIterations) {
+        val newRanks = mutableMapOf<Int, Double>()
+        links.forEach { (page, linkedPages) ->
+            val rankSum = linkedPages.sumOf { ranks[it] ?: 0.0 } / linkedPages.size
+            newRanks[page] = (1 - dampingFactor) / numPages + dampingFactor * rankSum
+        }
+        ranks = newRanks
+    }
+    return ranks
+}
