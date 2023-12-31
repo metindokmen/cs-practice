@@ -25,3 +25,16 @@ fun gaussSeidel(a: Array<DoubleArray>, b: DoubleArray, numIterations: Int): Doub
     }
     return x
 }
+
+fun main() {
+    val a = arrayOf(
+        doubleArrayOf(4.0, 1.0, -1.0),
+        doubleArrayOf(2.0, 7.0, 1.0),
+        doubleArrayOf(1.0, -3.0, 12.0)
+    )
+    val b = doubleArrayOf(3.0, 19.0, 31.0)
+    val numIterations = 10
+
+    val solution = gaussSeidel(a, b, numIterations)
+    println("Solution: ${solution.joinToString(", ")}")
+}
