@@ -20,3 +20,14 @@ fun pageRank(links: Map<Int, List<Int>>, numIterations: Int = 100, dampingFactor
     }
     return ranks
 }
+
+fun main() {
+    val links = mapOf(
+        1 to listOf(2, 3),
+        2 to listOf(3),
+        3 to listOf(1),
+        4 to listOf(2, 3),
+    )
+    val pageRanks = pageRank(links)
+    println("Page Ranks: $pageRanks")
+}
