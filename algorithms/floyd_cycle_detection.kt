@@ -26,3 +26,19 @@ fun hasCycle(head: ListNode?): Boolean {
 
     return false
 }
+
+fun main() {
+    val head = ListNode(1).apply {
+        next = ListNode(2).apply {
+            next = ListNode(3).apply {
+                next = ListNode(4).apply {
+                    next = ListNode(5).apply {
+                        next = next.next // Creates a cycle
+                    }
+                }
+            }
+        }
+    }
+
+    println("Does the linked list have a cycle ${hasCycle(head)}")
+}
