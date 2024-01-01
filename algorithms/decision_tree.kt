@@ -30,3 +30,28 @@ class DecisionTreeClassifier<T> {
         return current?.value
     }
 }
+
+fun main() {
+    // Example: Decision tree to decide whether to play tennis
+    val playTennisTree = TreeNode<String>(
+        featureName = "Outlook",
+        value = null,
+        branches = mapOf(
+            "Sunny" to TreeNode(featureName = "Humidity", value = null, branches = mapOf(
+                "High" to TreeNode(null, "No"),
+                "Normal" to TreeNode(null, "Yes")
+            )),
+            "Overcast" to TreeNode(null, "Yes"),
+            "Rain" to TreeNode(featureName = "Wind", value = null, branches = mapOf(
+                "Strong" to TreeNode(null, "No"),
+                "Weak" to TreeNode(null, "Yes")
+            ))
+        )
+    )
+
+    val classifier = DecisionTreeClassifier<String>()
+    classifier.root = playTennisTree
+
+    val prediction = classifier.predict(mapOf("Outlook" to "Sunny", "Humidity" to "High"))
+    println("Should play tennis? $prediction")
+}
