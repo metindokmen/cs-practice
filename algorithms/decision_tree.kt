@@ -6,3 +6,9 @@
 
 // Imagine you are developing a system to predict whether a customer will buy a particular product based on various attributes like age, income, browsing history, and so on.
 // A decision tree can help by creating a model that makes predictions based on the decision rules inferred from the data.
+
+data class TreeNode<T>(
+    val featureName: String?,
+    val value: T?,
+    val branches: Map<T, TreeNode<T>?> = mapOf()
+)
