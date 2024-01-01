@@ -12,3 +12,21 @@ data class TreeNode<T>(
     val value: T?,
     val branches: Map<T, TreeNode<T>?> = mapOf()
 )
+
+class DecisionTreeClassifier<T> {
+    private var root: Treenode<T>? = null
+
+    fun train(data: List<Pair<Map<String, T>, T>>) {
+        // Implement the training algorithm here
+        // Construct the tree based on the training data
+    }
+
+    fun predict(input: Map<String, T>): T? {
+        var current = root
+        while (current != null && current.featureName != null) {
+            val featureValue = input[current.featureName]
+            current = current.branches[featureValue]
+        }
+        return current?.value
+    }
+}
