@@ -6,3 +6,23 @@
 // Imagine you're creating a fitness tracking application that includes a feature for detecting repetitive patterns or loops in a user's running route.
 // Suppose the GPS data forms a linked list where each point is a node; you want to determine if the runner is moving in a loop (circular route) or not.
 // Floyd's Cycle Detection Algorithm can efficiently identify if the linked list of GPS data points has a cycle.
+
+class ListNode(val value: Int) {
+    var next: ListNode? = null
+}
+
+fun hasCycle(head: ListNode?): Boolean {
+    var tortoise = head
+    var hare = head
+
+    while (hare != null && hare.next != null) {
+        tortoise = tortoise?.next
+        hare = hare.next?.next
+
+        if (tortoise == hare) {
+            return true
+        }
+    }
+
+    return false
+}
