@@ -12,3 +12,19 @@ fun isConvex(p: Point, q: Point, r: Point): Boolean {
     val crossProduct = (q.y - p.y) * (r.x - q.x) - (q.x - p.x) * (r.y - q.y)
     return crossProduct < 0
 }
+
+fun isEar(p: Point, q: Point, r: Point, remainingVertices: List<Point>): Boolean {
+    if (!isConvex(p, q, r)) return false
+
+    for (s in remainingVertices) {
+        if (s != p && s != q && s != r && isInsideTriangle(p, q, r, s)) {
+            return false
+        }
+    }
+    return true
+}
+
+fun isInsideTriangle(p: Point, q: Point, r: Point, s: Point): Boolean {
+    // Implement point-in-triangle test (e.q., using barycentric coordinates)
+    return true // Placeholder
+}
