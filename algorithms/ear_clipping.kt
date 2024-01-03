@@ -60,3 +60,16 @@ fun isInsideTriangle(p: Point, q: Point, r: Point, s: Point): Boolean {
     // Implement point-in-triangle test (e.q., using barycentric coordinates)
     return true // Placeholder
 }
+
+fun main() {
+    val polygonVertices = mutableListOf(
+        Point(0.0, 0.0),
+        Point(1.0, 0.0),
+        Point(1.0, 1.0),
+        Point(0.5, 1.5),
+        Point(0.0, 1.0),
+    )
+
+    val triangles = earClipping(polygonVertices)
+    println("Triangles: $triangles")
+}
