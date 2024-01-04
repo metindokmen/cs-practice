@@ -31,3 +31,14 @@ class LinearRegression(val learningRate: Double, val iterations: Int) {
         return weights.zip(x).sumOf { (weight, feature) -> weight * feature }
     }
 }
+
+fun main() {
+    val X = arrayOf(doubleArrayOf(1.0, 50.0), doubleArrayOf(1.0, 60.0), doubleArrayOf(1.0, 70.0))
+    val y = doubleArrayOf(150000.0, 180000.0, 210000.0)
+
+    val model = LinearRegression(learningRate = 0.0001, iterations = 10000)
+    model.fit(X, y)
+
+    val prediction = model.predict(doubleArrayOf(1.0, 65.0)) // Predicting for 65 square meters
+    println("Predicted price: $prediction")
+}
