@@ -13,3 +13,23 @@ data class Point(val x: Double, val y: Double) {
         return sqrt((x - other.x).pow(2) + (y - other.y).pow(2))
     }
 }
+
+fun kMeans(points: List<Point>, k: Int, iterations: Int): List<List<Point>> {
+    var centroids = points.shuffled().take(k)
+    var clusters = List(k) { mutableListOf<Point>() }
+
+    repeat(iterations) {
+        clusters.forEach { it.clear() }
+
+        points.forEach { point ->
+            val nearestCentroidIndex = centroids.indices.minByOrNull { centroids[it].distance(point) }
+            clusters[nearestCentroidIndex].add(point)
+        }
+
+        centroids = cluster.map { cluster ->
+            Point(cluster.sumOf { it.x } / cluster.size, cluster.sumOf { it.y } / cluster.size)
+        }
+    }
+
+    return clusters
+}
