@@ -33,3 +33,18 @@ fun kMeans(points: List<Point>, k: Int, iterations: Int): List<List<Point>> {
 
     return clusters
 }
+
+fun main() {
+    val points = listOf(
+        Point(1.0, 1.0), Point(1.5, 2.0), Point(3.0, 4.0),
+        Point(5.0, 7.0), Point(3.5, 5.0), Point(4.5, 5.0), Point(3.0, 3.5)
+    )
+    val k = 2
+    val iterations = 10
+    val clusters = kMeans(points, k, iterations)
+
+    println("Clustered Points:")
+    clusters.forEachIndexed { index, cluster ->
+        println("Cluster $index: $cluster")
+    }
+}
