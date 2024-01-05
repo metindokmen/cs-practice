@@ -30,3 +30,16 @@ fun findFrequentSingleItems(transactions: List<Set<String>>, minSupport: Double)
         .map { setOf(it) }
         .toSet()
 }
+
+fun generateNextItemsets(itemsets: Set<Set<String>>): Set<Set<String>> {
+    val nextItemsets = mutableSetOf<Set<String>>()
+    itemsets.forEach { set1 ->
+        itemsets.forEach { set2 ->
+            val union = set1.union(set2)
+            if (union.size == set1.size + 1) {
+                nextItemsets.add(union)
+            }
+        }
+    }
+    return nextItemsets
+}
