@@ -20,3 +20,13 @@ fun apriori(transactions: List<Set<String>>, minSupport: Double): Set<Set<String
 
     return allFrequentItemsets
 }
+
+fun findFrequentSingleItems(transactions: List<Set<String>>, minSupport: Double): Set<Set<String>> {
+    return transactions
+        .flatten()
+        .groupBy { it }
+        .filter { (_, items) -> items.size >= transactions.size * minSupport }
+        .keys
+        .map { setOf(it) }
+        .toSet()
+}
