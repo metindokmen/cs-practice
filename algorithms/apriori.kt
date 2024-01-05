@@ -43,3 +43,16 @@ fun generateNextItemsets(itemsets: Set<Set<String>>): Set<Set<String>> {
     }
     return nextItemsets
 }
+
+fun main() {
+    val transactions = listOf(
+        setOf("bread", "milk"),
+        setOf("bread", "diaper", "beer", "eggs"),
+        setOf("milk", "diaper", "beer", "cola"),
+        setOf("bread", "milk", "diaper", "beer"),
+        setOf("bread", "milk", "diaper", "cola")
+    )
+
+    val frequentItems = apriori(transactions, 0.6)
+    println("Frequent Itemsets: $frequentItems")
+}
