@@ -37,4 +37,15 @@ class NaiveBayesClassifier {
         }
     }
 
+    fun predict(features: List<String>): String {
+        val categoryScores = logClassPriors.toMutableMap()
+
+        features.forEach { feature ->
+            logLikelihoods[feature]?.forEach { (category, logProbabilities) ->
+                categoryScores[category] = categoryScores.getOrDefault(category, 0.0) + logProbability
+            }
+        }
+
+        return categoryScores.maxByOrNull { it.value }?.key ?: ""
+    }
 }
