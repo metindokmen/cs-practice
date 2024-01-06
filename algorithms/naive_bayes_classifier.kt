@@ -5,3 +5,10 @@
 // You need a way to classify incoming emails into "spam" or "not spam" based on their content.
 // The Naive Bayes Classifier is ideal for this task.
 // It uses the probabilities of words appearing in spam and non-spam emails to calculate the likelihood of a new email being in one of these categories.
+
+class NaiveBayesClassifier {
+    private val logLikelihoods = mutableMapOf<String, MutableMap<String, Double>>()
+    private val logClassPriors = mutableMapOf<String, Double>()
+
+
+}
