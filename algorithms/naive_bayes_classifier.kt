@@ -49,3 +49,18 @@ class NaiveBayesClassifier {
         return categoryScores.maxByOrNull { it.value }?.key ?: ""
     }
 }
+
+fun main() {
+    val trainingData = listOf(
+        "spam" to listOf("buy", "cheap"),
+        "not spam" to listOf("read", "book"),
+        "spam" to listOf("buy", "now"),
+        "not spam" to listOf("book", "buy")
+    )
+
+    val classifier = NaiveBayesClassifier()
+    classifier.train(trainingData.map { it.first to it.second })
+
+    val testData = listOf("buy", "book")
+    println("Prediction: ${classifier.predict(testData)}")
+}
