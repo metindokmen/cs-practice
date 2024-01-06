@@ -10,5 +10,31 @@ class NaiveBayesClassifier {
     private val logLikelihoods = mutableMapOf<String, MutableMap<String, Double>>()
     private val logClassPriors = mutableMapOf<String, Double>()
 
+    fun train(data: List<Pair<String, List<String>>>) {
+        val classFrequencies = mutableMapOf<String, Int>()
+        val featureFrequencies = mutableMapOf<String, MutableMap<String, Int>>()
+
+        data.forEach { (category, features) ->
+            logClassPriors[category] = logClassPriors.getOrDefault(category, 0.0) + 1
+            classFrequencies[category] = classFrequencies.getOrDefault(category, 0) + 1
+            features.forEach { feature ->
+                featureFrequencies.getOrPut(feature) { mutableMapOf() }[category] = featureFrequencies.getOrPut(feature) { mutableMapOf() }.getOrDefault(category, 0) + 1
+            }
+        }
+
+        val numDataPoints = data.size.toDouble()
+        logClassPriors.forEach { (category, count) ->
+            logClassPriors[category] = kotlin.math.log(count / numDataPoints)
+        }
+
+        featureFrequencies.forEach { (feature, categoryCounts) ->
+            val logProbabilities = mutableMapOf<String, Double>()
+            categoryCounts.forEach { (category, count) ->
+                val logProbability = kotlin.math.log(count.toDouble() / classFrequencies[category]!!)
+                logProbabilities[category] = logProbability
+            }
+            logLikelihoods[feature] = logProbabilities
+        }
+    }
 
 }
