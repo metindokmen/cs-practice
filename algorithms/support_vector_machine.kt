@@ -37,4 +37,21 @@ class SVMClassifier(private val trainingData: List<Email>) {
         svmProblem.l = trainingData.size
     }
 
+    fun train() {
+        val svm = SSVM()
+        svm.svmTrain(svmProblem, null, null)
+    }
+
+    fun predict(newEmail: Email): Int {
+        val node1 = svm_node()
+        node1.index = 1
+        node1.value = newEmail.wordFrequency1
+
+        val node2 = svm_node()
+        node2.index = 2
+        node2.value = newEmail.wordFrequency2
+
+        val newNode = arrayOf(node1, node2)
+        return SSVM.predict(newNode, svmProblem, null)
+    }
 }
