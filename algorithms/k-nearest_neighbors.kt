@@ -4,3 +4,5 @@
 // Imagine you are working on a movie recommendation system.
 // Users who liked a certain movie are potential candidates for similar movie recommendations.
 // The K-Nearest Neighbors algorithm can identify movies liked by users with similar preferences, helping to recommend movies based on the preferences of their "neighbors".
+
+data class Movie(val name: String, val genre: String, val rating: Double)
