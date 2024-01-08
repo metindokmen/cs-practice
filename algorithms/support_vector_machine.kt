@@ -55,3 +55,23 @@ class SVMClassifier(private val trainingData: List<Email>) {
         return SSVM.predict(newNode, svmProblem, null)
     }
 }
+
+fun main() {
+    val trainingData = listOf(
+        Email(0.1, 0.2, -1),
+        Email(0.5, 0.8, -1),
+        Email(0.9, 0.7, 1),
+        Email(0.3, 0.6, -1),
+        Email(0.7, 0.4, 1)
+    )
+
+    val newEmail = Email(0.6, 0.6, 0) // Unlabeled email
+
+    val svmClassifier = SVMClassifier(trainingData)
+    svmClassifier.train()
+
+    val prediction = svmClassifier.predict(newEmail)
+    val result = if (prediction == 1) "Spam" else "Not Spam"
+
+    println("Prediction for the new email: $result")
+}
