@@ -14,3 +14,27 @@ import com.austinv11.ssvm.libsvm.svm_node
 import com.austinv11.ssvm.libsvm.svm_problem
 
 data class Email(val wordFrequency1: Double, val wordFrequency2: Double, val label: Int)
+
+class SVMClassifier(private val trainingData: List<Email>) {
+    private val svmProblem = svm_problem()
+
+    init {
+        val labels = trainingData.map { it.label.toDouble() }.toDoubleArray()
+        val nodes = trainingData.map { email ->
+            val node1 = svm_node()
+            node1.index = 1
+            node1.value = email.wordFrequency1
+
+            val node2 = svm_node()
+            node2.index = 2
+            node2.value = email.wordFrequency2
+
+            arrayOf(node1, node2)
+        }.toTypedArray()
+
+        svmProblem.y = labels
+        svmProblem.x = nodes
+        svmProblem.l = trainingData.size
+    }
+
+}
