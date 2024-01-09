@@ -48,3 +48,21 @@ class RandomForestClassifier(private val trainingData: List<Applicant>) {
         return if (randomForest.classifyInstance(instance) == 0.0) "no" else "yes"
     }
 }
+
+fun main() {
+    val trainingData = listOf(
+        Applicant(25.0, 50000.0, 700.0, "yes"),
+        Applicant(35.0, 80000.0, 750.0, "no"),
+        Applicant(28.0, 60000.0, 720.0, "yes"),
+        Applicant(40.0, 90000.0, 800.0, "no"),
+        Applicant(22.0, 45000.0, 680.0, "yes")
+    )
+
+    val newApplicant = Applicant(30.0, 70000.0, 730.0, "unknown")
+
+    val randomForestClassifier = RandomForestClassifier(trainingData)
+    randomForestClassifier.train()
+
+    val prediction = randomForestClassifier.predict(newApplicant)
+    println("Loan Approval Prediction for the New Applicant: $prediction")
+}
