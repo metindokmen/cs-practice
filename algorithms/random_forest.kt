@@ -6,3 +6,13 @@
 // Consider a scenario where you're working on a project to predict whether a bank loan applicant is likely to default or not.
 // The Random Forest algorithm can be employed to create an ensemble of decision trees, each trained on different subsets of the data,
 // resulting in a more robust and accurate prediction model.
+
+// The following dependency should be added to the build.gradle file:
+// implementation 'nz.ac.waikato.cms.weka:weka-stable:3.8.5'
+
+import weka.classifiers.trees.RandomForest
+import weka.core.Attribute
+import weka.core.Instance
+import weka.core.Instances
+import java.io.BufferedReader
+import java.io.StringReader
