@@ -39,4 +39,12 @@ class RandomForestClassifier(private val trainingData: List<Applicant>) {
         randomForest.buildClassifier(data)
     }
 
+    fun predict(newApplicant: Applicant): String {
+        val instance = Instance(3)
+        instance.setValue(0, newApplicant.age)
+        instance.setValue(1, newApplicant.income)
+        instance.setValue(2, newApplicant.creditScore)
+
+        return if (randomForest.classifyInstance(instance) == 0.0) "no" else "yes"
+    }
 }
