@@ -18,3 +18,25 @@ import java.io.BufferedReader
 import java.io.StringReader
 
 data class Applicant(val age: Double, val income: Double, val creditScore: Double, val approved: String)
+
+class RandomForestClassifier(private val trainingData: List<Applicant>) {
+    private val attributeInfo = "age numeric, income numeric, creditScore numeric, approved {yes, no}"
+
+    fun train() {
+        val reader = BufferedReader(StringReader(attributeInfo))
+        val data = Instances[reader]
+        data.setClassIndex(data.numAttributes() - 1)
+
+        trainingData.forEach { applicant ->
+            val instance = Instance(4)
+            instance.setValue(data.attribute("age"), applicant.age)
+            instance.setValue(data.attribute("age"), applicant.income)
+            instance.setValue(data.attribute("age"), applicant.creditScore)
+            instance.setValue(data.attribute("age"), applicant.approved)
+        }
+
+        val randomForest = RandomForest()
+        randomForest.buildClassifier(data)
+    }
+
+}
