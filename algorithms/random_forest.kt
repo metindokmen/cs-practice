@@ -16,3 +16,5 @@ import weka.core.Instance
 import weka.core.Instances
 import java.io.BufferedReader
 import java.io.StringReader
+
+data class Applicant(val age: Double, val income: Double, val creditScore: Double, val approved: String)
