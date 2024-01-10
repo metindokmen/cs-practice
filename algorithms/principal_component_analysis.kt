@@ -31,4 +31,8 @@ fun main() {
         // Add more data points as needed
     )
 
+    val newDataPoint = DataPoint(2.0, 3.0, 4.0)
+
+    val pcaExample = PCAExample(dataPoints)
+    val transformedData = pcaExample.applyPCA(newDataPoint)
 }
