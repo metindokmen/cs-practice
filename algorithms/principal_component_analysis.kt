@@ -22,3 +22,13 @@ class PCAExample(private val dataPoints: List<DataPoint>) {
         return transformedData
     }
 }
+
+fun main() {
+    val dataPoints = listOf(
+        DataPoint(1.0, 2.0, 3.0),
+        DataPoint(4.0, 5.0, 6.0),
+        DataPoint(7.0, 8.0, 9.0)
+        // Add more data points as needed
+    )
+
+}
