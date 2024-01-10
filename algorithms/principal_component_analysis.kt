@@ -35,4 +35,7 @@ fun main() {
 
     val pcaExample = PCAExample(dataPoints)
     val transformedData = pcaExample.applyPCA(newDataPoint)
+
+    println("Original Data: ${doubleArrayOf(newDataPoint.feature1, newDataPoint.feature2, newDataPoint.feature3).contentToString()}")
+    println("Transformed Data: ${transformedData.contentToString()}")
 }
