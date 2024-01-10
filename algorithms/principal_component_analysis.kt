@@ -11,3 +11,14 @@
 import smile.projection.PCA
 
 data class DataPoint(val feature1: Double, val feature2: Double, val feature3: Double)
+
+class PCAExample(private val dataPoints: List<DataPoint>) {
+    fun applyPCA(newDataPoint: DataPoint): DoubleArray {
+        val data = dataPoints.map { doubleArrayOf(it.feature1, it.feature2, it.feature3) }.toTypedArray()
+        val pca = PCA(data)
+        pca.setProjection(2) // Set the desired number of dimensions
+
+        val transformedData = pca.project(doubleArrayOf(newDataPoint.feature1, newDataPoint.feature2, newDataPoint.feature3))
+        return transformedData
+    }
+}
