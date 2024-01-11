@@ -5,3 +5,11 @@
 // Imagine you are working on a project to predict housing prices.
 // Gradient Boosting can be applied to build an ensemble of decision trees, where each tree corrects the errors of the previous ones.
 // This leads to a robust model capable of capturing complex relationships in the data and making accurate predictions.
+
+// The following dependency is to be added to the build.gradle file:
+// implementation 'com.github.haifengl:smile-core:2.5.0'
+
+import smile.regression.GBM
+import smile.validation.RMSE
+
+data class House(val size: Double, val bedrooms: Int, val price: Double)
