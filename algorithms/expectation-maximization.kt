@@ -32,3 +32,9 @@ class EMExample(private val datasetFile: String) {
         println("Cluster Priors: ${gmm.prior().contentToString()}")
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/your/dataset.csv"
+    val emExample = EMExample(datasetFile)
+    emExample.performEN()
+}
