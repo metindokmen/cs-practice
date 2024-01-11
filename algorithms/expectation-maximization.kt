@@ -14,3 +14,21 @@ import smile.data.AttributeDataset
 import smile.data.NominalAttribute
 import smile.data.parser.DelimitedTextParser
 import java.io.File
+
+class EMExample(private val datasetFile: String) {
+    fun performEN() {
+        val parser = DelimitedTextParser().apply {
+            delimiter = ","
+            columnName = arrayOf("Feature1", "Feature2")
+            attributes = arrayOf<Attribute>(NominalAttribute("Feature1"), NominalAttribute("Feature2"))
+        }
+
+        val data: AttributeDataset = parser.parse(File(datasetFile))
+        val x = data.toArray(arrayOf(0, 1))
+
+        val gmm = GaussianMixture.fit(x, 2) // 2 clusters
+        println("Cluster Means: ${gmm.mu().contentDeppToString()}")
+        println("Cluster Covariances: ${gmm.sigma().contentDeepToString()}")
+        println("Cluster Priors: ${gmm.prior().contentToString()}")
+    }
+}
