@@ -27,3 +27,14 @@ class GradientBoostingExample(private val trainingData: List<House>) {
         return model.predict(x)
     }
 }
+
+fun main() {
+    val trainingData = listOf(
+        House(1500.0, 3, 300000.0),
+        House(2000.0, 4, 400000.0),
+        House(1200.0, 2, 250000.0),
+        House(1800.0, 3, 350000.0),
+        // Add more training data as needed
+    )
+
+}
