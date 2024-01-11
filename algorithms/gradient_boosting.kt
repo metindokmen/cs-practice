@@ -13,3 +13,17 @@ import smile.regression.GBM
 import smile.validation.RMSE
 
 data class House(val size: Double, val bedrooms: Int, val price: Double)
+
+class GradientBoostingExample(private val trainingData: List<House>) {
+    fun trainModel(): GBM {
+        val x = trainingData.map { doubleArrayOf(it.size, it.bedrooms.toDouble()) }.toTypedArray()
+        val y = trainingData.map { it.price }.toDoubleArray()
+
+        return GBM.fit(x, y, 100) // 100 trees in the ensemble
+    }
+
+    fun predict(model: GBM, newHouse: House): Double {
+        val x = doubleArrayOf(newHouse.size, newHouse.bedrooms.toDouble())
+        return model.predict(x)
+    }
+}
