@@ -37,4 +37,11 @@ fun main() {
         // Add more training data as needed
     )
 
+    val newHouse = House(1600.0, 3, 0.0) // Unlabeled house
+
+    val gradientBoostingExample = GradientBoostingExample(trainingData)
+    val model = gradientBoostingExample.trainModel()
+
+    val predictedPrice = gradientBoostingExample.predict(model, newHouse)
+    println("Predicted price for the new house: $predictedPrice")
 }
