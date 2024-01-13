@@ -12,3 +12,5 @@ import smile.hash.HashFunction
 import smile.hash.MurmurHash
 import smile.search.LinearSearch
 import smile.search.LSH
+
+data class Image(val features: DoubleArray, val label: String)
