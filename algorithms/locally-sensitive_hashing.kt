@@ -31,3 +31,23 @@ class LSHExample(private val dataset: List<Image>) {
         return searchResult.indices.map { dataset[searchResult.indices[it]] }
     }
 }
+
+fun main() {
+    val dataset = listOf(
+        Image(doubleArrayOf(0.1, 0.2, 0.3), "Image1"),
+        Image(doubleArrayOf(0.2, 0.3, 0.4), "Image2"),
+        Image(doubleArrayOf(0.5, 0.6, 0.7), "Image3"),
+        // Add more images to the dataset
+    )
+
+    val queryImage = Image(doubleArrayOf(0.15, 0.25, 0.35), "QueryImage")
+
+    val lshExample = LSHExample(dataset)
+    val lsh = lshExample.buildLSH()
+
+    val k = 2 // Number of nearest neighbors to search for
+    val similarImages = lshExample.findSimilarImages(lsh, queryImage, k)
+
+    println("Similar Images:")
+    similarImages.forEach { println(it.label) }
+}
