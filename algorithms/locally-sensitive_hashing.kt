@@ -14,3 +14,20 @@ import smile.search.LinearSearch
 import smile.search.LSH
 
 data class Image(val features: DoubleArray, val label: String)
+
+class LSHExample(private val dataset: List<Image>) {
+    fun buildLSH(): LSH<Image> {
+        val hashFunctions: Array<HashFunction> = Array(10) { MurmurHash(1234 + it) }
+        val lsh = LSH(dataset.toTypedArray(), hashFunctions)
+
+        // Build the LSH index
+        lsh.index()
+
+        return lsh
+    }
+
+    fun findSimilarImages(lsh: LSH<Image>, queryImage: Image, k: Int): List<Image> {
+        val searchResult = lsh.search(queryImage, k)
+        return searchResult.indices.map { dataset[searchResult.indices[it]] }
+    }
+}
