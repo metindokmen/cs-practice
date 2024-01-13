@@ -4,3 +4,11 @@
 
 // Consider a scenario where you have a large dataset of images, and you want to efficiently find similar images.
 // LSH can be applied to hash the images in a way that similar images are likely to have the same hash, enabling quick approximate nearest neighbor searches.
+
+// The following dependency is to be added to the build.gradle file:
+// implementation 'com.github.haifengl:smile-core:2.5.0'
+
+import smile.hash.HashFunction
+import smile.hash.MurmurHash
+import smile.search.LinearSearch
+import smile.search.LSH
