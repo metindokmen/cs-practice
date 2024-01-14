@@ -40,3 +40,15 @@ class MeanShiftExample(private val datasetFile: String) {
         return clusters
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/dataset.csv"
+    val meanShiftExample = MeanShiftExample(datasetFile)
+    val meanShift = meanShiftExample.performMeanShift()
+
+    val clusters = meanShiftExample.getclusters(meanShift)
+    clusters.forEachIndexed { index, cluster ->
+        println("Cluster ${index + 1}:")
+        cluster.forEach { location -> println("  (${location.latitude}, ${location.longitude})") }
+    }
+}
