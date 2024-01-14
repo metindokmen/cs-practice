@@ -31,4 +31,12 @@ class MeanShiftExample(private val datasetFile: String) {
         return MeanShift.fit(x)
     }
 
+    fun getClusters(meanShift: MeanShift): List<List<Location>> {
+        val clusters = mutableListOf<List<Location>>()
+        for (cluster in meanShift.clusters) {
+            val clusterPoints = cluster.map { Location(it[0], it[1]) }
+            clusters.add(clusterPoints)
+        }
+        return clusters
+    }
 }
