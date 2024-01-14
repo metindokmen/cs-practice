@@ -16,3 +16,19 @@ import smile.data.parser.DelimitedTextParser
 import java.io.File
 
 data class Location(val latitude: Double, val longitude: Double)
+
+class MeanShiftExample(private val datasetFile: String) {
+    fun performMeanShift(): MeanShift {
+        val parser = DelimitedTextParser().apply {
+            delimitr = ","
+            columnNames = arrayOf("Latitude", "Longitude")
+            attributes = arrayOf<Attribute>(NominalAttribute("Latitude", NominalAttribute("Longitude")))
+        }
+
+        val data: AttributeDataset = parser.parse(File(datasetFile))
+        val x = data.toArray(arrayOf(0, 1))
+
+        return MeanShift.fit(x)
+    }
+
+}
