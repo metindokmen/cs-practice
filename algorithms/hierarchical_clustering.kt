@@ -17,3 +17,5 @@ import smile.data.AttributeDataset
 import smile.data.NominalAttribute
 import smile.data.parser.DelimitedTextParser
 import java.io.File
+
+data class Customer(val spending: Double, val frequency: Int)
