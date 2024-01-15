@@ -19,3 +19,18 @@ import smile.data.parser.DelimitedTextParser
 import java.io.File
 
 data class Customer(val spending: Double, val frequency: Int)
+
+class HierarchicalClusteringExample(private val datasetFile: String, private val linkage: Linkage) {
+    fun performHierarchicalClustering(): Array<IntArray> {
+        val parser = DelimitedTextParser().apply {
+            delimiter = ","
+            columnNames = arrayOf("Spending", "Frequency")
+            attributes = arrayOf<Attribute>(NominalAttribute("Spending"), NominalAttribute("Frequency"))
+        }
+
+        val data: AttributeDataset = parser.parse(File(datasetFile))
+        val x = data.toArray(arrayOf(0, 1))
+
+        return linkage.apply(x)
+    }
+}
