@@ -34,3 +34,16 @@ class HierarchicalClusteringExample(private val datasetFile: String, private val
         return linkage.apply(x)
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/your/dataset.csv"
+    val linkage: Linkage = WardLinkage() // You can also use CompleteLinkage()
+
+    val hierarchicalClusteringExample = HierarchicalClusteringExample(datasetFile, linkage)
+    val dendrogram = hierarchicalClusteringExample.performHierarchicalClustering()
+
+    println("Dendrogram:")
+    dendrogram.forEachIndexed { index, row ->
+        println("${index + 1}: ${row.contentToString()}")
+    }
+}
