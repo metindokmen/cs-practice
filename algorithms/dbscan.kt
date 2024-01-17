@@ -28,3 +28,17 @@ class DBSCANExample(private val datasetFile: String, private val epsilon: Double
         return DBSCAN.fit(x, epsilon, minPoints)
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/dataset.csv"
+    val epsilon = 0.1 // Maximum distance between two samples for one to be considered as in the neighborhood of the other
+    val minPoints = 5 // Minimum number of samples in a neighborhood to consider a point a core point
+
+    val dbscanExample = DBSCANExample(datasetFile, epsilon, minPoints)
+    val dbscan = dbscanExample.performDBSCAN()
+
+    println("Cluster Assignments:")
+    dbscan.y.forEachIndexed { index, cluster ->
+        println("Data point $index is assigned to cluster $cluster")
+    }
+}
