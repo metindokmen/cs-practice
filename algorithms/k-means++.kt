@@ -14,3 +14,17 @@ import smile.data.AttributeDataset
 import smile.data.NominalAttribute
 import smile.data.parser.DelimitedTextParser
 import java.io.File
+
+class KMeansPlusPlusExample(private val datasetFile: String, private val numClusters: Int) {
+    fun performKMeansPlusPlus(): KMeans {
+        val parser = DelimitedTextParser().apply {
+            delimiter = ","
+            // Assuming the dataset has appropriate column names and attributes
+        }
+
+        val data: AttributeDataset = parser.parse(File(datasetFile))
+        val x = data.toArray()
+
+        return KMeans.fit(x, numClusters, true) // Use KMeans.fit(x, numClusters, true) for K-Means++
+    }
+}
