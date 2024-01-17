@@ -28,3 +28,16 @@ class KMeansPlusPlusExample(private val datasetFile: String, private val numClus
         return KMeans.fit(x, numClusters, true) // Use KMeans.fit(x, numClusters, true) for K-Means++
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/your/dataset.csv"
+    val numClusters = 3 // Number of clusters
+
+    val kMeansExample = KMeansPlusPlusExample(datasetFile, numClusters)
+    val kMeans = kMeansExample.performKMeansPlusPlus()
+
+    println("Cluster Centers:")
+    kMeans.centroids.forEach { center ->
+        println(center.contentToString())
+    }
+}
