@@ -15,3 +15,17 @@ import smile.data.AttributeDataset
 import smile.data.NominalAttribute
 import smile.data.parser.DelimitedTextParser
 import java.io.File
+
+class OPTICSExample(private val datasetFile: String, private val epsilon: Double, private val minPoints: Int) {
+    fun performOPTICS(): OPTICS {
+        val parser = DelimitedTextParser().apply {
+            delimiter = ","
+            // Assuming the dataset has appropriate column names and attributes
+        }
+
+        val data: AttributeDataset = parser.parse(File(datasetFile))
+        val x = data.toArray()
+
+        return OPTICS.fit(x, epsilon, minPoints)
+    }
+}
