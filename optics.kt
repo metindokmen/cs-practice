@@ -5,3 +5,6 @@
 
 // Consider a dataset representing the locations of traffic cameras in a city.
 // Using OPTICS, you can identify clusters of cameras based on the density of traffic observations, revealing areas with varying traffic patterns.
+
+// The following dependency is to be added to the build.gradle file:
+// implementation 'com.github.haifengl:smile-core:2.5.0'
