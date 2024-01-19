@@ -27,3 +27,13 @@ class HACExample(private val datasetFile: String) {
         return HierarchicalClustering.fit(x)
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/your/dataset.csv"
+
+    val hacExample = HACExample(datasetFile)
+    val hac = hacExample.performHAC()
+
+    println("Dendrogram:")
+    println(hac.dendrogram)
+}
