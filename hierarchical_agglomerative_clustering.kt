@@ -14,3 +14,16 @@ import smile.data.NominalAttribute
 import smile.data.parser.DelimitedTextParser
 import java.io.File
 
+class HACExample(private val datasetFile: String) {
+    fun performHAC(): HierarchicalClustering {
+        val parser = DelimitedTextParser().apply {
+            delimiter = ","
+            // Assuming the dataset has appropriate column names and attributes
+        }
+
+        val data: AttributeDataset = parser.parse(File(datasetFile))
+        val x = data.toArray()
+
+        return HierarchicalClustering.fit(x)
+    }
+}
