@@ -29,3 +29,17 @@ class OPTICSExample(private val datasetFile: String, private val epsilon: Double
         return OPTICS.fit(x, epsilon, minPoints)
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/your/dataset.csv"
+    val epsilon = 0.1 // Maximum distance between two samples for one to be considered as in the neighborhood of the other
+    val minPoints = 5 // Minimum number of samples in a neighborhood to consider a point a core point
+
+    val opticsExample = OPTICSExample(datasetFile, epsilon, minPoints)
+    val optics = opticsExample.performOPTICS()
+
+    println("Cluster Assignments:")
+    optics.y.forEachIndexed { index, cluster ->
+        println("Data point: $index is assigned to cluster $cluster")
+    }
+}
