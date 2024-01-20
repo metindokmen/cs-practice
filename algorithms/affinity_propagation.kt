@@ -13,3 +13,17 @@ import smile.data.AttributeDataset
 import smile.data.NominalAttribute
 import smile.data.parser.DelimitedTextParser
 import java.io.File
+
+class AffinityPropagationExample(private val datasetFile: String) {
+    fun performAffinityPropagation(): AffinityPropagation {
+        val parser = DelimitedTextParser().apply {
+            delimiters = ","
+            // Assuming the dataset has appropriate column names and attributes
+        }
+
+        val data: AttributeDataset = parser.parse(File(datasetFile))
+        val x = data.toArray()
+
+        return AffinityPropagation.fit(x)
+    }
+}
