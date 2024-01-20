@@ -27,3 +27,15 @@ class AffinityPropagationExample(private val datasetFile: String) {
         return AffinityPropagation.fit(x)
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/your/dataset.csv"
+
+    val affinityPropagationExample = AffinityPropagationExample(datasetFile)
+    val affinityPropagation = affinityPropagationExample.performAffinityPropagation()
+
+    println("Cluster Exemplars:")
+    affinityPropagation.exemplars.forEachIndexed { index, exemplar ->
+        println("Data point $index is an exemplar for cluster ${exemplar.cluster}")
+    }
+}
