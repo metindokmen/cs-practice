@@ -13,3 +13,25 @@ class BIRCHExample(private val dataset: List<DoubleArray>, private val threshold
         return birchClusterer.cluster(dataset.map(::DoublePoint))
     }
 }
+
+fun main() {
+    val dataset = listOf(
+        doubleArrayOf(1.0, 2.0),
+        doubleArrayOf(1.5, 1.8),
+        doubleArrayOf(5.0, 8.0),
+        // Add more data points as needed
+    )
+
+    val threshold = 1.0
+
+    val birchExample = BIRCExample(dataset, threshold)
+    val clusters = birchExample.performBIRCH()
+
+    println("Number of Clusters: ${clusters.size}")
+    clusters.forEachIndexed { index, cluster ->
+        println("Cluster $index")
+        cluster.points.forEach { point ->
+            println(point.point)
+        }
+    }
+}
