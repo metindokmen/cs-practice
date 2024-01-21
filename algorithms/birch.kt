@@ -6,3 +6,10 @@
 
 // The folllowing dependency is to be added to the build.gradle file:
 // implementation 'org.apache.commons:commons-math3:3.6.1'
+
+class BIRCHExample(private val dataset: List<DoubleArray>, private val threshold: Double) {
+    fun performBIRCH(): List<Cluster<DoublePoint>> {
+        val birchClusterer: Clusterer<DoublePoint> = BirchClusterer(threshold, EuclideanDistance())
+        return birchClusterer.cluster(dataset.map(::DoublePoint))
+    }
+}
