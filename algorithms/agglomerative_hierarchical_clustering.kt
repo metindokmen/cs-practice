@@ -11,3 +11,10 @@ import org.apache.commons.math3.ml.clustering.Cluster
 import org.apache.commons.math3.ml.clustering.Clusterer
 import org.apache.commons.math3.ml.clustering.DoublePoint
 import org.apache.commons.math3.ml.clustering.HierarchicalClusterer
+
+class AgglomerativeHierarchicalClusteringExample(private val dataset: List<DoubleArray>, private val linkage: String) {
+    fun performAgglomerativeHierarchicalClustering(): Cluster<DoublePoint> {
+        val hierarchicalClusterer: Clusterer<DoublePoint> = HierarchicalClusterer(linkage)
+        return hierarchicalClusterer.cluster(dataset.map(::DoublePoint))
+    }
+}
