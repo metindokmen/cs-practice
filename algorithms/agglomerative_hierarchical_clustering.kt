@@ -6,3 +6,8 @@
 
 // The following dependency is to be added to the build.gradle file:
 // implementation 'org.apache.commons:commons-math3:3.6.1'
+
+import org.apache.commons.math3.ml.clustering.Cluster
+import org.apache.commons.math3.ml.clustering.Clusterer
+import org.apache.commons.math3.ml.clustering.DoublePoint
+import org.apache.commons.math3.ml.clustering.HierarchicalClusterer
