@@ -1,0 +1,2 @@
+// Agglomerative Hierarchical Clustering starts with each data point as a separate cluster and merges the closest clusters iteratively until only one cluster remains.
+// The result is a dendrogram representing the hierarchy of clusters.
