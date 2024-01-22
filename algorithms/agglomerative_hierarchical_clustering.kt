@@ -18,3 +18,23 @@ class AgglomerativeHierarchicalClusteringExample(private val dataset: List<Doubl
         return hierarchicalClusterer.cluster(dataset.map(::DoublePoint))
     }
 }
+
+fun main() {
+    val dataset = listOf(
+        doubleArrayOf(1.0, 2.0),
+        doubleArrayOf(1.5, 1.8),
+        doubleArrayOf(5.0, 8.0),
+        // Add more data points as needed
+    )
+
+    val linkage = "single" // You can choose "single", "complete", or "average" linkage
+
+    val agglomerativeHierarchicalClusteringExample =
+        AgglomerativeHierarchicalClusteringExample(dataset, linkage)
+    val cluster = agglomerativeHierarchicalClusteringExample.performAgglomerativeHierarchicalClustering()
+
+    println("Number of Clusters: ${cluster.size}")
+    cluster.points.forEachIndexed { index, point ->
+        println("Cluster $index: ${point.point}")
+    }
+}
