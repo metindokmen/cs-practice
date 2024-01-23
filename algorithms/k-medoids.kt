@@ -4,3 +4,6 @@
 // Consider a delivery service managing a fleet of vehicles.
 // K-Medoids can be applied to cluster vehicle locations, selecting the most centrally located vehicle within each cluster as a representative,
 // facilitating efficient route planning.
+
+// The following dependency is to be added to the build.gradle file:
+// implementation 'com.github.haifengl:smile-core:2.5.0'
