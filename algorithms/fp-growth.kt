@@ -21,3 +21,22 @@ class FPGrowthExample(private val transactions: List<List<String>>, private val 
         return itemsets.map { it.map { item -> item.toString() } }
     }
 }
+
+fun main() {
+    val transactions = listOf(
+        listOf("item1", "item2", "item3"),
+        listOf("item2", "item3", "item4"),
+        listOf("item1", "item2", "item4"),
+        // Add more transctions as needed
+    )
+
+    val minSupport = 0.5 // Minimum support threshold
+
+    val fpGrowthExample = FPGrowthExample(transactions, minSupport)
+    val frequentItemsets = fpGrowthExample.performFPGrowth()
+
+    println("Frequent Itemsets:")
+    frequentItemsets.forEachIndexed { index, itemset ->
+        println("Itemset $index: ${itemset.joinToString(", ")}")
+    }
+}
