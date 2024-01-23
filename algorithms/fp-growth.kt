@@ -3,3 +3,8 @@
 
 // Consider a retail business analyzing customer purchase data.
 // The FP-growth algorithm can identify frequent itemsets, helping the business understand which products are often purchased together.
+
+// The following dependencies are to be added to the build.gradle file:
+// implementation 'org.apache.commons:commons-math3:3.6.1'
+// implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2'
+// implementation 'com.github.haifengl:smile-core:2.5.0'
