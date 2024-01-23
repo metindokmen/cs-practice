@@ -7,3 +7,10 @@
 
 // The following dependency is to be added to the build.gradle file:
 // implementation 'com.github.haifengl:smile-core:2.5.0'
+
+import smile.clustering.KMedoids
+import smile.data.Attribute
+import smile.data.AttributeDataset
+import smile.data.NominalAttribute
+import smile.data.parser.DelimitedTextParser
+import java.io.File
