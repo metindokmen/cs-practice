@@ -12,3 +12,12 @@
 import org.apache.commons.math3.ml.clustering.FPGrowth
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.toList
+
+class FPGrowthExample(private val transactions: List<List<String>>, private val minSupport: Double) {
+    suspend fun performFPGrowth(): List<List<String>> {
+        val fpGrowth = FPGrowth(minSupport)
+
+        val itemsets = fpGrowth.learn(transactions.asFlow().toList())
+        return itemsets.map { it.map { item -> item.toString() } }
+    }
+}
