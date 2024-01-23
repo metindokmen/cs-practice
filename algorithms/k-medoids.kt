@@ -28,3 +28,17 @@ class KMedoidsExample(private val datasetFile: String, private val k: Int) {
         return KMedoids.fit(x, k)
     }
 }
+
+fun main() {
+    val datasetFile = "path/to/your/dataset.csv"
+    val k = 3 // Number of clusters
+
+    val kMedoidsExample = KMedoidsExample(datasetFile, k)
+    val kMedoids = kMedoidsExample.performKMedoids()
+
+    println("Cluster Medoids:")
+    kMedoids.medoids.forEachIndexed { index, medoidIndex ->
+        val medoid = kMedoids.centroids[medoidIndex]
+        println("Cluster $index Medoid: ${medoid.joinToString(", ")}")
+    }
+}
