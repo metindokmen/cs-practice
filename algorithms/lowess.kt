@@ -34,4 +34,15 @@ class LowessExample(private val xValues: DoubleArray, private val yValues: Doubl
         return numerator / denominator
     }
 
+    private fun calculateWeights(x: Double, xValues: DoubleArray, bandwidth: Double): DoubleArray {
+        val weights = DoubleArray(xValues.size)
+
+        for (i in xValues.indices) {
+            val diff = x - xValues[i]
+            weights[i] = tricubeKernel(diff / bandwidth)
+        }
+
+        return weights
+    }
+
 }
