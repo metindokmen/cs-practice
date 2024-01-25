@@ -22,3 +22,27 @@ import org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizer.
 import org.apache.commons.math3.util.FastMath
 import kotlin.math.abs
 import kotlin.math.min
+
+class EMDExample(private val distribution1: DoubleArray, private val distribution2: DoubleArray) {
+
+    fun calculateEMD(): Double {
+        val size = min(distribution1.size, distribution2.size)
+
+        // Build the cost matrix based on the L1 distances between points
+        val costMatrix = buildCostMatrix(distribution1, distribution2, size)
+
+        // Use the Simplex algorithm to find the optimal flow
+        val simplex = SimplexOptimizerBuilder()
+            .setSimplex(SimplexFactory.Nelder.createSimplex(size))
+            .setMaxIterations(1000)
+            .build()
+
+        val optimizer = SimplexOptimizer(simplex)
+
+        val objectiveFunction = ObjectiveFunction(EMDObjectiveFunction(costMatrix))
+        val result = optimizer.optimize(MaxIter(1000), GoalType.MINIMIZE, objectiveFunction)
+
+        return result.value
+    }
+
+}
