@@ -45,4 +45,10 @@ class LowessExample(private val xValues: DoubleArray, private val yValues: Doubl
         return weights
     }
 
+    private fun tricubeKernel(u: Double): Double {
+        val absU = Math.abs(u)
+        return if (absU <= 1) {
+            (1 - absU * absU * absU)
+        } else 0.0
+    }
 }
