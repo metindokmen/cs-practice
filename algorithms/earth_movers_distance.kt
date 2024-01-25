@@ -78,5 +78,17 @@ class EMDExample(private val distribution1: DoubleArray, private val distributio
             return flowMatrix
         }
 
+        private fun calculateTotalCost(flowMatrix: RealMatrix): Double {
+            val size = flowMatrix.rowDimension
+            var totalCost = 0.0
+
+            for (i in 0 until size) {
+                for (j in 0 until size) {
+                    totalCost += flowMatrix.getEntry(i, j) * costMatrix.getEntry(i, j)
+                }
+            }
+
+            return totalCost
+        }
     }
 }
