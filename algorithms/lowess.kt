@@ -52,3 +52,15 @@ class LowessExample(private val xValues: DoubleArray, private val yValues: Doubl
         } else 0.0
     }
 }
+
+fun main() {
+    val xValues = doubleArrayOf(1.0, 2.0, 3.0, 4.0, 5.0)
+    val yValues = doubleArrayOf(2.0, 4.0, 6.0, 8.0, 10.0)
+    val bandwith = 1.0
+
+    val lowessExample = LowessExample(xValues, yValues, bandwith)
+    val smoothedValues = lowessExample.performLowess()
+
+    println("Original Values: ${yValues.joinToString(", ")}")
+    println("Smoothed Values: ${smoothedValues.joinToString(", ")}")
+}
