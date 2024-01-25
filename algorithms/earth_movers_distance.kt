@@ -92,3 +92,13 @@ class EMDExample(private val distribution1: DoubleArray, private val distributio
         }
     }
 }
+
+fun main() {
+    val distribution1 = doubleArrayOf(0.2, 0.3, 0.1, 0.4)
+    val distribution2 = doubleArrayOf(0.1, 0.2, 0.3, 0.4)
+
+    val emdExample = EMDExample(distribution1, distribution2)
+    val emdValue = emdExample.calculateEMD()
+
+    println("Earth Mover's Distance (EMD) Value: $emdValue")
+}
