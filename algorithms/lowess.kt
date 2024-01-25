@@ -17,4 +17,21 @@ class LowessExample(private val xValues: DoubleArray, private val yValues: Doubl
         return smoothedValues
     }
 
+    private fun locallyWeightedRegression(x: Double, xValues: DoubleArray, yValues: DoubleArray, bandwidth: Double): Double {
+        val weights = calculateWeights(x, xValues, bandwidth)
+
+        var numerator = 0.0
+        var denominator = 0.0
+
+        for (i in xValues.indices) {
+            val weight = weights[i]
+            val diff = x - xValues[i]
+            val kernel = tricubeKernel(diff / bandwidth)
+            numerator += weight * yValues[i] * kernel
+            denominator += weight * kernel
+        }
+
+        return numerator / denominator
+    }
+
 }
