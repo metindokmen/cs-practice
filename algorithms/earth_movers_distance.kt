@@ -63,5 +63,20 @@ class EMDExample(private val distribution1: DoubleArray, private val distributio
             val flowMatrix = calculateFlowMatrix(x)
             return calculateTotalCost(flowMatrix)
         }
+
+        private fun calculateFlowMatrix(x: Double): RealMatrix {
+            val size = costMatrix.rowDimension
+            val flowMatrix = SparseRealMatrix(size, size)
+
+            for (i in 0 until size) {
+                for (j in 0 until size) {
+                    val flow = min(distribution1[i], distribution2[j]) * x
+                    flowMatrix.setEntry(i, j, flow)
+                }
+            }
+
+            return flowMatrix
+        }
+
     }
 }
