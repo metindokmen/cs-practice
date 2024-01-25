@@ -58,4 +58,10 @@ class EMDExample(private val distribution1: DoubleArray, private val distributio
         return costMatrix
     }
 
+    private class EMDObjectiveFunction(private val costMatrix: RealMatrix) : org.apache.commons.math3.optim.univariate.ObjectiveFunction {
+        override fun value(x: Double): Double {
+            val flowMatrix = calculateFlowMatrix(x)
+            return calculateTotalCost(flowMatrix)
+        }
+    }
 }
