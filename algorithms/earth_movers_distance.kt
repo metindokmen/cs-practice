@@ -45,4 +45,17 @@ class EMDExample(private val distribution1: DoubleArray, private val distributio
         return result.value
     }
 
+    private fun buildCostMatrix(distribution1: DoubleArray, distribution2: DoubleArray, size: Int): RealMatrix {
+        val costMatrix = SparseRealMatrix(size, size)
+
+        for (i in 0 until size) {
+            for (j in 0 until size) {
+                val distance = abs(i - j)
+                costMatrix.setEntry(i, j, distance.toDouble())
+            }
+        }
+
+        return costMatrix
+    }
+
 }
