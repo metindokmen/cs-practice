@@ -52,4 +52,15 @@ class TravelingSalesmanGeneticAlgorithm(
         }
     }
 
+    private fun mutate(population: List<List<Int>>) {
+        population.forEach { individual ->
+            if (Random.nextDouble() < mutationRate) {
+                val indices = (0 until cities.size).shuffled().take(2)
+                val temp = individual[indices[0]]
+                individual[indices[0]] = individual[indices[1]]
+                individual[indices[1]] = temp
+            }
+        }
+    }
+
 }
