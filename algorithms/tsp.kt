@@ -29,4 +29,11 @@ class TravelingSalesmanGeneticAlgorithm(
         }
     }
 
+    private fun evolvePopulation(currentPopulation: List<List<Int>>): List<List<Int>> {
+        val matingPool = selectParents(currentPopulation)
+        val newPopulation = crossover(matingPool)
+        mutate(newPopulation)
+        return newPopulation
+    }
+
 }
