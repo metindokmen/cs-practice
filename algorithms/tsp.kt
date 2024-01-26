@@ -36,4 +36,12 @@ class TravelingSalesmanGeneticAlgorithm(
         return newPopulation
     }
 
+    private fun selectParents(population: List<List<Int>>): List<Pair<List<Int>, List<Int>>> {
+        return List(populationSize) {
+            val parent1 = population.random()
+            val parent2 = population.random()
+            parent1 to parent2
+        }
+    }
+
 }
