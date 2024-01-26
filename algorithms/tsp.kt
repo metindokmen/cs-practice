@@ -63,4 +63,8 @@ class TravelingSalesmanGeneticAlgorithm(
         }
     }
 
+    private fun getBestIndividual(population: List<List<Int>>): List<Int> {
+        return population.minByOrNull { calculateRouteDistance(it) } ?: emptyList()
+    }
+
 }
