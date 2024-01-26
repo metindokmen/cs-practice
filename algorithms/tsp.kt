@@ -79,3 +79,20 @@ class TravelingSalesmanGeneticAlgorithm(
         return kotlin.math.sqrt((x2 - x1).pow(2) + (y2 - y1).pow(2))
     }
 }
+
+fun main() {
+    val cities = listOf(
+        0.0 to 0.0,
+        1.0 to 2.0,
+        3.0 to 1.0,
+        4.0 to 3.0
+    )
+
+    val populationSize = 100
+    val generations = 1000
+
+    val tspGeneticAlgorithm = TravelingSalesmanGeneticAlgorithm(cities, populationSize, generations)
+    val optimalRoute = tspGeneticAlgorithm.findOptimalRoute()
+
+    println("Optimal Route: $optimalRoute")
+}
