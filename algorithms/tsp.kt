@@ -23,4 +23,10 @@ class TravelingSalesmanGeneticAlgorithm(
         return getBestIndividual(population)
     }
 
+    private fun generateInitialPopulation(): List<List<Int>> {
+        return List(populationSize) {
+            (0 until cities.size).shuffled()
+        }
+    }
+
 }
