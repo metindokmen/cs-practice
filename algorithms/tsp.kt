@@ -67,4 +67,12 @@ class TravelingSalesmanGeneticAlgorithm(
         return population.minByOrNull { calculateRouteDistance(it) } ?: emptyList()
     }
 
+    private fun calculateRouteDistance(route: List<Int>): Double {
+        return (0 until route.size - 1).sumByDouble { i ->
+            val (x1, y1) = cities[route[i]]
+            val (x2, y2) = cities[route[i + 1]]
+            distance(x1, y1, x2, y2)
+        }
+    }
+
 }
