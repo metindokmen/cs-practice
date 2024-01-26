@@ -44,4 +44,12 @@ class TravelingSalesmanGeneticAlgorithm(
         }
     }
 
+    private fun crossover(parents: List<Pair<List<Int>, List<Int>>>): List<List<Int>> {
+        return parents.map { (parent1, parent2) ->
+            val crossoverPoint = Random.nextInt(1, cities.size)
+            val child = parent1.subList(0, crossoverPoint) + parent2.filterNot { parent1.contains(it) }
+            child
+        }
+    }
+
 }
