@@ -24,4 +24,25 @@ class KargerMinCut(private val adjacencyList: Map<Int, MutableList<Int>>) {
         // Return the size of the cut
         return adjacencyList[vertices[0]]!!.size
     }
+
+    private fun contractEdge(v1: Int, v2: Int) {
+        val neighborsV1 = adjacencyList[v1]!!
+        val neighborsV2 = adjacencyList[v2]!!
+
+        // Merge the neighbors of v2 into v1
+        neighborsV1.addAll(neighborsV2)
+        neighborsV1.remove(v2)
+
+        // Replace occurrences of v2 with v1 in other vertices' neighbor lists
+        for (neighbor in neighborsV2) {
+            adjacencyList[neighbor]!!.apply {
+                removeAll { it == v2 }
+                add(v1)
+            }
+        }
+
+        // Remove self-loops
+        neighborsV1.removeAll { it == v1 }
+        adjacencyList.remove(v2)
+    }
 }
