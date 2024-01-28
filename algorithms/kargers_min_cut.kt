@@ -46,3 +46,18 @@ class KargerMinCut(private val adjacencyList: Map<Int, MutableList<Int>>) {
         adjacencyList.remove(v2)
     }
 }
+
+fun main() {
+    // Example graph represented as an adjacency list
+    val adjacencyList = mapOf(
+        1 to mutableListOf(2, 3),
+        2 to mutableListOf(1, 3, 4),
+        3 to mutableListOf(1, 2, 4),
+        4 to mutableListOf(2, 3)
+    )
+
+    val kargerMinCut = KargerMinCut(adjacencyList)
+    val minCut = kargerMinCut.findMinCut()
+
+    println("Minimum cut size: $minCut")
+}
