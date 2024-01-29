@@ -12,3 +12,16 @@ class TrieNode {
     val children = mutableMapOf<Char, TrieNode>()
     var isEndOfWord = false
 }
+
+class Trie {
+    private val root = TrieNode()
+
+    fun insert(word: String) {
+        var currentNode = root
+        for (char in word) {
+            currentNode = currentNode.children.getOrPut(char) { TrieNode() }
+        }
+        currentNode.isEndOfWord = true
+    }
+
+}
