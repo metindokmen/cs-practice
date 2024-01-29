@@ -32,4 +32,11 @@ class Trie {
         return currentNode.isEndOfWord
     }
 
+    fun startsWith(prefix: String): Boolean {
+        var currentNode = root
+        for (char in prefix) {
+            currentNode = currentNode.children[char] ?: return false
+        }
+        return true
+    }
 }
