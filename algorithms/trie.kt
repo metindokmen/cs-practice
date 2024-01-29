@@ -40,3 +40,18 @@ class Trie {
         return true
     }
 }
+
+fun main() {
+    val trie = Trie()
+
+    trie.insert("apple")
+    trie.insert("application")
+    trie.insert("banana")
+    trie.insert("bat")
+
+    println(trie.search("apple")) // true
+    println(trie.search("banana")) // true
+    println(trie.search("orange")) // false
+    println(trie.search("app")) // true
+    println(trie.search("ora")) // false
+}
