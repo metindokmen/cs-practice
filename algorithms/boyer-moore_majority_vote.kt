@@ -31,3 +31,13 @@ fun majorityElement(nums: IntArray): Int {
 
     return if (count > nums.size / 2) candidate else -1 // Return majority element or -1 if not found
 }
+
+fun main() {
+    val nums = intArrayOf(2, 2, 1, 1, 1, 2, 2)
+    val majority = majorityElement(nums)
+    if (majority != -1) {
+        println("Majority element: $majority")
+    } else {
+        println("Majority element does not exist")
+    }
+}
