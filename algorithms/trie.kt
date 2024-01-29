@@ -24,4 +24,12 @@ class Trie {
         currentNode.isEndOfWord = true
     }
 
+    fun search(word: String): Boolean {
+        var currentNode = root
+        for (char in word) {
+            currentNode = currentNode.children[char] ?: return false
+        }
+        return currentNode.isEndOfWord
+    }
+
 }
