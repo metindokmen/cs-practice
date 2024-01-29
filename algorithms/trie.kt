@@ -7,3 +7,8 @@
 // Consider a dictionary application where users can search for words quickly.
 // Implementing autocomplete functionality allows users to see suggestions as they type.
 // A Trie data structure enables this feature by efficiently storing and retrieving words, making it suitable for such applications.
+
+class TrieNode {
+    val children = mutableMapOf<Char, TrieNode>()
+    var isEndOfWord = false
+}
