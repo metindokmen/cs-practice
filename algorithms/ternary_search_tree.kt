@@ -37,4 +37,19 @@ class TernarySearchTree {
         return currentNode
     }
 
+    fun search(word: String): Boolean {
+        return search(root, word, 0)
+    }
+
+    private fun search(node: TSTNode?, word: String, index: Int): Boolean {
+        if (node == null) return false
+
+        val char = word[index]
+        return when {
+            char < node.char -> search(node.left, word, index)
+            char > node.char -> search(node.right, word, index)
+            index < word.length - 1 -> search(node.middle, word, index + 1)
+            else -> node.isEndOfWord
+        }
+    }
 }
