@@ -20,4 +20,21 @@ class TernarySearchTree {
     fun insert(word: String) {
         root = insert(root, word, 0)
     }
+
+    private fun insert(node: TSTNode?, word: String, index: Int): TSTNode? {
+        var currentNode = node
+        if (currentNode == null) {
+            currentNode = TSTNode(word[index])
+        }
+
+        val char = word[index]
+        when {
+            char < currentNode.char -> currentNode.left = insert(currentNode.left, word, index)
+            char > currentNode.char -> currentNode.right = insert(currentNode.right, word, index)
+            index < word.length - 1 -> currentNode.middle = insert(currentNode.middle, word, index + 1)
+            else -> currentNode.isEndOfWord = true
+        }
+        return currentNode
+    }
+
 }
