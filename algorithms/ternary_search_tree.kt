@@ -6,3 +6,10 @@
 
 // Imagine you have a dictionary of words, and you want to implement autocomplete functionality in a search engine or a text editor.
 // A Ternary Search Tree can efficiently store and retrieve words, making it suitable for autocomplete functionality.
+
+class TSTNode(var char: Char) {
+    var isEndOfWord = false
+    var left: TSTNode? = null
+    var middle: TSTNode? = null
+    var right: TSTNode? = null
+}
