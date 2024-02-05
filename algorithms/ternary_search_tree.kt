@@ -13,3 +13,11 @@ class TSTNode(var char: Char) {
     var middle: TSTNode? = null
     var right: TSTNode? = null
 }
+
+class TernarySearchTree {
+    private var root: TSTNode? = null
+
+    fun insert(word: String) {
+        root = insert(root, word, 0)
+    }
+}
