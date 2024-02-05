@@ -53,3 +53,16 @@ class TernarySearchTree {
         }
     }
 }
+
+fun main() {
+    val tst = TernarySearchTree()
+    tst.insert("apple")
+    tst.insert("banana")
+    tst.insert("orange")
+    tst.insert("pear")
+
+    println(tst.search("apple")) // Expected Output: true
+    println(tst.search("banana")) // Expected Output: true
+    println(tst.search("grape")) // Expected Output: false
+    println(tst.search("pear")) // Expected Output: true
+}
