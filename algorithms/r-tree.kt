@@ -65,4 +65,14 @@ class RTree<T> {
         return result
     }
 
+    private fun search(node: RTreeNode<T>?, query: BoundingBox, result: MutableList<T>) {
+        if (node == null) return
+        if (!node.boundingBox.intersects(query)) return
+
+        if (node.children.isEmpty()) {
+            result.addAll(node.data)
+        } else {
+            node.children.forEach { search(it, query, result) }
+        }
+    }
 }
