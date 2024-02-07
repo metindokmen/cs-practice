@@ -65,3 +65,19 @@ class HopcroftKarp(val graph: List<List<Int>>, val numApplicants: Int, val numJo
         return true
     }
 }
+
+
+fun main() {
+    val numApplicants = 4
+    val numJobs = 3
+    val graph = listOf(
+        listOf(0),          // Dummy vertex for 0 index
+        listOf(1, 2),       // Applicant 1 can be matched with Job 1 or Job 2
+        listOf(1),          // Applicant 2 can be matched with Job 1
+        listOf(2, 3)        // Applicant 3 can be matched with Job 2 or Job 3
+    )
+
+    val hopcroftKarp = HopcroftKarp(graph, numApplicants, numJobs)
+    val maxMatches = hopcroftKarp.maxMatching()
+    println("Maximum Matching: $maxMatches")
+}
