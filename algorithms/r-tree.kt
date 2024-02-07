@@ -19,3 +19,12 @@ class RTreeNode<T>(
     val children: MutableList<RTreeNode<T>> = mutableListOf(),
     val data: MutableList<T> = mutableListOf()
 )
+
+class RTree<T> {
+    private var root: RTreeNode<T>? = null
+
+    fun insert(data: T, boundingBox: BoundingBox) {
+        root = insert(root, data, boundingBox)
+    }
+
+}
