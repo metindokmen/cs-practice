@@ -49,4 +49,14 @@ class RTree<T> {
         return node
     }
 
+    private fun enlargement(box1: BoundingBox, box2: BoundingBox): Double {
+        val minX = minOf(box1.minX, box2.minX)
+        val minY = minOf(box1.minY, box2.minY)
+        val maxX = maxOf(box1.maxX, box2.maxX)
+        val maxY = maxOf(box1.maxY, box2.maxY)
+        val oldArea = (box1.maxX - box1.minX) * (box1.maxY - box1.minY)
+        val newArea = (maxX - minX) * (maxY - minY)
+        return newArea - oldArea
+    }
+
 }
