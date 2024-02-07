@@ -27,4 +27,26 @@ class RTree<T> {
         root = insert(root, data, boundingBox)
     }
 
+    private fun insert(node: RTreeNode<T>?, data: T, boundingBox: BoundingBox): RTreeNode<T> {
+        if (node == null) {
+            return RTreeNode(boundingBox).apply { this.data.add(data) }
+        }
+
+        if (node.children.isEmpty()) {
+            node.data.add(data)
+            return node
+        }
+
+        // Find the child node with the minimum enlargement
+        val bestChild = node.children.minByOrNull { enlargement(it.boundingBox, boundingBox) }!!
+
+        // Recursively insert into the best child
+        val newChild = insert(bestChild, data, boundingBox)
+
+        // Update the bounding box of the parent node
+        node.boundingBox.expand(newChild.boundingBox)
+
+        return node
+    }
+
 }
