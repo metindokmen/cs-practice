@@ -76,3 +76,17 @@ class RTree<T> {
         }
     }
 }
+
+fun main() {
+    val rTree = RTree<String>()
+
+    rTree.insert("Restaurant A", BoundingBox(0.0, 0.0, 1.0, 1.0))
+    rTree.insert("Restaurant B", BoundingBox(2.0, 2.0, 3.0, 3.0))
+    rTree.insert("Restaurant C", BoundingBox(-1.0, -1.0, 0.5, 0.5))
+
+    val queryBox = BoundingBox(0.0, 0.0, 2.0, 2.0)
+    val result = rTree.search(queryBox)
+
+    println("Restaurants within the query box:")
+    result.forEach { println(it) }
+}
