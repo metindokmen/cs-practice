@@ -13,3 +13,9 @@ class BoundingBox(
     val maxX: Double,
     val maxY: Double,
 )
+
+class RTreeNode<T>(
+    val boundingBox: BoundingBox,
+    val children: MutableList<RTreeNode<T>> = mutableListOf(),
+    val data: MutableList<T> = mutableListOf()
+)
