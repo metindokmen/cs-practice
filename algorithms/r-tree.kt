@@ -59,4 +59,10 @@ class RTree<T> {
         return newArea - oldArea
     }
 
+    fun search(query: BoundingBox): List<T> {
+        val result = mutableListOf<T>()
+        search(root, query, result)
+        return result
+    }
+
 }
