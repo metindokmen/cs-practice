@@ -43,3 +43,20 @@ class BTreeNode(private val t: Int, var leaf: Boolean = true) {
         }
     }
 }
+
+class BTree(private val t: Int) {
+    var root: BTreeNode? = null
+
+    fun insert(key: Int) {
+        val r = root
+        if (r != null && r.keys.size == 2 * t - 1) {
+            val s = BTreeNode(t, leaf = false)
+            root = s
+            s.children.add(r)
+            s.splitChild(0, r)
+            s.insertNonFull(key)
+        } else {
+            r?.insertNonFull(key)
+        }
+    }
+}
