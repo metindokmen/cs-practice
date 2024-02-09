@@ -60,3 +60,11 @@ class BTree(private val t: Int) {
         }
     }
 }
+
+fun main() {
+    val bTree = BTree(3)
+    val keys = intArrayOf(10, 20, 5, 6, 12, 30, 7, 17)
+    keys.forEach { key -> bTree.insert(key) }
+    println("Sample B-tree structure after insertion:")
+    println(bTree.root?.keys)
+}
