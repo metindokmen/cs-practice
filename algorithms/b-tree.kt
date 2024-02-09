@@ -30,4 +30,16 @@ class BTreeNode(private val t: Int, var leaf: Boolean = true) {
             children[i + 1].insertNonFull(key)
         }
     }
+
+    private fun splitChild(i: Int, y: BTreeNode) {
+        val z = BTreeNode(t, y.leaf)
+        keys.add(i, y.keys[t - 1])
+        children.add(i + 1, z)
+        z.keys.addAll(y.keys.subList(t, 2 * t - 1))
+        y.keys.subList(t - 1, 2 * t - 1).clear()
+        if (!y.leaf) {
+            z.children.addAll(y.children.subList(t, 2 * t))
+            y.children.subList(t, 2 * t).clear()
+        }
+    }
 }
