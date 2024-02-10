@@ -17,3 +17,10 @@ fun encrypt(text: String, key: SecretKey): String {
     val encryptedBytes = cipher.doFinal(text.toByteArray())
     return Base64.getEncoder().encodeToString(encryptedBytes)
 }
+
+fun decrypt(encryptedText: String, key: SecretKey): String {
+    val cipher = Cipher.getInstance("AES")
+    cipher.init(Cipher.DECRYPT_MODE, key)
+    val decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encryptedText))
+    return String(decryptedBytes)
+}
