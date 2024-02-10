@@ -10,3 +10,10 @@ import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
 import javax.crypto.spec.SecretKeySpec
 import java.util.Base64
+
+fun encrypt(text: String, key: SecretKey): String {
+    val cipher = Cipher.getInstance("AES")
+    cipher.init(Cipher.ENCRYPTION_MODE, key)
+    val encryptedBytes = cipher.doFinal(text.toByteArray())
+    return Base64.getEncoder().encodeToString(encryptedBytes)
+}
