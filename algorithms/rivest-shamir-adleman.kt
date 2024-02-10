@@ -10,3 +10,17 @@ import java.security.KeyFactory
 import java.security.spec.RSAPublicKeySpec
 import java.security.spec.RSAPrivateKeySpec
 import javax.crypto.Cipher
+
+fun generateKeyPair(): Pair<RSAPublicKeySpec, RSAPublicKeySpec> {
+    val keyPairGenerator = keypairGenerator.getInstance("RSA")
+    keyPairGenerator.initialize(2048)
+    val keyPair = keyPairGenerator.generateKeyPair()
+
+    val publicKeySpec = KeyFactory.getInstance("RSA")
+        .getKeySpec(keyPair.public, RSAPublicKeySpec::class.java)
+
+    val privateKeySpec = KeyFactory.getInstance("RSA")
+        .getKeySpec(keyPair.private, RSAPrivateKeySpec::class.java)
+
+    return Pair(publicKeySpec, privateKeySpec)
+}
