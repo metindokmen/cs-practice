@@ -4,3 +4,9 @@
 
 // Consider a scenario where you need to securely transfer confidential information, such as financial transactions or personal data, over the internet.
 // AES can be employed to encrypt this data before transmission, ensuring its confidentiality even if intercepted by malicious entities.
+
+import javax.crypto.Cipher
+import javax.crypto.KeyGenerator
+import javax.crypto.SecretKey
+import javax.crypto.spec.SecretKeySpec
+import java.util.Base64
