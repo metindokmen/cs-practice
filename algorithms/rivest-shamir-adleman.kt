@@ -40,3 +40,14 @@ fun decrypt(ciphertext: ByteArray, privateKeySpec: RSAPrivateKeySpec): String {
     cipher.init(Cipher.DECRYPT_MODE, privateKey)
     return String(cipher.doFinal(ciphertext))
 }
+
+fun main() {
+    val plaintext = "Hello, RSA!"
+    val (publicKeySpec, privateKeySpec) = generateKeyPair()
+
+    val encryptedBytes = encrypt(plaintext, publicKeySpec)
+    println("Encrypted Text: ${String(encryptedBytes)}")
+
+    val decryptedBytes = decrypt(encryptedBytes, privateKeySpec)
+    println("Decrypted Text: $decryptedText")
+}
