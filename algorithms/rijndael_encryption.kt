@@ -24,3 +24,16 @@ fun decrypt(encryptedText: String, key: SecretKey): String {
     val decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encryptedText))
     return String(decryptedBytes)
 }
+
+fun main() {
+    val plaintext = "Hello, AES!"
+    val keyGenerator = KeyGenerator.getInstance("AES")
+    keyGenerator.init(128)
+    val secretKey: SecretKey = keyGenerator.generateKey()
+
+    val encryptedText = encrypt(plaintext, secretKey)
+    println("Encrypted Text: $encryptedText")
+
+    val decryptedText = decrypt(encryptedText, secretKey)
+    println("Decrypted Text: $decryptedText")
+}
