@@ -24,3 +24,11 @@ fun generateKeyPair(): Pair<RSAPublicKeySpec, RSAPublicKeySpec> {
 
     return Pair(publicKeySpec, privateKeySpec)
 }
+
+fun encrypt(plaintext: String, publicKeySpec: RSAPublicKeySpec): ByteArray {
+    val cipher = Cipher.getInstance("RSA")
+    val publicKey = KeyFactory.getInstance("RSA")
+        .generatePublic(publicKeySpec)
+    cipher.init(Cipher.ENCRYPT_MODE, publicKey)
+    return cipher.doFinal(plaintext.toByteArray())
+}
