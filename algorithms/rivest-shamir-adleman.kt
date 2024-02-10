@@ -32,3 +32,11 @@ fun encrypt(plaintext: String, publicKeySpec: RSAPublicKeySpec): ByteArray {
     cipher.init(Cipher.ENCRYPT_MODE, publicKey)
     return cipher.doFinal(plaintext.toByteArray())
 }
+
+fun decrypt(ciphertext: ByteArray, privateKeySpec: RSAPrivateKeySpec): String {
+    val cipher = Cipher.getInstance("RSA")
+    val privateKey = KeyFactory.getInstance("RSA")
+        .generatePrivate(privateKeySpec)
+    cipher.init(Cipher.DECRYPT_MODE, privateKey)
+    return String(cipher.doFinal(ciphertext))
+}
