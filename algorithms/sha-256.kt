@@ -13,3 +13,9 @@ fun sha256(input: String): String {
     val hashBytes = digest.digest(input.toByteArray())
     return hashBytes.joinToString("") { "%02x".format(it) }
 }
+
+fun main() {
+    val input = "Hello, SHA-256!"
+    val hash = sha256(input)
+    println("SHA-256 Hash of '$input': $hash")
+}
