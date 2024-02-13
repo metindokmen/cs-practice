@@ -5,3 +5,11 @@
 // Imagine you're developing a digital signature application where data integrity is crucial.
 // You can use SHA-3 to generate hash values of documents before signing them.
 // This ensures that any tampering with the document can be detected, as even a small change in the document will result in a completely different hash value.
+
+import java.security.MessageDigest
+
+fun sha3(input: String): String {
+    val digest = MessageDigest.getInstance("SHA3-256")
+    val hashBytes = digest.digest(input.toByteArray())
+    return hashBytes.joinToString("") { "%02x".format(it) }
+}
