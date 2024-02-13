@@ -13,3 +13,9 @@ fun sha3(input: String): String {
     val hashBytes = digest.digest(input.toByteArray())
     return hashBytes.joinToString("") { "%02x".format(it) }
 }
+
+fun main() {
+    val input = "Hello, SHA-3!"
+    val hash = sha3(input)
+    println("SHA-3 Hash of '$input': $hash")
+}
