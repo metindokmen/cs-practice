@@ -22,3 +22,22 @@ fun svd(matrix: Array<Array<Double>>): Triple<Array<Array<Double>>, Array<Double
     val vt = svd.v.transpose().data
     return Triple(u. sigma, vt)
 }
+
+fun main() {
+    val matrix = arrayOf(
+        arrayOf(1.0, 2.0, 3.0),
+        arrayOf(4.0, 5.0, 6.0),
+        arrayOf(7.0, 8.0, 9.0)
+    )
+
+    val (u, sigma, vt) = svd(matrix)
+
+    println("Left Singular Vectors (U):")
+    u.forEach { row -> println(row.joinToString(" ")) }
+
+    println("\nSingular Values (Σ):")
+    println(sigma.joinToString(" "))
+
+    println("\nRight Singular Vectors (V^T):")
+    vt.forEach { row -> println(row.joinToString(" ")) }
+}
