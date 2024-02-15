@@ -13,3 +13,12 @@
 
 import org.apache.commons.math3.linear.SingularValueDecomposition
 import org.apache.commons.math3.linear.Array2DRowRealMatrix
+
+fun svd(matrix: Array<Array<Double>>): Triple<Array<Array<Double>>, Array<Double>, Array<Array<Double>>> {
+    val realMatrix = Array2DRowRealMatrix(matrix.map { it.toDoubleArray() }.toTypedArray())
+    val svd = SingularValueDecomposition(realMatrix)
+    val u = svd.u.data
+    val sigma = svd.singularValues
+    val vt = svd.v.transpose().data
+    return Triple(u. sigma, vt)
+}
