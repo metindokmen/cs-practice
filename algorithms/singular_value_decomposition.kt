@@ -10,3 +10,6 @@
 // Each row represents a user, each column represents a movie, and the entries represent the ratings.
 // SVD can be used to decompose this matrix into three matrices representing latent factors such as user preferences and movie features.
 // By approximating the original matrix with a lower-rank approximation obtained from SVD, you can effectively perform dimensionality reduction while preserving the essential information needed for accurate recommendations.
+
+import org.apache.commons.math3.linear.SingularValueDecomposition
+import org.apache.commons.math3.linear.Array2DRowRealMatrix
