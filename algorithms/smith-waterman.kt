@@ -28,3 +28,14 @@ fun smithWaterman(sequence1: String, sequence2: String, matchScore: Int, mismatc
 
     return maxScore
 }
+
+fun main() {
+    val sequence1 = "ACGTACGT"
+    val sequence2 = "ACGTACGT"
+    val matchScore = 2
+    val mismatchScore = -1
+    val gapPenalty = 2
+
+    val alignmentScore = smithWaterman(sequence1, sequence2, matchScore, mismatchScore, gapPenalty)
+    println("Alignment Score: $alignmentScore")
+}
