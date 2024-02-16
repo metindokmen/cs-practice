@@ -8,3 +8,23 @@
 
 // Consider you have two DNA sequences and you want to find the optimal alignment between them, considering mutations, insertions, and deletions.
 // The Smith-Waterman algorithm can help you find the best local alignment, highlighting the regions of similarity and dissimilarity between the sequences.
+
+fun smithWaterman(sequence1: String, sequence2: String, matchScore: Int, mismatchScore: Int, gapPenalty: Int): Int {
+    val matrix = Array(sequence1.length + 1) { IntArray(sequence2.length + 1) }
+    var maxScore = 0
+
+    for (i in 1..sequence1.length) {
+        for (j in 1..sequence2.length) {
+            val match = if (sequence1[i - 1] == sequence2[j - 1]) matchScore else mismatchScore
+            matrix[i][j] = maxOf(
+                0,
+                matrix[i - 1][j - 1] + match, // match/mismatch
+                matrix[i - 1][j] - gapPenalty, // deletion
+                matrix[i][j - 1] - gapPenalty // insertion
+            )
+            maxScore = maxOf(maxScore, matrix[i][j])
+        }
+    }
+
+    return maxScore
+}
