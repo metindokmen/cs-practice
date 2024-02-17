@@ -20,3 +20,15 @@
 // The Fibonacci Heap can be used to implement a priority queue efficiently, allowing for quick insertion, deletion, and modification of tasks with different priorities.
 
 data class FibonacciNode<T>(var key: Int, val value: T, var parent: FibonacciNode<T>? = null, var child: FibonacciNode<T>? = null, var left: FibonacciNode<T>? = null, var right: FibonacciNode<T>? = null, var degree: Int = 0, var marked: Boolean = false)
+
+class FibonacciHeap<T> {
+    private var minNode: FibonacciNode<T>? = null
+
+    fun insert(key: Int, value: T) {
+        val newNode = FibonacciNode(key, value)
+        minNode = if (minNode == null) newNode else mergeList(minNode!!, newNode)
+        if (newNode.key < minNode!!.key) {
+            minNode = newNode
+        }
+    }
+}
