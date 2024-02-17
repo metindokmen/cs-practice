@@ -8,3 +8,10 @@
 // Extract-Min: Removing the minimum node from the heap requires consolidating trees and updating the minimum pointer.
 // Decrease-Key: Decreasing the key of a node involves cutting the node from its parent and potentially cascading cuts up the tree to maintain the heap property.
 // Delete: Deleting a node from the heap involves decreasing its key to negative infinity (effectively removing it from the heap) and then performing extract-min.
+
+// Amortized Time Complexity:
+// Insertion: O(1)
+// Union: O(1)
+// Extract-Min: O(log n)
+// Decrease-Key: O(1)
+// Delete: O(log n)
