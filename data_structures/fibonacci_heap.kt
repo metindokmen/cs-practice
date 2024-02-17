@@ -65,4 +65,8 @@ class FibonacciHeap<T> {
         return min.value
     }
 
+    private fun consolidate() {
+        // Implementation of consolidate operation
+    }
 }
+
