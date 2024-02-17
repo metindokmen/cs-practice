@@ -70,3 +70,10 @@ class FibonacciHeap<T> {
     }
 }
 
+fun main() {
+    val heap = FibonacciHeap<String>()
+    heap.insert(5, "Task 1")
+    heap.insert(3, "Task 2")
+    heap.insert(7, "Task 3")
+    println(heap.extractMin()) // Expected Output: Task 2
+}
