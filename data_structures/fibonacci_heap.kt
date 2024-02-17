@@ -41,4 +41,28 @@ class FibonacciHeap<T> {
         return if (a.key < b.key) a else b
     }
 
+    fun extractMin(): T? {
+        val min = minNode ?: return null
+        min.child?.let { child ->
+            var current = child
+            do {
+                current.parent = null
+                current = current.right ?: break
+            } while (current != child)
+            min.right?.left = child
+            child.right = min.right
+            min.left?.right = child
+            child.left = min.left
+        }
+        min.right = min
+        min.left = min
+        if (min.right == min) {
+            minNode = null
+        } else {
+            minNode = min.right
+            consolidate()
+        }
+        return min.value
+    }
+
 }
