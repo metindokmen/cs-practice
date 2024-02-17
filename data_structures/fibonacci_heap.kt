@@ -31,4 +31,14 @@ class FibonacciHeap<T> {
             minNode = newNode
         }
     }
+
+    private fun mergeLists(a: FibonacciNode<T>, b: FibonacciNode<T>): FibonacciNode<T> {
+        val temp = a.right
+        a.right = b.right
+        a.right!!.left = a
+        b.right = temp
+        b.right!!.left = 0
+        return if (a.key < b.key) a else b
+    }
+
 }
