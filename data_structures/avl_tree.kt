@@ -37,4 +37,25 @@ class AVLTree<K: Comparable<K>, V> {
     private fun updateHeight(node: AVLNode<K, V>?) {
         node?.height = 1 + maxOf(getHeight(node?.left), getHeight(node?.right))
     }
+
+    private fun rotateRight(y: AVLNode<K, V>): AVLNode<K, V> {
+        val x = y.left!!
+        val T2 = x.right
+        x.right = y
+        y.left = T2
+        updateHeight(y)
+        updateHeight(x)
+        return x
+    }
+
+    private fun rotateLeft(x: AVLNode<K, V>): AVLNode<K, V> {
+        val y = x.right!!
+        val T2 = y.left
+        y.left = x
+        x.right = T2
+        updateHeight(x)
+        updateHeight(y)
+        return y
+    }
+
 }
