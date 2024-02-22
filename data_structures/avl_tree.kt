@@ -21,3 +21,8 @@
 
 // Imagine you're building a dictionary application where users can quickly look up words.
 // AVL trees can be employed to store the dictionary words in a balanced manner, enabling fast search operations even with a large dataset.
+
+class AVLNode<K: Comparable<K>, V>(val key: K, var value: V, var height: Int = 1) {
+    var left: AVLNode<K, V>? = null
+    var right: AVLNode<K, V>? = null
+}
