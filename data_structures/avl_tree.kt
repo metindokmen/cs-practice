@@ -26,3 +26,15 @@ class AVLNode<K: Comparable<K>, V>(val key: K, var value: V, var height: Int = 1
     var left: AVLNode<K, V>? = null
     var right: AVLNode<K, V>? = null
 }
+
+class AVLTree<K: Comparable<K>, V> {
+    private var root: AVLNode<K, V>? = null
+
+    private fun getHeight(node: AVLNode<K, V>?): Int {
+        return node?.height ?: 0
+    }
+
+    private fun updateHeight(node: AVLNode<K, V>?) {
+        node?.height = 1 + maxOf(getHeight(node?.left), getHeight(node?.right))
+    }
+}
