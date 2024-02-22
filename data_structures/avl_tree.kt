@@ -58,4 +58,54 @@ class AVLTree<K: Comparable<K>, V> {
         return y
     }
 
+    fun insert(key: K, value: V) {
+        root = insert(root, key, value)
+    }
+
+    private fun insert(node: AVLNode<K, V>?, key: K, value: V): AVLNode<K, V> {
+        if (node == null) {
+            return AVLNode(key, value)
+        }
+
+        when {
+            key < node.key -> node.left = insert(node.left, key, value)
+            key > node.key -> node.right = insert(node.right, key, value)
+            else -> node.value = value
+        }
+
+        updateHeight(node)
+
+        val balance = getHeight(node.left) - getHeight(node.right)
+
+        if (balance > 1) {
+            if (key < node.left!!.key) {
+                return rotateRight(node)
+            } else {
+                node.left = rotateLeft(node.left!!)
+                return rotateRight(node)
+            }
+        }
+
+        if (balance < -1) {
+            if (key > node.right!!.key) {
+                return rotateLeft(node)
+            } else {
+                node.right = rotateRight(node.right!!)
+                return rotateLeft(node)
+            }
+        }
+        return node
+    }
+
+    fun search(key: K): V? {
+        var current = root
+        while (current != null) {
+            when {
+                key < current.key -> current = current.left
+                key > current.key -> current = current.right
+                else -> return current.value
+            }
+        }
+        return null
+    }
 }
