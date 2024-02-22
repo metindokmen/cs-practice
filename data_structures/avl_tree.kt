@@ -109,3 +109,11 @@ class AVLTree<K: Comparable<K>, V> {
         return null
     }
 }
+
+fun main() {
+    val avlTree = AVLTree<Int, String>()
+    avlTree.insert(10, "Ten")
+    avlTree.insert(20, "Twenty")
+    avlTree.insert(30, "Thirty")
+    println(avlTree.search(20)) // Expected Output: Twenty
+}
