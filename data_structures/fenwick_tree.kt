@@ -18,7 +18,7 @@
 // Imagine you're managing a system where you need to calculate cumulative statistics, like the total number of sales in a given period.
 // A Binary Indexed Tree can efficiently handle such queries and updates.
 
-class BTree(private val size: Int) {
+class BITree(private val size: Int) {
     private val bit = IntArray(size + 1)
 
     fun update(index: Int, delta: Int) {
@@ -38,4 +38,15 @@ class BTree(private val size: Int) {
         }
         return sum
     }
+}
+
+fun main() {
+    val arr = intArrayOf(1, 2, 3, 4, 5)
+    val bit = BITree(arr.size)
+    for (i in arr.indices) {
+        bit.update(i, arr[i])
+    }
+
+    println("Prefix sum of first 3 elements: ${bit.query(2)}") // Output: 6
+    println("Prefix sum of all elements: ${bit.query(arr.size - 1)}") // Output :15
 }
