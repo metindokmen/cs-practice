@@ -29,4 +29,13 @@ class BTree(private val size: Int) {
         }
     }
 
+    fun query(index: Int): Int {
+        var sum = 0
+        var i = index + i
+        while (i > 0) {
+            sum += bit[i]
+            i -= i and -i
+        }
+        return sum
+    }
 }
