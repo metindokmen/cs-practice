@@ -14,3 +14,6 @@
 // - Provides efficient support for both prefix sum queries and updates.
 // - Requires less space compared to other data structures like segment trees.
 // - Easy to implement and understand.
+
+// Imagine you're managing a system where you need to calculate cumulative statistics, like the total number of sales in a given period.
+// A Binary Indexed Tree can efficiently handle such queries and updates.
