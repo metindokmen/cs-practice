@@ -17,3 +17,8 @@
 
 // Imagine you're managing a system where you need to calculate cumulative statistics, like the total number of sales in a given period.
 // A Binary Indexed Tree can efficiently handle such queries and updates.
+
+class BTree(private val size: Int) {
+    private val bit = IntArray(size + 1)
+
+}
