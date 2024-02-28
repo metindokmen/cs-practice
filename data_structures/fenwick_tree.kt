@@ -21,4 +21,12 @@
 class BTree(private val size: Int) {
     private val bit = IntArray(size + 1)
 
+    fun update(index: Int, delta: Int) {
+        var i = index + 1
+        while (i <= size) {
+            bit[i] += delta
+            i += i and -i
+        }
+    }
+
 }
