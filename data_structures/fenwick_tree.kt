@@ -9,3 +9,8 @@
 // Update: Updates involve modifying the values in the Binary Indexed Tree array to reflect changes in the input sequence.
 // These updates are performed by traversing the tree using bitwise operations.
 // Query: Queries for prefix sums are efficiently answered by traversing the tree using bitwise operations to compute cumulative sums.
+
+// 3. Advantages:
+// - Provides efficient support for both prefix sum queries and updates.
+// - Requires less space compared to other data structures like segment trees.
+// - Easy to implement and understand.
