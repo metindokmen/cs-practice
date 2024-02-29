@@ -9,3 +9,8 @@
 // If there's a collision (two keys mapping to the same index), various collision resolution techniques can be employed, such as chaining or open addressing.
 // Deletion: Deleting a key-value pair involves locating the key's index using the hash function and removing the entry from the corresponding bucket.
 // Retrieval: To retrieve the value associated with a key, the hash function is applied to compute the index, and the value is fetched from the corresponding bucket.
+
+// 3. Advantages:
+// - Provides fast insertion, deletion, and retrievel operations on average (O(1)) time complexity.
+// - Versatile and widely used in various applications.
+// - Can handle large datasets efficiently when properly implemented.
