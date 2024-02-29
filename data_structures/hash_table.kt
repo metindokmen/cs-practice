@@ -17,3 +17,23 @@
 
 // Consider a library where books are organied based on their unique ISBN (International Standard Book Number).
 // A hash table can be used to efficiently manage the books by mapping each ISBN to its corresponding book details.
+
+fun main() {
+    // Create a HashMap to act as a hash table
+    val hashMap = HashMap<String, Int>()
+
+    // Insert key-value pairs
+    hashMap["apple"] = 10
+    hashMap["banana"] = 20
+    hashMap["orange"] = 15
+
+    // Retrieve values by keys
+    println("Number of apples: ${hashMap["apple"]}") // Output: Number of apples: 10
+    println("Number of bananas: ${hashMap["banana"]}") // Output: Number of bananas: 20
+
+    // Delete a key-value pair
+    hashMap.remove("orange")
+
+    // Check if a key exists
+    println("Is 'orange' present? ${hashMap.containsKey("orange")}") // Output: Is 'orange' present? false
+}
