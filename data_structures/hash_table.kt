@@ -14,3 +14,6 @@
 // - Provides fast insertion, deletion, and retrievel operations on average (O(1)) time complexity.
 // - Versatile and widely used in various applications.
 // - Can handle large datasets efficiently when properly implemented.
+
+// Consider a library where books are organied based on their unique ISBN (International Standard Book Number).
+// A hash table can be used to efficiently manage the books by mapping each ISBN to its corresponding book details.
