@@ -16,3 +16,24 @@
 // Imagine you're managing a queue at a helpdesk where customers can submit requests.
 // Each customer's request is uniquely identified by a ticket number, and you want to maintain the order in which requests are received while quickly accessing and updating the status of each request.
 // A LinkedHashMap can eficiently manage this scenario by preserving the order of insertion while allowing fast access to specific requests based on their ticket numbers.
+
+fun main() {
+    // Create a LinkedHashMap to store the order of books read by a user
+    val booksRead = LinkedHashMap<Int, String>()
+
+    // Add books read by the user along with the order
+    booksRead[1] = "The Great Gatsby"
+    booksRead[2] = "To Kill a MockingBird"
+    booksRead[3] = "1984"
+
+    // Display the order of books read by the user
+    println("Books read by the user:")
+    booksRead.forEach { (order, book) ->
+        println("$order. $book")
+    }
+
+    // Retrieve a book based on its order
+    val order = 2
+    val book = booksRead[order]
+    println("\nThe book at order $order is: $book")
+}
