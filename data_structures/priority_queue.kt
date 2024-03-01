@@ -13,3 +13,24 @@
 // - Provides efficient access to the element with the highest priority.
 // - Suitable for scenarios where elements need to be processed in a specific order based on their priority.
 // - Can be used in algorithms like Dijkstra's shortest path algorithm and Huffman coding.
+
+import java.util.PriorityQueue
+
+fun main() {
+    // Create a priority queue of integers
+    val pq = PriorityQueue<Int>()
+
+    // Insert elements into the priority queue
+    pq.offer(30)
+    pq.offer(20)
+    pq.offer(50)
+    pq.offer(10)
+
+    // Retrieve and remove the element with the highest priority
+    val highestPriorityElement = pq.poll()
+    println("Element with the highest priority: $highestPriorityElement")
+
+    // Peek at the element with the highest priority
+    val peekedElement = pq.peek()
+    println("Element iwht the highest priority after peek: $peekedElement")
+}
