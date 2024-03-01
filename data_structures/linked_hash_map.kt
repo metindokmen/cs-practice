@@ -8,3 +8,7 @@
 // It preserves the insertion order, making it suitable for scenarios where maintaining the order of elements is important.
 // Deletion: Similar to other hash map implementations, LinkedHashMap supports the deletion of key-value pairs.
 // Iteration: It provides methods to iterate over the key-value pairs in the order of insertion, enabling easy traversal of elements.
+// 3. Advantages:
+// - Preserves the insertion order of elements, making it useful for scenarios where iteration order matters.
+// - Provides fast access to elements based on keys with average O(1) time complexity for insertion, deletion, and retrieval operations.
+// - Suitable for implementing caching strategies, maintaining a history of operations, and managing ordered collections of data.
