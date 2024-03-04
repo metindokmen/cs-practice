@@ -15,3 +15,28 @@
 
 // Consider a line at a theme park where visitors enter from one end and exit from the other.
 // A deque can represent this scenario where visitors can join the line (enqueue) from either end and exit (dequeue) from either end, allowing for efficient management of the queue.
+
+import java.util.ArrayDeque
+
+fun main() {
+    // Creating a deque of strings
+    val deque = ArrayDeque<String>()
+
+    // Inserting elements into the deque from the front and the back
+    deque.addFirst("First")
+    deque.addLast("Last")
+    deque.addFirst("New First")
+
+    // Retrieving and removing elements from the front and the back
+    val removedFirst = deque.removeFirst()
+    val removedLast = deque.removeLast()
+
+    // Peeking at the elements from the front and the back
+    val peekFirst = deque.peekFirst()
+    val peekLast = deque.peekLast()
+
+    println("Removed First: $removedFirst")
+    println("Removed Last: $removedLast")
+    println("Peek First: $peekFirst")
+    println("Peek Last: $peekLast")
+}
