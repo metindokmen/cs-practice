@@ -15,3 +15,23 @@
 
 // Imagine organizing a guest list for a party where you want to ensure uniqueness while preserving the order in which guests RSVP.
 // A LinkedHashSet can be used to store the guest list, ensuring that each guest is unique and maintaining the order in which they responded.
+
+fun main() {
+    // Creating a LinkedHashSet of integers
+    val linkedHashSet = LinkedHashSet<Int>()
+
+    // Inserting elements into the LinkedHashSet
+    linkedHashSet.add(10)
+    linkedHashSet.add(20)
+    linkedHashSet.add(30)
+
+    // Adding a duplicate element
+    linkedHashSet.add(20)
+
+    // Removing an element
+    linkedHashSet.remove(20)
+
+    // Displaying the elements in the LinkedHashSet
+    println("LinkedHashSet elements:")
+    linkedHashSet.forEach { println(it) }
+}
