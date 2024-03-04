@@ -12,3 +12,6 @@
 // 3. Advantages:
 // - Guarantees uniqueness of elements while preserving their insertion order.
 // - Suitable for scenarios where both uniqueness and order of elements are required, such as maintaining a history of user actions or processing data in the order it was received.
+
+// Imagine organizing a guest list for a party where you want to ensure uniqueness while preserving the order in which guests RSVP.
+// A LinkedHashSet can be used to store the guest list, ensuring that each guest is unique and maintaining the order in which they responded.
