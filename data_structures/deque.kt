@@ -12,3 +12,6 @@
 // 3. Advantages:
 // Provides flexibility in adding and removing elements from both ends, making it suitable for scenarios where elements need to be accessed from either direction.
 // Can be used in algorithms like breadth-first search (BFS) and maintaining sliding windows in algorithms like finding maximum subarrays.
+
+// Consider a line at a theme park where visitors enter from one end and exit from the other.
+// A deque can represent this scenario where visitors can join the line (enqueue) from either end and exit (dequeue) from either end, allowing for efficient management of the queue.
