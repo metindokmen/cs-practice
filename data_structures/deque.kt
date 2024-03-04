@@ -8,3 +8,7 @@
 // 2. Implementation:
 // Deque can be implemented using various underlying data structures such as arrays, linked lists, or doubly linked lists.
 // Doubly linked lists are commonly used as they provide efficient insertion and deletion operations at both ends with O(1) time complexity.
+
+// 3. Advantages:
+// Provides flexibility in adding and removing elements from both ends, making it suitable for scenarios where elements need to be accessed from either direction.
+// Can be used in algorithms like breadth-first search (BFS) and maintaining sliding windows in algorithms like finding maximum subarrays.
