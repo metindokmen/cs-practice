@@ -13,30 +13,25 @@
 // Provides flexibility in adding and removing elements from both ends, making it suitable for scenarios where elements need to be accessed from either direction.
 // Can be used in algorithms like breadth-first search (BFS) and maintaining sliding windows in algorithms like finding maximum subarrays.
 
-// Consider a line at a theme park where visitors enter from one end and exit from the other.
-// A deque can represent this scenario where visitors can join the line (enqueue) from either end and exit (dequeue) from either end, allowing for efficient management of the queue.
+// Consider a printer job queue where new print jobs need to be added at the end of the queue while urgent print jobs may need to be inserted at the front.
+// A deque can efficiently handle both scenarios, allowing for efficient insertion and removal at both ends.
 
 import java.util.ArrayDeque
 
 fun main() {
-    // Creating a deque of strings
-    val deque = ArrayDeque<String>()
+    // Create a Deque of integers
+    val deque = ArrayDeque<Int>()
 
-    // Inserting elements into the deque from the front and the back
-    deque.addFirst("First")
-    deque.addLast("Last")
-    deque.addFirst("New First")
+    // Add elements to the front and back of the deque
+    deque.offerFirst(10)
+    deque.offerLast(20)
+    deque.offerLast(30)
+    deque.offerFirst(5)
 
-    // Retrieving and removing elements from the front and the back
-    val removedFirst = deque.removeFirst()
-    val removedLast = deque.removeLast()
+    // Remove elements from the front and back of the deque
+    val removedFirst = deque.pollFirst()
+    val removedLast = deque.pollLast()
 
-    // Peeking at the elements from the front and the back
-    val peekFirst = deque.peekFirst()
-    val peekLast = deque.peekLast()
-
-    println("Removed First: $removedFirst")
-    println("Removed Last: $removedLast")
-    println("Peek First: $peekFirst")
-    println("Peek Last: $peekLast")
+    // Display the remaining elements in the deque
+    deque.forEach { println(it) }
 }
