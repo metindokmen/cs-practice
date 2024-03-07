@@ -9,3 +9,7 @@
 // - Bitwise Operations: Perform operations like setting, clearing, or toggling specific bits.
 // - Bitwise Arithmetic: Perform arithmetic operations (addition, subtraction, multiplication, division) using bitwise operations.
 // - Bitwise Representation: Represent data compactly and efficiently, such as encoding information in network protocols or file formats.
+
+// 3. Advantages:
+// - Offers efficient and compact representation of data, especially in scenarios where memory or bandwidth is limited.
+// - Provides fast execution due to the direct manipulation of bits at the hardware level.
