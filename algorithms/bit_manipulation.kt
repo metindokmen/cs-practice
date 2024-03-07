@@ -13,3 +13,7 @@
 // 3. Advantages:
 // - Offers efficient and compact representation of data, especially in scenarios where memory or bandwidth is limited.
 // - Provides fast execution due to the direct manipulation of bits at the hardware level.
+
+
+// Consider a scenario where you need to optimize memory usage in a system by packing multiple boolean flags into a single integer variable.
+// Bit manipulation allows you to efficiently set, toggle, and check these flags without the need for separate boolean variables.
