@@ -36,4 +36,15 @@ class RadixTree {
         }
         currentNode.isEndOfWord = true
     }
+
+    fun search(key: String): Boolean {
+        var currentNode = root
+        for (char in key) {
+            if (!currentNode.children.containsKey(char)) {
+                return false
+            }
+            currentNode = currentNode.children[char]!!
+        }
+        return currentNode.isEndOfWord
+    }
 }
