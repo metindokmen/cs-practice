@@ -13,3 +13,7 @@
 // - Insertion: Insert a key into the radix tree by traversing the tree and creating nodes as necessary.
 // - Search: Search for a key by traversing the tree from the root, following edges corresponding to characters in the key.
 // - Prefix Search: Find all keys with a given prefix by traversing the tree up to the node representing the prefix and performing a depth-first search from that node.
+
+// Consider an autocomplete feature in a search engine or text editor.
+// As users type, the system needs to quickly suggest potential completions based on the entered prefix.
+// A radix tree efficiently organizes a large dictionary of words, enabling fast prefix searches.
