@@ -8,3 +8,8 @@
 // - Each node in the tree represents a character.
 // - Nodes are arranged in a hierarchical manner, with the root node at the top.
 // - Leaf nodes typically indicate the end of a key and may contain additional information associated with the key.
+
+// 3. Operations:
+// - Insertion: Insert a key into the radix tree by traversing the tree and creating nodes as necessary.
+// - Search: Search for a key by traversing the tree from the root, following edges corresponding to characters in the key.
+// - Prefix Search: Find all keys with a given prefix by traversing the tree up to the node representing the prefix and performing a depth-first search from that node.
