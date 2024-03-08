@@ -17,3 +17,8 @@
 // Consider an autocomplete feature in a search engine or text editor.
 // As users type, the system needs to quickly suggest potential completions based on the entered prefix.
 // A radix tree efficiently organizes a large dictionary of words, enabling fast prefix searches.
+
+class RadixTreeNode {
+    val children: MutableMap<Char, RadixTreeNode> = mutableMapOf()
+    var isEndOfWord: Boolean = false
+}
