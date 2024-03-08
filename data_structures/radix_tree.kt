@@ -22,3 +22,18 @@ class RadixTreeNode {
     val children: MutableMap<Char, RadixTreeNode> = mutableMapOf()
     var isEndOfWord: Boolean = false
 }
+
+class RadixTree {
+    private val root: RadixTreeNode = RadixTreeNode()
+
+    fun insert(key: String) {
+        var currentNode = root
+        for (char in key) {
+            if (!currentNode.children.containsKey(char)) {
+                currentNode.children[char] = RadixTreeNode()
+            }
+            currentNode = currentNode.children[char]!!
+        }
+        currentNode.isEndOfWord = true
+    }
+}
