@@ -47,4 +47,15 @@ class RadixTree {
         }
         return currentNode.isEndOfWord
     }
+
+    fun startsWith(prefix: String): Boolean {
+        var currentNode = root
+        for (char in prefix) {
+            if (!currentNode.children.containsKey(char)) {
+                return false
+            }
+            currentNode = currentNode.children[char]!!
+        }
+        return true
+    }
 }
