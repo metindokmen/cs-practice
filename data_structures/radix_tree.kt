@@ -59,3 +59,14 @@ class RadixTree {
         return true
     }
 }
+
+fun main() {
+    val radixTree = RadixTree()
+    radixTree.insert("apple")
+    radixTree.insert("application")
+    radixTree.insert("banana")
+
+    println("Search for 'apple": ${radixTree.search("apple")}) // Output: Search for 'apple': true
+    println("Search for 'app": ${radixTree.startsWith("app")}) // Output: Search for 'app': true
+    println("Search for 'orange": ${radixTree.search("orange")}) // Output: Search for 'orange': false
+}
