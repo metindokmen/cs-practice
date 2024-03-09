@@ -57,4 +57,26 @@ class BTree<T: Comparable<T>>(private val t: Int) {
         }
     }
 
+    private fun insertNonFull(node: BTreeNode<T>?, key: T) {
+        var i = node!!.keys.size - 1
+        if (node.leaf) {
+            while (i >= 0 && key < node.keys[i]) {
+                i--
+            }
+            node.keys.add(i + 1, key)
+        } else {
+            while (i >= 0 && key < node.keys[i]) {
+                i--
+            }
+            i++
+            if (node.children[i]!!.keys.size == 2 * t - 1) {
+                splitChild(node, i)
+                if (key > node.keys[i]) {
+                    i++
+                }
+            }
+            insertNonFull(node.children[i], key)
+        }
+    }
+
 }
