@@ -13,3 +13,8 @@
 // - Insertion: When inserting a new key, the B-Tree ensures that the tree remains balanced by splitting nodes if necessary.
 // - Deletion: Deleting a key from a B-Tree involves finding the key and removing it while maintaining the tree's balance.
 // - Search: Searching for a key in a B-Tree follows a similar process to searching in a binary search tree, but it traverses multiple levels of the tree to find the key.
+
+class BTreeNode<T: Comparable<T>>(val leaf: Boolean) {
+    val keys = mutableListOf<T>()
+    val children = mutableListOf<BTreeNode<T>>()
+}
