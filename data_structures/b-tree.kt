@@ -79,4 +79,16 @@ class BTree<T: Comparable<T>>(private val t: Int) {
         }
     }
 
+    private fun splitChild(parent: BTreeNode<T>?, i: Int) {
+        val t = this.t
+        val z = BTreeNode<T>(parent!!.children[i]!!.leaf)
+        val y = parent.children[i]
+        parent.keys.add(i, y!!.keys[t - 1])
+        parent.children.add(i + 1, z)
+        z.keys.addAll(y.keys.subList(t, 2 * t - 1))
+        if (!y.leaf) {
+            z.children.addAll(y.children.subList(t, 2 * t))
+            y.children.subList(t, 2 * t).clear()
+        }
+    }
 }
