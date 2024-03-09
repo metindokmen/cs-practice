@@ -39,4 +39,22 @@ class BTree<T: Comparable<T>>(private val t: Int) {
         }
     }
 
+    fun insert(key: T) {
+        if (root == null) {
+            root = BTreeNode<T>(true)
+            root!!.keys.add(key)
+        } else {
+            val r = root
+            if (r!!.keys.size == 2 * t - 1) {
+                val s = BTreeNode<T>(false)
+                root = s
+                s.children.add(r)
+                splitChild(s, 0)
+                insertNonFull(s, key)
+            } else {
+                insertNonFull(r, key)
+            }
+        }
+    }
+
 }
