@@ -92,3 +92,17 @@ class BTree<T: Comparable<T>>(private val t: Int) {
         }
     }
 }
+
+fun main() {
+    val bTree = BTree<Int>(2)
+    bTree.insert(10)
+    bTree.insert(20)
+    bTree.insert(5)
+    bTree.insert(6)
+    bTree.insert(12)
+    bTree.insert(30)
+    bTree.insert(7)
+
+    println("Search for 6: ${bTree.search(6)}") // Output: Search for 6: true
+    println("Search for 15: ${bTree.search(15)}") // Output: Search for 15: false
+}
