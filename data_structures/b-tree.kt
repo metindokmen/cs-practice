@@ -26,4 +26,17 @@ class BTree<T: Comparable<T>>(private val t: Int) {
         return search(root, key)
     }
 
+    private fun search(node: BTreeNode<T>?, key: T): Boolean {
+        if (node == null) return false
+        var i = 0
+        while (i < node.keys.size && key > node.keys[i]) {
+            i++
+        }
+        return when {
+            i < node.keys.size && key == node.keys[i] -> true
+            node.leaf -> false
+            else -> search(node.children[i], key)
+        }
+    }
+
 }
