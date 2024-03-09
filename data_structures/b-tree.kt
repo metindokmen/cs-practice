@@ -18,3 +18,12 @@ class BTreeNode<T: Comparable<T>>(val leaf: Boolean) {
     val keys = mutableListOf<T>()
     val children = mutableListOf<BTreeNode<T>>()
 }
+
+class BTree<T: Comparable<T>>(private val t: Int) {
+    private var root: BTreeNode<T>? = null
+
+    fun search(key: T): Boolean {
+        return search(root, key)
+    }
+
+}
