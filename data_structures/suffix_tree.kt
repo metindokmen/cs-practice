@@ -49,3 +49,12 @@ class SuffixTree {
         return true
     }
 }
+
+fun main() {
+    val text = "banana"
+    val suffixTree = SuffixTree()
+    suffixTree.buildSuffixTree(text)
+
+    val pattern = "nan"
+    println("Pattern '$pattern' found in text: ${suffixTree.searchPattern(pattern)}")
+}
