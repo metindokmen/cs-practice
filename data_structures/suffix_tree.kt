@@ -38,4 +38,14 @@ class SuffixTree {
         }
     }
 
+    fun searchPattern(pattern: String): Boolean {
+        var currentNode = root
+        for (char in pattern) {
+            if (!currentNode.children.containsKey(char)) {
+                return false
+            }
+            currentNode = currentNode.children[char]!!
+        }
+        return true
+    }
 }
