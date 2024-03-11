@@ -15,3 +15,10 @@
 
 // Consider a text editor that needs to provide functionalities like searching for occurrences of a particular word or finding the longest repeated substring.
 // Suffix trees can efficiently handle these tasks by representing all suffixes of a given string.
+
+class SuffixTreeNode(var start: Int, var end: Int)
+
+class SuffixTree {
+    private val root: SuffixTreeNode = SuffixTreeNode(-1, -1)
+
+}
