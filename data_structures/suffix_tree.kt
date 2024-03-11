@@ -12,3 +12,6 @@
 // - Construction: Build the suffix tree from a given string. Various algorithms like Ukkonen's algorithm are available for constructing suffix trees efficiently.
 // - Pattern Matching: Find occurences of a pattern within the original string by traversing the suffix tree.
 // - Longest Common Substring: Determine the longest common substring shared by two or more strings by finding the deepest internal node with leaf nodes from all input strings.
+
+// Consider a text editor that needs to provide functionalities like searching for occurrences of a particular word or finding the longest repeated substring.
+// Suffix trees can efficiently handle these tasks by representing all suffixes of a given string.
