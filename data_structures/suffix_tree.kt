@@ -21,4 +21,21 @@ class SuffixTreeNode(var start: Int, var end: Int)
 class SuffixTree {
     private val root: SuffixTreeNode = SuffixTreeNode(-1, -1)
 
+    fun buildSuffixTree(text: String) {
+        for (i in text.indices) {
+            insertSuffix(text.substring(i), i)
+        }
+    }
+
+    private fun insertSuffix(suffix: String, index: Int) {
+        var currentNode = root
+        for (char in suffix) {
+            if (!currentNode.children.containsKey(char)) {
+                currentNode.children[char] = SuffixTreeNode(index, text.length - 1)
+                return
+            }
+            currentNode = currentNode.children[char]!!
+        }
+    }
+
 }
