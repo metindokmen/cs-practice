@@ -16,3 +16,12 @@
 // - Lookup: Search for a key in the TrieMap. Traverse down the trie following the characters in the key and check if the key exists at the leaf node.
 // - Prefix Search: Find all keys with a given prefix efficiently by traversing down the trie to the node representing the prefix and then performing a depth-first search to collect keys from the subtree rooted at that node.
 // - Deletion: Remove a key-value pair from the TrieMap. Traverse down the trie to find the key and delete it from the leaf node.
+
+class TrieMapNode(var value: Int? = null) {
+    val children: MutableMap<Char, TrieMapNode> = mutableMapOf()
+}
+
+class TrieMap {
+    private val root: TrieMapNode = TrieMapNode()
+
+}
