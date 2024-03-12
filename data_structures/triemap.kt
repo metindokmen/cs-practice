@@ -46,4 +46,17 @@ class TrieMap {
         return currentNode.value
     }
 
+    fun prefixSearch(prefix: String): List<Pair<String, Int>> {
+        val result = mutableListOf<Pair<String, Int>>()
+        var currentNode = root
+        for (char in prefix) {
+            if (!currentNode.children.containsKey(char)) {
+                return emptyList()
+            }
+            currentNode = currentNode.children[char]!!
+        }
+        dfs(currentNode, prefix, result)
+        return result
+    }
+
 }
