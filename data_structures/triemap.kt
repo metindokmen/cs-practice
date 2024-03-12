@@ -59,4 +59,12 @@ class TrieMap {
         return result
     }
 
+    private fun dfs(node: TrieMapNode, prefix: String, result: MutableList<Pair<String, Int>>) {
+        if (node.value != null) {
+            result.add(prefix to node.value!!)
+        }
+        for ((char, child) in node.children) {
+            dfs(child, prefix + char, result)
+        }
+    }
 }
