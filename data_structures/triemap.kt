@@ -24,4 +24,14 @@ class TrieMapNode(var value: Int? = null) {
 class TrieMap {
     private val root: TrieMapNode = TrieMapNode()
 
+    fun insert(key: String, value: Int) {
+        var currentNode = root
+        for (char in key) {
+            if (!currentNode.children.containsKey(char)) {
+                currentNode.children[char] = TrieMapNode()
+            }
+            currentNode = currentNode.children[char]!!
+        }
+        currentNode.value = value
+    }
 }
