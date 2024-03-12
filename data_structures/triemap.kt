@@ -34,4 +34,16 @@ class TrieMap {
         }
         currentNode.value = value
     }
+
+    fun search(key: String): Int? {
+        var currentNode = root
+        for (char in key) {
+            if (!currentNode.children.containsKey(char)) {
+                return null
+            }
+            currentNode = currentNode.children[char]!!
+        }
+        return currentNode.value
+    }
+
 }
