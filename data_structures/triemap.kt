@@ -68,3 +68,13 @@ class TrieMap {
         }
     }
 }
+
+fun main() {
+    val trieMap = TrieMap()
+    trieMap.insert("apple", 10)
+    trieMap.insert("app", 5)
+    trieMap.insert("application", 20)
+
+    println("Search 'apple': ${trieMap.search("apple")}")
+    println("Prefix search 'app': ${trieMap.prefixSearch("app")}")
+}
