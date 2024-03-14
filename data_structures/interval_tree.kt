@@ -26,3 +26,31 @@ class IntervalTreeNode(
     var left: IntervalTreeNode? = null,
     var right: IntervalTreeNode? = null
 )
+
+class IntervalTree(intervals: List<Interval>) {
+    private var root: IntervalTreeNode? = null
+
+    init {
+        intervals.forEach { insert(it) }
+    }
+
+    fun insert(interval: Interval) {
+        root = insertHelper(root, interval)
+    }
+
+    private fun insertHelper(node: IntervalTreeNode?, interval: Interval): IntervalTreeNode {
+        if (node == null) {
+            return IntervalTreeNode(interval, interval.end)
+        }
+
+        if (interval.start < node.interval.start) {
+            node.left = insertHelper(node.left, interval)
+        } else {
+            node.right = insertHelper(node.right, interval)
+        }
+
+        node.maxEnd = maxOf(node.maxEnd, interval.end)
+        return node
+    }
+
+}
