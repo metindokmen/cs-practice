@@ -14,3 +14,6 @@
 // - Deletion: Remove an interval from the interval tree, adjusting the tree structure as necessary.
 // - Overlap Search: Given an interval, find all intervals in the tree that overlap with it. This is done by traversing the tree and comparing intervals' start and end points.
 // - Point Query: Given a point, find all intervals in the tree that contain that point. This operation is facilitated by checking if the point lies within the intervals' range stored in each node.
+
+// Consider a calendar application where events are represented as time intervals.
+// An interval tree can be employed to efficiently handle queries such as finding all events happening at a specific time or determining overlapping events.
