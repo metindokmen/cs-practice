@@ -17,3 +17,12 @@
 
 // Consider a calendar application where events are represented as time intervals.
 // An interval tree can be employed to efficiently handle queries such as finding all events happening at a specific time or determining overlapping events.
+
+data class Interval(val start: Int, val end: Int)
+
+class IntervalTreeNode(
+    val interval: Interval,
+    val maxEnd: Int,
+    var left: IntervalTreeNode? = null,
+    var right: IntervalTreeNode? = null
+)
