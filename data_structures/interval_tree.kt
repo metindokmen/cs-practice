@@ -74,3 +74,20 @@ class IntervalTree(intervals: List<Interval>) {
         }
     }
 }
+
+fun main() {
+    val intervals = listOf(
+            Interval(15, 20),
+            Interval(10, 30),
+            Interval(17, 19),
+            Interval(5, 20),
+            Interval(12, 15),
+            Interval(30, 40)
+    )
+
+    val intervalTree = IntervalTree(intervals)
+
+    val queryInterval = Interval(14, 16)
+    val overlappingIntervals = intervalTree.searchOverlap(queryInterval)
+    println("Intervals overlapping with $queryInterval: $overlappingIntervals")
+}
