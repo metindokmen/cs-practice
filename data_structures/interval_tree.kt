@@ -53,4 +53,24 @@ class IntervalTree(intervals: List<Interval>) {
         return node
     }
 
+    fun searchOverlap(interval: Interval): List<Interval> {
+        val result = mutableListOf<Interval>()
+        searchOverlapHelper(root, interval, result)
+        return result
+    }
+
+    private fun searchOverlapHelper(node: IntervalTreeNode?, interval: Interval, result: MutableList<Interval>) {
+        if (node == null) return
+
+        if (node.interval.start <= interval.end && node.interval.end >= interval.start) {
+            result.add(node.interval)
+        }
+
+        if (node.left != null && node.left!!.maxEnd >= interval.start) {
+            searchOverlapHelper(node.left, interval, result)
+        }
+        if (node.right != null && node.right!!.interval.start <= interval.end) {
+            searchOverlapHelper(node.right, interval, result)
+        }
+    }
 }
