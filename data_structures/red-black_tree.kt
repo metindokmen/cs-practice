@@ -57,4 +57,42 @@ class RedBlackTree {
         x.right = y
         y.parent = x
     }
+
+    private fun insertFixup(z: Node) {
+        var node = z
+        while (node.parent != null && node.parent!!.color == Color.RED) {
+            if (node.parent == node.parent!!.parent!!.left) {
+                node.parent!!.color = Color.BLACK
+                y.color = Color.BLACK
+                node.parent!!.parent!!.color = Color.RED
+                node = node.parent!!.parent!!
+            } else {
+                if (node == node.parent!!.right) {
+                    node = node.parent!!
+                    leftRotate(node)
+                }
+                node.parent!!.color = Color.BLACK
+                node.parent!!.parent!!.color = Color.RED
+                rightRotate(node.parent!!.parent!!)
+            }
+        } else {
+            val y = node.parent!!.parent!!.left
+            if (y != null && y.color == Color.RED) {
+                node.parent!!.color = Color.BLACK
+                y.color = Color.BLACK
+                node.parent!!.parent!!.color = Color.RED
+                node = node.parent!!.parent!!
+            } else {
+                if (node == node.parent!!.left) {
+                    node = node.parent!!
+                    rightRotate(node)
+                }
+                node.parent!!.color = Color.BLACK
+                node.parent!!.parent!!.color = Color.RED
+                leftRotate(node.parent!!.parent!!)
+            }
+        }
+        root!!.color = Color.BLACK
+    }
+
 }
