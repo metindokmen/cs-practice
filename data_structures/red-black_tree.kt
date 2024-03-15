@@ -40,4 +40,21 @@ class RedBlackTree {
         x.parent = y
     }
 
+    private fun rightRotate(y: Node) {
+        val x = y.left!!
+        y.left = x.right
+        if (x.right != null) {
+            x.right!!.parent = y
+        }
+        x.parent = y.parent
+        if (y.parent == null) {
+            root = x
+        } else if (y == y.parent!!.left) {
+            y.parent!!.left = x
+        } else {
+            y.parent!!.right = x
+        }
+        x.right = y
+        y.parent = x
+    }
 }
