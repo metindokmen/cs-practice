@@ -95,4 +95,23 @@ class RedBlackTree {
         root!!.color = Color.BLACK
     }
 
+    fun insert(key: Int) {
+        val z = Node(key, Color.RED)
+        var y: Node? = null
+        var x = root
+        while (x != null) {
+            y = x
+            x = if (z.key < x.key) x.left else x.right
+        }
+        z.parent = y
+        if (y == null) {
+            root = z
+        } else if (z.key < y.key) {
+            y.left = z
+        } else {
+            y.right = z
+        }
+        insertFixup(z)
+    }
+
 }
