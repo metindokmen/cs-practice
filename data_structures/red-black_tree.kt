@@ -18,3 +18,26 @@
 enum class Color { RED, BLACK }
 
 data class Node(var key: Int, var color: Color, var left: Node? = null, var right: Node? = null, var parent: Node? = null)
+
+class RedBlackTree {
+    private var root: Node? = null
+
+    private fun leftRotate(x: Node) {
+        val y = x.right!!
+        x.right = y.left
+        if (y.left != null) {
+            y.left!!.parent = x
+        }
+        y.parent = x.parent
+        if (x.parent == null) {
+            root = y
+        } else if (x == x.parent!!.left) {
+            x.parent!!.left = y
+        } else {
+            x.parent!!.right = y
+        }
+        y.left = x
+        x.parent = y
+    }
+
+}
