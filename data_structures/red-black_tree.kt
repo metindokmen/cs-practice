@@ -114,4 +114,13 @@ class RedBlackTree {
         insertFixup(z)
     }
 
+    private fun transplant(u: node?, v: Node?) {
+        when {
+            u?.parent == null -> root = v
+            u == u.parent!!.left -> u.parent!!.left = v
+            else -> u.parent!!.right = v
+        }
+        v?.parent = u?.parent
+    }
+
 }
