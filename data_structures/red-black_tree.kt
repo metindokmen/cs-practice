@@ -216,4 +216,31 @@ class RedBlackTree {
         node?.color = Color.BLACK
     }
 
+    private fun search(x: Node?, key: Int): Node? {
+        var node = x
+        while (node != null && key != node.key) {
+            node = if (key < node.key) node.left else node.right
+        }
+        return node
+    }
+
+    private fun minimum(x: Node): Node {
+        var node = x
+        while (node.left != null) {
+            node = node.left!!
+        }
+        return node
+    }
+
+    fun inorderTraversal() {
+        inorder(root)
+    }
+
+    private fun inorder(x: Node?) {
+        if (x != null) {
+            inorder(x.left)
+            println("Key ${x.key}, Color: ${x.color}")
+            inorder(x.right)
+        }
+    }
 }
