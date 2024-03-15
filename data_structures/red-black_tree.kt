@@ -160,4 +160,60 @@ class RedBlackTree {
         }
     }
 
+    private fun deleteFixup(x: Node?) {
+        var node = x
+        while (node != root && node?.color == Color.BLACK) {
+            if (node == node?.parent?.left) {
+                var w = node?.parent?.right
+                if (w?.color == Color.RED) {
+                    w.color = Color.BLACK
+                    node.parent?.color = Color.RED
+                    leftRotate(node.parent!!)
+                    w = node.parent?.right
+                }
+                if (w?.left?.color == Color.BLACK && w.right?.color == Color.BLACK) {
+                    w.color = Color.RED
+                    node = node.parent
+                } else {
+                    if (w?.right?.color == Color.BLACK) {
+                        w.left?.color = Color.BLACK
+                        w.color = Color.RED
+                        rightRotate(w)
+                        w = node.parent?.right
+                    }
+                    w?.color = node?.parent?.color
+                    node?.parent?.color = Color.BLACK
+                    w?.right?.color = Color.BLACK
+                    leftRotate(node?.parent!!)
+                    node = root
+                }
+            } else {
+                var w = node?.parent?.left
+                if (w?.color == Color.RED) {
+                    w.color = Color.BLACK
+                    node.parent?.color = Color.RED
+                    rightRotate(node.parent!!)
+                    w = node.parent?.left
+                }
+                if (w?.right?.color == Color.BLACK && w.left?.color == Color.BLACK) {
+                    w.color = Color.RED
+                    node = node.parent
+                } else {
+                    if (w?.left?.color == Color.BLACK) {
+                        w.right?.color = Color.BLACK
+                        w.color = Color.RED
+                        leftRotate(w)
+                        w = node.parent?.left
+                    }
+                    w?.color = node?.parent?.color
+                    node?.parent?.color = Color.BLACK
+                    w?.left?.color = Color.BLACK
+                    rightRotate(node?.parent!!)
+                    node = root
+                }
+            }
+        }
+        node?.color = Color.BLACK
+    }
+
 }
