@@ -244,3 +244,20 @@ class RedBlackTree {
         }
     }
 }
+
+fun main() {
+    val rbTree = RedBlackTree()
+    val keys = listOf(10, 20, 30, 40, 50, 60, 70)
+
+    // Insertion
+    for (key in keys) {
+        rbTree.insert(key)
+    }
+
+    println("Inorder Traversal")
+    rbTree.inorderTraversal()
+
+    rbTree.delete(30)
+    println("Inorder Traversal after deletion of 30:")
+    rbTree.inorderTraversal()
+}
