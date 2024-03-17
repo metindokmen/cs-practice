@@ -12,3 +12,20 @@
 // 3. Operations:
 // - Increment: When an item is encountered in the stream, its frequency count is incremented in each counter location determined by the hash functions.
 // - Estimate: To estimate the frequency of an item, its hashed values are used to retrieve the counts from the corresponding counter locations, and the minimum count among all locations is considered as the estimated frequency.
+
+import kotlin.math.absoluteValue
+
+class CountMinSketch(private val width: Int, private val depth: Int) {
+    private val sketch: Array<IntArray> = Array(depth) { IntArray(width) }
+
+    init {
+        require(width > 0 && depth > 0) { "Width and depth must be positive integers." }
+    }
+
+    private fun hash(index: Int, value: String): Int {
+        // Simple hash function combining index and value
+        return (index * value.toHashCode().absoluteValue % width)
+    }
+
+
+}
