@@ -27,5 +27,19 @@ class CountMinSketch(private val width: Int, private val depth: Int) {
         return (index * value.toHashCode().absoluteValue % width)
     }
 
+    fun increment(value: String) {
+        repeat(depth) { 1 ->
+            val hashValue = hash(i, value)
+            sketch[i][hashValue]++
+        }
+    }
 
+    fun estimate(value: String): Int {
+        var minCount = Int.MAX_VALUE
+        repeat(depth) { i ->
+            val hashValue = hash(i, value)
+            minCount = minOf(minCount, sketch[i][hashValue])
+        }
+        return minCount
+    }
 }
