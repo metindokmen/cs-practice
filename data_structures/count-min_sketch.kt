@@ -43,3 +43,23 @@ class CountMinSketch(private val width: Int, private val depth: Int) {
         return minCount
     }
 }
+
+fun main() {
+    val width = 1000 // Width of the sketch
+    val depth = 5    // Depth of the sketch (number of hash functions)
+
+    val cms = CountMinSketch(width, depth)
+
+    // Example data stream
+    val dataStream = listOf("apple", "banana", "apple", "orange", "apple", "banana", "banana")
+
+    // Increment frequency counts in the Count-Min Sketch
+    for (item in dataStream) {
+        cms.increment(item)
+    }
+
+    println("Frequency Estimates:")
+    println("Apple: ${cms.estimate("apple")}")
+    println("Banana: ${cms.estimate("banana")}")
+    println("Orange: ${cms.estimate("orange")}")
+}
