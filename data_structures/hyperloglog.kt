@@ -35,4 +35,20 @@ class HyperLogLog(private val precision: Int) {
         return cardinalityEstimate
     }
 
+    private fun calculateHarmonicMean(): Double {
+        var sum = 0.0
+        for (register in registers) {
+            sum += 1.0 / (1 shl register)
+        }
+        return sum
+    }
+
+    private fun getAlpha(precision: Int): Double {
+        return when (precision) {
+            4 -> 0.673
+            5 -> 0.697
+            6 -> 0.709
+            else -> 0.7213 / (1 + 1.079 / (1 shl precision))
+        }
+    }
 }
