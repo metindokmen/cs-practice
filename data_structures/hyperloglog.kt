@@ -3,3 +3,7 @@
 // 1. Concept:
 // - HyperLogLog (HLL) is a probabilistic algorithm designed to estimate the cardinality (number of distinct elements) of a multiset with a high accuracy rate using minimal memory space.
 // - It works by hashing elements of the multiset and maintaining a set of registers to estimate the number of leading zeros in the binary representation of hash values.
+
+// 2. Structure:
+// - HLL uses a set of registers (usually represented as an array) to store information about the leading zero count for hashed values.
+// - The number of registers and the precision of the leading zero count determine the accuracy of the cardinality estimation.
