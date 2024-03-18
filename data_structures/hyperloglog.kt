@@ -28,4 +28,11 @@ class HyperLogLog(private val precision: Int) {
         registers[index] = maxOf(registers[index], leadingZeros)
     }
 
+    fun estimate(): Double {
+        val alpha = getAlpha(precision)
+        val harmonicMean = calculateHarmonicMean()
+        val cardinalityEstimate = alpha * (1 / harmonicMean)
+        return cardinalityEstimate
+    }
+
 }
