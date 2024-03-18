@@ -12,6 +12,7 @@
 // - Add: When an element is encountered in the multiset, its hash value is computed, and the leading zero count is updated in the corresponding register.
 // - Estimate: To estimate the cardinality, the harmonic mean of the register values is computed, and a correction factor is applied to account for bias introduced by register collisions.
 
+import com.sun.net.httpserver.HttpPrincipal
 import kotlin.math.ln
 
 class HyperLogLog(private val precision: Int) {
@@ -51,4 +52,19 @@ class HyperLogLog(private val precision: Int) {
             else -> 0.7213 / (1 + 1.079 / (1 shl precision))
         }
     }
+}
+
+fun main() {
+    val precision = 10 // Precision level (controls memory usage and accuracy)
+    val hll = HyperLogLog(precision)
+
+    // Example data stream
+    val dataStream = listOf("apple", "banana", "apple", "orange", "apple", "banana", "banana")
+
+    // Add elements to HyperLogLog
+    dataStream.forEach { element -> hll.add(element) }
+
+    // Estimate cardinality
+    val estimatedCardinality = hll.estimate()
+    println("Estimated cardinality: $estimatedCardinality")
 }
