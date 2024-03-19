@@ -10,3 +10,7 @@
 // - Compare the target value with the element at index `fibM2` in the array.
 // - If the target value is less than the element at index `fibM2`, search in the subarray to the left of `fibM2` using recursive Fibonacci search with `fibM1` and `fibM2 - fibM1`
 // - If the target value is greater than the element at index `fibM2`, search in the subarray to the right of `fibM2` using recursive Fibonacci search with `fibM1` and `fibM2`.
+
+// Imagine you have a library of books sorted alphabetically by title.
+// You want to find a particular book but don't know its exact location.
+// Using Fibonacci Search, you can quickly narrow down the section of the library where the book might be located, making the search process more efficient.
