@@ -41,3 +41,14 @@ fun fibonacciSearch(arr: IntArray, x: Int): Int {
     }
     return if (fibM1 == 1 && arr[offset + 1] == x) offset + 1 else - 1
 }
+
+fun main() {
+    val arr = intArrayOf(10, 22, 35, 40, 45, 50, 80, 82, 85, 90, 100)
+    val x = 85
+    val index = fibonacciSearch(arr, x)
+    if (index != -1) {
+        println("Element $x found at index $index")
+    } else {
+        println("Element $x not found in the array")
+    }
+}
