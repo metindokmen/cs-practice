@@ -14,3 +14,30 @@
 // Imagine you have a library of books sorted alphabetically by title.
 // You want to find a particular book but don't know its exact location.
 // Using Fibonacci Search, you can quickly narrow down the section of the library where the book might be located, making the search process more efficient.
+
+fun fibonacciSearch(arr: IntArray, x: Int): Int {
+    val n = arr.size
+    var fibM2 = 0 // (m-2)'th Fibonacci Number
+    var fibM1 = 1 // (m-1)'th Fibonacci Number
+    var fibM = fibM1 - fibM2 // m'th Fibonacci Number
+    while (fibM < n) {
+        fibM2 = fibM1
+        fibM1 = fibM
+        fibM = fibM1 + fibM2
+    }
+    var offset = -1
+    while (fibM > 1) {
+        val i = minOf(offset + fibM2, n - 1)
+        if (arr[i] < x) {
+            fibM = fibM1
+            fibM1 = fibM2
+            fibM2 = fibM - fibM1
+            offset = i
+        } else if (arr[i] > x) {
+            fibM = fibM2
+            fibM1 -= fibM2
+            fibM2 = fibM - fibM1
+        } else return i
+    }
+    return if (fibM1 == 1 && arr[offset + 1] == x) offset + 1 else - 1
+}
