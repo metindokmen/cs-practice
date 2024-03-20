@@ -23,3 +23,14 @@ fun hashCycle(head: ListNode?): Boolean {
         return false // No cycle found
     }
 }
+
+fun main() {
+    // Create a linked list with a cycle
+    val head = ListNode(3)
+    head.next = ListNode(2)
+    head.next?.next = ListNode(0)
+    head.next?.next?.next = ListNode(-4)
+    head.next?.next?.next?.next = head.next // Create a cycle
+
+    println("Linked list has a cycle ${hashCycle(head)}")
+}
