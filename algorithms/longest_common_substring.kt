@@ -27,3 +27,9 @@ fun longestCommonSubstring(text1: String, text2: String): String {
 
     return text1.substring(endIndex - maxLength, endIndex)
 }
+
+fun main() {
+    val text1 = "dynamic programming"
+    val text2 = "programmer"
+    println("Longest Common Substring: ${longestCommonSubstring(text1, text2)}")
+}
