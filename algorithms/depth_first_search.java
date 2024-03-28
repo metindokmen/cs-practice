@@ -47,3 +47,24 @@ class Graph {
         DFSUtil(v, visited);
     }
 }
+
+public class Main {
+    public static void main(String args[]) {
+        // Create a graph given in the sample
+        Graph g = new Graph(4);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(1, 2);
+        g.addEdge(2, 0);
+        g.addEdge(2, 3);
+        g.addEdge(3, 3);
+
+        System.out.println("Depth First Traversal " + "(starting from vertex 2)");
+
+        g.DFS(2);
+
+        // Expected Output:
+        // Depth First Traversal (starting from vertex 2)
+        // 2 0 1 3
+    }
+}
