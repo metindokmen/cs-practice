@@ -18,3 +18,61 @@ class TreeNode {
         this.right = null;
     }
 }
+
+public class BinarySearchTree {
+    private TreeNode root;
+
+    public BinarySearchTree() {
+        this.root = null;
+    }
+
+    public void insert(int key) {
+        root = insertRec(root, key);
+    }
+
+    private TreeNode insertRec(TreeNode root, int key) {
+        if (root == null) {
+            root = new TreeNode(key);
+            return root;
+        }
+
+        if (key < root.key) {
+            root.left = insertRec(root.left, key);
+        } else if (key > root.key) {
+            root.right = insertRec(root.right, key);
+        }
+
+        return root;
+    }
+
+    public boolean search(int key) {
+        return searchRec(root, key);
+    }
+
+    public boolean searchRec(TreeNode root, int key) {
+        if (root == null) {
+            return false;
+        }
+
+        if (root.key == key) {
+            return true;
+        } else if (key < root.key) {
+            return searchRec(root.left, key);
+        } else {
+            return searchRec(root.right, key);
+        }
+    }
+
+    public static void main(String[] args) {
+        BinarySearchTree bst = new BinarySearchTree();
+
+        bst.insert(50);
+        bst.insert(30);
+        bst.insert(70);
+        bst.insert(20);
+        bst.insert(40);
+
+        System.out.println("Search for 30: " + bst.search(30));
+        System.out.println("Search for 60: " + bst.search(60));
+    }
+}
