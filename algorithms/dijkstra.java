@@ -66,3 +66,23 @@ class Graph {
         return distances;
     }
 }
+
+public class DijkstraAlgorithm {
+    public static void main(String[] args) {
+        Graph graph = new Graph();
+
+        graph.addEdge(1, 2, 5);
+        graph.addEdge(1, 3, 9);
+        graph.addEdge(2, 3, 2);
+        graph.addEdge(2, 4, 6);
+        graph.addEdge(3, 4, 3);
+
+        // Compute shortest paths from node 1 (source)
+        Map<Integer, Integer> shortestDistances = graph.dijkstra(1);
+
+        // Print shortest distances from node 1 to all other nodes
+        for (Map.Entry<Integer, Integer> entry : shortestDistances.entrySet()) {
+            System.out.println("Shortest distance from node 1 to " + entry.getKey() + ": " + entry.getValue());
+        }
+    }
+}
