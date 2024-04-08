@@ -18,3 +18,25 @@ class ListNode {
         this.next = null;
     }
 }
+
+public class CycleDetection {
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return false; // No cycle if list is empty or has only one node
+        }
+
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while (fast != null && fast.next != null) {
+            if (slow == fast) {
+                return true; // Cycle detected
+            }
+            slow = slow.next; // Move slow pointer one step
+            fast = fast.next.next; // Move fast pointer two steps
+        }
+
+        return false; // No cycle found
+    }
+
+}
