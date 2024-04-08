@@ -28,4 +28,12 @@ public class ShellSort {
         }
     }
 
+    public static void main(String[] args) {
+        int[] arr = { 64, 34, 25, 12, 22, 11, 90 };
+        System.out.println("Original Array: " + Arrays.toString(arr));
+
+        shellSort(arr);
+
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+    }
 }
