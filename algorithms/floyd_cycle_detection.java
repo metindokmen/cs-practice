@@ -39,4 +39,17 @@ public class CycleDetection {
         return false; // No cycle found
     }
 
+    public static void main(String[] args) {
+        // Create a linked list with a cycle
+        ListNode head = new ListNode(3);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(-4);
+        head.next.next.next.next = head.next; // Create a cycle from -4 back to 2
+
+        CycleDetection detector = new CycleDetection();
+        boolean hasCycle = detector.hasCycle(head);
+
+        System.out.println("Does the linked list have a cycle? " + hasCycle);
+    }
 }
