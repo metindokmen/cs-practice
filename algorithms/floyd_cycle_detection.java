@@ -8,3 +8,13 @@
 // Imagine a scenario where you have a circular track and multiple runners are jogging on this track.
 // Some runners might be faster than others.
 // The challenge is to determine if any two runners will meet each other at some point on the track.
+
+class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+}
