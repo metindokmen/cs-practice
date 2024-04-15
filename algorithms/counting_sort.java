@@ -7,3 +7,5 @@
 // 2. Computing Cumulative Counts: Calculate cumulative counts to determine the position of each element in the sorted array.
 // 3. Sorting: Place each element into its correct position in the output array based on the cumulative counts.
 
+// Consider sorting exam scores (ranging from 0 to 100) obtained by students in a class.
+// Counting Sort can efficiently sort these scores since they fall within a specific range.
