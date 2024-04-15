@@ -47,4 +47,12 @@ public class CountingSort {
         System.arraycopy(output, 0, arr, 0, n);
     }
 
+    public static void main(String[] args) {
+        int[] arr = { 4, 2, 2, 8, 3, 3, 1 };
+        System.out.println("Original Array: " + Arrays.toString(arr));
+
+        countingSort(arr);
+
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+    }
 }
