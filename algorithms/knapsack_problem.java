@@ -31,5 +31,12 @@ public class Knapsack {
         return dp[n][capacity];
     }
 
+    public static void main(String[] args) {
+        int[] weights = { 2, 3, 4, 5 };
+        int[] values = { 3, 4, 5, 6 };
+        int capacity = 8;
 
+        int maxTotalValue = knapsack(weights, values, capacity);
+        System.out.println("Maximum value that can be achieved: " + maxTotalValue);
+    }
 }
