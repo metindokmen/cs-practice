@@ -46,3 +46,77 @@ class Edge {
         this.weight = weight;
     }
 }
+
+public class AStarSearch {
+    public static List<Node> aStar(Node start, Node target) {
+        PriorityQueue<Node> pq = new PriorityQueue<>();
+        start.g = 0.0;
+        start.f = start.h;
+        pq.add(start);
+
+        while (!pq.isEmpty()) {
+            Node current = pq.poll();
+
+            if (current == target) {
+                // Reconstruct path from start to target
+                List<Node> path = new ArrayList<>();
+                Node node = current;
+                while (node != null) {
+                    path.add(node);
+                    node = node.parent;
+                }
+                Collections.reverse(path);
+                return path;
+            }
+
+            for (Edge edge : current.neighbors) {
+                Node neighbor = edge.target;
+                double newG = current.g + edge.weight;
+
+                if (newG < neighbor.g) {
+                    neighbor.parent = current;
+                    neighbor.g = newG;
+                    neighbor.f = neighbor.g + neighbor.h;
+                    if (!pg.contains(neighbor)) {
+                        pq.add(neighbor);
+                    }
+                }
+            }
+        }
+
+        return Collections.emptyList(); // Meaning no path found
+    }
+
+    public static void main(String[] args) {
+        // Create graph nodes and edges
+        Node nodeA = new Node(0);
+        Node nodeB = new Node(1);
+        Node nodeC = new Node(2);
+
+        nodeA.h = heuristic(nodeA, targetNode);
+        nodeB.h = heuristic(nodeB, targetNode);
+        nodeC.h = heuristic(nodeC, targetNode);
+
+        nodeA.neighbors.add(new Edge(nodeB, 5.0));
+        nodeA.neighbors.add(new Edge(nodeC, 10.0));
+        nodeA.neighbors.add(new Edge(nodeC, 3.0));
+
+        // Perform A* Search from nodeA to nodeC
+        List<Node> path = aStar(nodeA, nodeC);
+
+        if (!path.isEmpty()) {
+            System.out.println("Shortest path found:");
+            for (Node node : path) {
+                System.out.print(node.id + " -> ");
+            }
+            System.out.println();
+        } else {
+            System.out.println("Not path found.");
+        }
+    }
+
+    public static double heuristic(Node from, Node to) {
+        // Example heuristic: Euclidean distance between nodes
+        return Math.sqrt(Math.pow(to.id - from.id, 2));
+    }
+}
