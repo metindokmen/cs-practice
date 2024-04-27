@@ -11,3 +11,5 @@
 // - Otherwise, expand the node by considering its neighbors and update their costs if a cheaper path is found.
 // 3. Use a heuristic function (e.g., Euclidean distance, Manhattan distance) to estiamte `h` (the cost from the current node to the target).
 
+// Imagine you're developing a navigation system for a delivery service.
+// The A* algorithm can be used to find the shortest route between two locations on a map, considering factors like distance, traffic conditions, and travel time.
