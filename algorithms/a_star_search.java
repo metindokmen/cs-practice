@@ -13,3 +13,36 @@
 
 // Imagine you're developing a navigation system for a delivery service.
 // The A* algorithm can be used to find the shortest route between two locations on a map, considering factors like distance, traffic conditions, and travel time.
+
+import java.util.*;
+
+class Node implements Comparable<Node> {
+    int id;
+    double f; // Combined cost f = g + h
+    double g; // Cost from start node to current node
+    double h; // Heuristic estimate to target node
+    List<Edge> neighbors;
+
+    Node(int id) {
+        this.id = id;
+        this.f = Double.POSITIVE_INFINITY;
+        this.g = Double.POSITIVE_INFINITY;
+        this.h = 0.0;
+        this.neighbors = new ArrayList<>();
+    }
+
+    @Override
+    public int compareTo(Node other) {
+        return Double.compare(this.f, other.f);
+    }
+}
+
+class Edge {
+    Node target;
+    double weight;
+
+    Edge(Node target, double weight) {
+        this.target = target;
+        this.weight = weight;
+    }
+}
