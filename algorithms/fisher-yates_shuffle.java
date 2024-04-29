@@ -9,3 +9,31 @@
 
 // Imagine you have a deck of cards that you want to shuffle thoroughly before dealing them out for a card game.
 // The Fisher-Yates Shuffle algorithm can be used to shuffle the deck randomly, ensuring each card has an equal probability of being in any position.
+
+import java.util.Random;
+
+public class FisherYatesShuffle {
+    public static void fisherYatesShuffle(int[] array) {
+        Random rand = new Random();
+        for (int i = array.length - 1; i > 0; i--) {
+            int j = rand.nextInt(i + 1); // Generate a random index within the unshuffled portion
+            swap(array, i, j); // Swap the elements at indices i and j
+        }
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8. 9, 10};
+
+        System.out.println("Original Array: " + java.util.Arrays.toString(array));
+
+        fisherYatesShuffle(array);
+
+        System.out.println("Shuffled Array: " + java.util.Arrays.toString(array));
+    }
+}
