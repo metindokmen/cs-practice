@@ -9,3 +9,5 @@
 // - If adding the edge to `MST` doesn't form a cycle (i.e., the edge connects two different components), add it to `MST`
 // 5. Final MST: The `MST` will contain the minimum set of edges that connect all the vertices with the minimum total weight.
 
+// Imagine you have a network of cities connected by roads, each road having a certain construction cost.
+// Kruskal's algorithm can be used to find the minimum cost to connect all cities with roads, ensuring that each city is reachable.
