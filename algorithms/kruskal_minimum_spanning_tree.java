@@ -11,3 +11,20 @@
 
 // Imagine you have a network of cities connected by roads, each road having a certain construction cost.
 // Kruskal's algorithm can be used to find the minimum cost to connect all cities with roads, ensuring that each city is reachable.
+
+import java.util.*;
+
+class Edge implements Comparable<Edge> {
+    int src, dest, weight;
+
+    Edge(int src, int dest, int weight) {
+        this.src = src;
+        this.dest = dest;
+        this.weight = weight;
+    }
+
+    @Override
+    public int compareTo(Edge other) {
+        return this.weight - other.weight;
+    }
+}
