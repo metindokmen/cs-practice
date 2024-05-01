@@ -64,3 +64,54 @@ class UnionFind {
         }
     }
 }
+
+public class KruskalAlgorithm {
+
+    public static List<Edge> kruskalMST(List<Edge> edges, int n) {
+        List<Edge> mst = new ArrayList<>();
+        UnionFind uf = new UnionFind(n);
+        Collections.sort(edges);
+
+        for (Edge edge : edges) {
+            int src = edge.src;
+            int dest = edge.dest;
+
+            if (uf.find(src) != uf.find(dest)) {
+                uf.union(src, dest);
+                mst.add(edge);
+            }
+
+            // Early exit if MST is complete (n-1 edges)
+            if (mst.size() == n - 1) {
+                break;
+            }
+        }
+
+        return mst;
+    }
+
+    public static void main(String[] args) {
+        List<Edge> edges = new ArrayList<>();
+        edges.add(new Edge(0, 1, 4));
+        edges.add(new Edge(0, 7, 8));
+        edges.add(new Edge(1, 2, 8));
+        edges.add(new Edge(1, 7, 11));
+        edges.add(new Edge(2, 3, 7));
+        edges.add(new Edge(2, 5, 4));
+        edges.add(new Edge(2, 8, 2));
+        edges.add(new Edge(3, 4, 9));
+        edges.add(new Edge(3, 5, 14));
+        edges.add(new Edge(4, 5, 10));
+        edges.add(new Edge(5, 6, 2));
+        edges.add(new Edge(6, 7, 1));
+        edges.add(new Edge(6, 8, 6));
+        edges.add(new Edge(7, 8, 7));
+
+        List<Edge> mst = kruskalMST(edges, 9);
+
+        System.out.println("Minimum Spanning Tree (MST):");
+        for (Edge edge : mst) {
+            System.out.println(edge.src + " - " + edge.dest + " : " + edge.weight);
+        }
+    }
+}
