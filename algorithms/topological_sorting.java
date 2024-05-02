@@ -51,3 +51,21 @@ class Graph {
         stack.push(vertex);
     }
 }
+
+public class TopologicalSortExample {
+    public static void main(String[] args) {
+        Graph graph = new Graph(6);
+        graph.addEdge(5, 2);
+        graph.addEdge(5, 0);
+        graph.addEdge(4, 0);
+        graph.addEdge(4, 1);
+        graph.addEdge(2, 3);
+        graph.addEdge(3, 1);
+
+        List<Integer> sortedVertices = graph.topologicalSort();
+        System.out.println("Topological Sorting Order:");
+        for (int vertex : sortedVertices) {
+            System.out.print(vertex + " ");
+        }
+    }
+}
