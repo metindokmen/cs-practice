@@ -35,5 +35,34 @@ public class FordFulkerson {
         return false;
     }
 
+    int fordFulkerson(int[][] graph, int source, int sink) {
+        int[][] residualGraph = new int[V][V];
+        for (int i = 0; i < V; i++) {
+            System.arraycopy(graph[i], 0, residualGraph[i], 0, V);
+        }
 
+        int[] parent = new int[V];
+        int maxFlow = 0;
+
+        // Augment the flow while there is a path from source to sink
+        while(bfs(residualGraph, source, sink, parent)) {
+            int pathFlow = Integer.MAX_VALUE;
+
+            // Find the maximum flow through the path found by BFS
+            for (int v = sink, v != source, v = parent[v]) {
+                int u = parent[v];
+                pathFlow = Math.min(pathFlow, residualGraph[u][v]);
+            }
+
+            // Update the residual capacities of the edges and reverse edges along the path
+            for (int v = sink; v != source; v = parent[v]) {
+                int u = parent[v];
+                residualGraph[u][v] -= pathFlow;
+                residualGraph[v][u] += pathFlow;
+            }
+
+            maxFlow += pathFlow;
+        }
+        return maxFlow;
+    }
 }
