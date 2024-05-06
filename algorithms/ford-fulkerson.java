@@ -65,4 +65,22 @@ public class FordFulkerson {
         }
         return maxFlow;
     }
+
+    public static void main(String[] args) {
+        int[][] graph = {
+                {0, 16, 13, 0, 0, 0},
+                {0, 0, 10, 12, 0, 0},
+                {0, 4, 0, 0, 14, 0},
+                {0, 0, 9, 0, 0, 20},
+                {0, 0, 0, 7, 0, 4},
+                {0, 0, 0, 0, 0, 0}
+        };
+
+        FordFulkerson fordFulkerson = new FordFulkerson();
+        int source = 0;
+        int sink = 5;
+        int maxFlow = fordFulkerson.fordFulkerson(graph, source, sink);
+
+        System.out.println("Maximum Flow: " + maxFlow);
+    }
 }
