@@ -58,4 +58,21 @@ class Prims {
         return mst;
     }
 
+    public static void main(String[] args) {
+        int n = 4; // Number of vertices
+        List<Edge> graph = createGraph(n);
+
+        addEdge(graph, 0, 1, 2);
+        addEdge(graph, 0, 2, 3);
+        addEdge(graph, 1, 2, 1);
+        addEdge(graph, 1, 3, 4);
+        addEdge(graph, 2, 3, 5);
+
+        List<Edge> mst = primMST(graph, n);
+
+        System.out.println("Minimum Spanning Tree (MST):");
+        for (Edge edge : mst) {
+            System.out.println(edge.dest + " - " + edge.weight);
+        }
+    }
 }
