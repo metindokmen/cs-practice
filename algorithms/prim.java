@@ -32,4 +32,30 @@ class Prims {
         graph[dest].add(new Edge(src, weight));
     }
 
+    public static List<Edge> primMST(List<Edge>[] graph, int n) {
+        List<Edge> mst = new ArrayList<>();
+        boolean[] visited = new boolean[n];
+        PriorityQueue<Edge> pq = new PriorityQueue<>(Comparator.comparingInt(e -> e.weight));
+
+        // Start from vertex 0
+        pq.add(new Edge(0, 0));
+
+        while (!pq.isEmpty()) {
+            Edge minEdge = pq.poll();
+            int u = minEdge.dest;
+
+            if (visited[u]) continue;
+            visited[u] = true;
+            mst.add(minEdge);
+
+            for (Edge neighbor : graph[u]) {
+                if (!visited[neighbor.dest]) {
+                    pq.add(neighbor);
+                }
+            }
+        }
+
+        return mst;
+    }
+
 }
