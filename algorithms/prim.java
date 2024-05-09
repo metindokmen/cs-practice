@@ -27,4 +27,9 @@ class Prims {
         return graph;
     }
 
+    public static void addEdge(List<Edge>[] graph, int src, int desc, int weight) {
+        graph[src].add(new Edge(dest, weight));
+        graph[dest].add(new Edge(src, weight));
+    }
+
 }
