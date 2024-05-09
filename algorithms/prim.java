@@ -5,3 +5,18 @@
 // Imagine you have a city map where cities are nodes and roads between them are weighted edges.
 // To minimize the total cost of constructing roads between all cities while ensuring all cities are connected,
 // Prim's algorithm can determine the optimal road network.
+
+import java.util.*;
+
+class Prims {
+    static class Edge {
+        int dest;
+        int weight;
+
+        public Edge(int dest, int weight) {
+            this.dest = dest;
+            this.weight = weight;
+        }
+    }
+
+}
