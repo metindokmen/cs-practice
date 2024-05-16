@@ -9,7 +9,6 @@ import java.util.*;
 
 class Edge {
     int src, dest, weight;
-
     Edge(int src, int dest, int weight) {
         this.src = src;
         this.dest = dest;
@@ -18,7 +17,6 @@ class Edge {
 }
 
 public class BellmanFordAlgorithm {
-
     public static void bellmanFord(List<Edge> edges, int V, int source) {
         int[] dist = new int[V];
         Arrays.fill(dist, Integer.MAX_VALUE);
@@ -44,7 +42,6 @@ public class BellmanFordAlgorithm {
             System.out.println("Shortest distance from source to vertex " + i + ": " + dist[i]);
         }
     }
-
     public static void main(String[] args) {
         int V = 5; // Number of vertices
         int source = 0; // Source vertex
