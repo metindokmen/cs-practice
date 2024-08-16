@@ -4,3 +4,15 @@
 
 // Imagine you have several isolated islands (vertices), and your goal is to build bridges (edges) to connect all the islands with the least amount of construction cost.
 // Boruvka's algorithm would help you determine which bridges to build first (starting with the cheapest) to ensure that all islands become connected while minimizing the total cost.
+
+import java.util.*;
+
+class Edge {
+    int src, dest, weight;
+
+    public Edge(int src, int dest, int weight) {
+        this.src = src;
+        this.dest = dest;
+        this.weight = weight;
+    }
+}
