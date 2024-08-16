@@ -96,3 +96,18 @@ class Graph {
             System.out.println(edge.src + " -- " + edge.dest + " == " + edge.weight);
     }
 }
+
+public class BoruvkaAlgorithm {
+    public static void main(String[] args) {
+        int V = 4, E = 5;
+        Graph graph = new Graph(V, E);
+
+        graph.edges[0] = new Edge(0, 1, 10);
+        graph.edges[1] = new Edge(0, 2, 6);
+        graph.edges[2] = new Edge(0, 3, 5);
+        graph.edges[3] = new Edge(1, 3, 15);
+        graph.edges[4] = new Edge(2, 3, 4);
+
+        graph.boruvkaMST();
+    }
+}
