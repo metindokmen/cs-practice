@@ -53,3 +53,19 @@ class UnionFind {
     }
 }
 
+public class Main {
+    public static void main(String[] args) {
+        UnionFind uf = new UnionFind(10);
+
+        uf.union(1, 2);
+        uf.union(2, 3);
+        uf.union(4, 5);
+
+        System.out.println("1 and 3 connected? " + uf.connected(1, 3)); // true
+        System.out.println("1 and 4 connected? " + uf.connected(1, 4)); // false
+
+        uf.union(3, 4);
+
+        System.out.println("1 and 5 connected? " + uf.connected(1, 5)); // true
+    }
+}
