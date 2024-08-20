@@ -52,3 +52,9 @@ public class HashMap {
         System.out.println(key + "'s grade: " + studentGrades.get(key));
     }
 }
+
+// Use Cases of HashMaps:
+// 1. Database Caching: Frequently accessed data can be stored in a HashMap for quick lookup.
+// 2. Counting Frequencies: HashMaps can be used to count the frequency of elements in a collection, such as counting word occurences in a document.
+// 3. Dictionary Implementations: HashMaps are often used to implement dictionaries, where words (keys) are mapped to definitions (values).
+// 4. Associative Arrays: HashMaps are used in scenarious where you need to quickly map data pairs, like user Ids to user details in a system.
