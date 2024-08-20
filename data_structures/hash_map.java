@@ -14,3 +14,8 @@
 // - When you insert a key-value pair into a HashMap, the key is passed through a hash function to determine its hash code (an index in an internal array).
 // - The value is then stored at that index in the array.
 // - If another key generates the same hash code (a collision), the HashMap resolves it by chaining the new key-value pair to the existing pair using a linked list or some other structure.
+
+// 2. Retrieving a Value:
+// - To retrieve a value, you provide the key.
+// - The HashMap passess this key through the hash function, calculates the index, and retrieves the value stored at that index.
+
