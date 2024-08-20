@@ -19,3 +19,8 @@
 // - To retrieve a value, you provide the key.
 // - The HashMap passess this key through the hash function, calculates the index, and retrieves the value stored at that index.
 
+// 3. Handling Collisions:
+// - Collisions occur when two different keys produce the same hash code.
+// - Common strategies to resolve collisions include:
+//  - Chaining: Store the collided pairs in a linked list or another data structure at the same array index.
+//  - Open Addressing: Find the next available spot in the array.
