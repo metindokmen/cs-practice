@@ -62,3 +62,9 @@ public class HashMap {
 // Advantages of HashMaps:
 // - Fast Lookups: Average time complexity for search, insertion, and deletion operations is O(1)
 // - Flexible Keys: Can use any object as a key, as long as it provides proper `equals()` and `hashCode()` implementations.
+
+// How are HashMaps Implemented?
+// At a high level, a HashMap uses an array of linked lists or trees (since Java 8) to store key-value pairs.
+// The array index is determined by the hash code of the key, and collisions are managed using linked lists or red-black trees.
+// - Hash Function: Converts a key into a hash code, typically an integer.
+// - Buckets: Each index of the array (bucket) stores a linked list or tree that holds all the key-value pairs with the same hash code.
