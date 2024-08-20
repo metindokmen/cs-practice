@@ -58,3 +58,7 @@ public class HashMap {
 // 2. Counting Frequencies: HashMaps can be used to count the frequency of elements in a collection, such as counting word occurences in a document.
 // 3. Dictionary Implementations: HashMaps are often used to implement dictionaries, where words (keys) are mapped to definitions (values).
 // 4. Associative Arrays: HashMaps are used in scenarious where you need to quickly map data pairs, like user Ids to user details in a system.
+
+// Advantages of HashMaps:
+// - Fast Lookups: Average time complexity for search, insertion, and deletion operations is O(1)
+// - Flexible Keys: Can use any object as a key, as long as it provides proper `equals()` and `hashCode()` implementations.
