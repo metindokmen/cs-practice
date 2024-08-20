@@ -24,3 +24,31 @@
 // - Common strategies to resolve collisions include:
 //  - Chaining: Store the collided pairs in a linked list or another data structure at the same array index.
 //  - Open Addressing: Find the next available spot in the array.
+
+import java.util.HashMap;
+
+public class HashMap {
+    // Create a HashMap to store students' grades
+    HashMap<String, Integer> studentGrades = new HashMap<>();
+
+    // Inserting key-value pairs into the HashMap
+    studentGrades.put("Alice", 85);
+    studentGrades.put("Bob", 92);
+    studentGrades.put("Charlie", 78);
+
+    // Retrieving values by key
+    System.out.println("Akice's grade: " + studentGrades.get("Alice")); // Output: 85
+
+    // Checking if a key exists
+    if (studentGrades.containsKey("Bob")) {
+        System.out.println("Bob's grade: " + studentGrades.get("Bob")); // Output: 92
+    }
+
+    // Removing a key-value pair
+    studentGrades.remove("Charlie");
+
+    // Iterating over the HashMap
+    for (String key : studentGrades.keySet()) {
+        System.out.println(key + "'s grade: " + studentGrades.get(key));
+    }
+}
