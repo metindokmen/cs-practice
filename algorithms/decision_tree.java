@@ -67,3 +67,18 @@ public class DecisionTree {
         }
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        DecisionTree = new DecisionTree();
+
+        // Sample inputs
+        String outlook = "Sunny";
+        String humidity = "High";
+        String wind = "Weak";
+
+        // Decision based on inputs
+        String decision = tree.decide(outlook, humidity, wind);
+        System.out.println("Decision: " + decision);
+    }
+}
