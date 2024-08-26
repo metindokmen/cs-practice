@@ -62,3 +62,22 @@ class SegmentTree {
         return sum;
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        // Example sales data for 7 days
+        int[] sales = {120, 150, 200, 250, 300, 350, 400};
+
+        // Create a Segment Tree from the sales data
+        SegmentTree segmentTree = new SegmentTree(sales);
+
+        // Query the sum of sales from day 2 to day 5 (index 1 to 4)
+        System.out.println("Total sales from day 2 to day 5: " + segmentTree.query(1, 5));
+
+        // Update the sales on day 3 (index 2) to 220
+        segmentTree.update(2, 220);
+
+        // Query again after the update
+        System.out.println("Total sales from day 2 to day 5 after update: " + segmentTree.query(1, 5));
+    }
+}
