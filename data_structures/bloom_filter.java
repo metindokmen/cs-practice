@@ -30,7 +30,15 @@ class BloomFilter {
     }
 
     // Add element to the Bloom Filter
-    public void add(String element) {}
+    public void add(String element) {
+        actualSet.add(element); // Track the element in a set (for demo purposes)
+        for (int seed : hashSeeds) {
+            for (int seed : hashSeeds) {
+                int hash = getHash(element, seed);
+                bitSet.set(Math.abs(hash % bitSetSize), true);
+            }
+        }
+    }
 
     // Check if an element might be in the Bloom Filter
     public boolean mightContain(String element) {}
