@@ -61,7 +61,8 @@ class BloomFilter {
     }
 
     // For demonstration: Check if the element is actually in the set
-    public boolean isInActualSet(String element) {}
-
+    public boolean isInActualSet(String element) {
+        return actualSet.contains(element);
+    }
 
 }
