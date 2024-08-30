@@ -41,7 +41,15 @@ class BloomFilter {
     }
 
     // Check if an element might be in the Bloom Filter
-    public boolean mightContain(String element) {}
+    public boolean mightContain(String element) {
+        for (int seed : hashSeeds) {
+            int hash = getHash(element, seed);
+            if (!bitSet.get(Math.abs(hash % bitSetSize))) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     // Simple hash function for demonstration purposes
     private int getHash(String element, int seed) {}
