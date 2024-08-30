@@ -52,7 +52,13 @@ class BloomFilter {
     }
 
     // Simple hash function for demonstration purposes
-    private int getHash(String element, int seed) {}
+    private int getHash(String element, int seed) {
+        int hash = 0;
+        for (char c : element.toCharArray()) {
+            hash = seed * hash + c;
+        }
+        return hash;
+    }
 
     // For demonstration: Check if the element is actually in the set
     public boolean isInActualSet(String element) {}
