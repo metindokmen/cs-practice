@@ -66,3 +66,32 @@ class BloomFilter {
     }
 
 }
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a Bloom Filter with a bitset size of 1000 and 3 hash functions
+        BloomFilter bloomFilter = new BloomFilter(1000, 3);
+
+        // Add some known spam email addresses
+        BloomFilter.add("spam@example.com");
+        BloomFilter.add("junk@mail.com");
+        BloomFilter.add("fake@news.com");
+
+        // Test some email addresses
+        String email1 = "spam@example.com";
+        String email2 = "notspam@example.com";
+        String email3 = "fake@news.com";
+        String email4 = "unknown@mail.com";
+
+        System.out.println(email1 + " might be spam: " + bloomFilter.mightContain(email1)); // Expected: true
+        System.out.println(email2 + " might be spam: " + bloomFilter.mightContain(email2)); // Expected: false
+        System.out.println(email3 + " might be spam: " + bloomFilter.mightContain(email3)); // Expected: true
+        System.out.println(email4 + " might be spam: " + bloomFilter.mightContain(email4)); // Expected: false
+
+        // For demo purposes, checking against the actual set (not part of bloom filter)
+        System.out.println(email1 + " is actually spam: " + bloomFilter.isInActualSet(email1)); // Expected: true
+        System.out.println(email2 + " is actually spam: " + bloomFilter.isInActualSet(email2)); // Expected: false
+        System.out.println(email3 + " is actually spam: " + bloomFilter.isInActualSet(email3)); // Expected: true
+        System.out.println(email4 + " is actually spam: " + bloomFilter.isInActualSet(email4)); // Expected: false
+    }
+}
