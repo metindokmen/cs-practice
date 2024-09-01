@@ -10,3 +10,8 @@
 // 1. Priority Queue: Heaps are commonly used to implement priority queues.
 // 2. Scheduling Algorithms: In operating systems, heaps can be used to schedule processes.
 // 3. Graph Algorithms: Heaps are used in algorithms like Dijkstra's shortest path algorithm to efficiently find the minimum distance.
+
+// A heap is typically implemented using an array, where:
+// - The root element is at index 0.
+// - For any node at index `i`, the left child is at index `2i + 1` and the right child is at index `2i + 2`
+// - The parent of a node at index `i` is at index `(i - 1) / 2`
