@@ -44,7 +44,19 @@ public class MaxHeap {
     }
 
     // Insert a new element into the heap
-    public void insert(int element) {}
+    public void insert(int element) {
+        if (size >= maxSize) {
+            return;
+        }
+        heap[size] = element;
+        int current = size;
+
+        while (heap[current] > heap[parent(current)]) {
+            swap(current, parent(current));
+            current = parent(current);
+        }
+        size++;
+    }
 
     // Swap two element in the heap
     private void swap(int i, int j) {}
