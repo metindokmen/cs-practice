@@ -43,4 +43,18 @@ public class MaxHeap {
         return (2 * i) + 2;
     }
 
+    // Insert a new element into the heap
+    public void insert(int element) {}
+
+    // Swap two element in the heap
+    private void swap(int i, int j) {}
+
+    // Remove and return the maximum element from the heap
+    public int extractMax() {}
+
+    // Maintain the max heap property
+    private void maxHeapify(int j) {}
+
+    // Print the heap
+    public void printHeap() {}
 }
