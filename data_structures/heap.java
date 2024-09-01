@@ -99,4 +99,22 @@ public class MaxHeap {
             System.out.println("Parent: " + heap[i] + " Left Child: " + heap[leftChild(i)] + " Right Child: " + heap(rightChild(i)));
         }
     }
+
+    public static void main(String[] args) {
+        MaxHeap maxHeap = new MaxHeap(10);
+        maxHeap.insert(35);
+        maxHeap.insert(33);
+        maxHeap.insert(42);
+        maxHeap.insert(10);
+        maxHeap.insert(14);
+        maxHeap.insert(19);
+        maxHeap.insert(27);
+        maxHeap.insert(44);
+        maxHeap.insert(26);
+        maxHeap.insert(31);
+
+        maxHeap.printHeap();
+
+        System.out.println("The max value is: " + maxHeap.extractMax());
+    }
 }
