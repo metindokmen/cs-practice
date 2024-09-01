@@ -59,7 +59,11 @@ public class MaxHeap {
     }
 
     // Swap two element in the heap
-    private void swap(int i, int j) {}
+    private void swap(int i, int j) {
+        int temp = heap[i];
+        heap[i] = heap[j];
+        heap[j] = temp;
+    }
 
     // Remove and return the maximum element from the heap
     public int extractMax() {}
