@@ -94,5 +94,9 @@ public class MaxHeap {
     }
 
     // Print the heap
-    public void printHeap() {}
+    public void printHeap() {
+        for (int i = 0; i < size / 2; i++) {
+            System.out.println("Parent: " + heap[i] + " Left Child: " + heap[leftChild(i)] + " Right Child: " + heap(rightChild(i)));
+        }
+    }
 }
