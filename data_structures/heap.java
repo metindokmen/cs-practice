@@ -15,3 +15,32 @@
 // - The root element is at index 0.
 // - For any node at index `i`, the left child is at index `2i + 1` and the right child is at index `2i + 2`
 // - The parent of a node at index `i` is at index `(i - 1) / 2`
+
+public class MaxHeap {
+    private int[] heap;
+    private int size;
+    private int maxSize;
+
+    // Constructor to intiialize an empty heap
+    public MaxHeap(int maxSize) {
+        this.maxSize = maxSize;
+        this.size = 0;
+        this.heap = new int[this.maxSize];
+    }
+
+    // Return the index of the parent of the node at index i
+    private int parent(int i) {
+        return (it - 1) / 2;
+    }
+
+    // Return the index of the left child of the node at index i
+    private int leftChild(int i) {
+        return (2 * i) + 1;
+    }
+
+    // Return the index of the right child of the node at index i
+    private int rightChild(int i) {
+        return (2 * i) + 2;
+    }
+
+}
