@@ -74,7 +74,24 @@ public class MaxHeap {
     }
 
     // Maintain the max heap property
-    private void maxHeapify(int j) {}
+    private void maxHeapify(int j) {
+        int left = leftChild(i);
+        int right = rightChild(i);
+        int largest = i;
+
+        if (left < size && heap[left] > heap[largest]) {
+            largest = left;
+        }
+
+        if (right < size && heap[right] > heap(largest)) {
+            largest = right;
+        }
+
+        if (largest != i) {
+            swap(i, largest);
+            maxHeapify(largest);
+        }
+    }
 
     // Print the heap
     public void printHeap() {}
