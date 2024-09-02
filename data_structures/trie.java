@@ -12,3 +12,6 @@
 // 2. Spell checkers: Validating if a string is a valid word.
 // 3. IP Routing: Longest prefix matching in networking.
 // 4. Data compression: Strong dictionary words in a compact format.
+
+// A trie is typically implemented with a root node that branches into child nodes, each representing a character.
+// A node may have multiple children, corresponding to the next possible characters in the words.
