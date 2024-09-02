@@ -25,3 +25,59 @@ class TrieNode {
 
     public TrieNode() {}
 }
+
+public class Trie {
+    private final TrieNode root;
+
+    // Consturctor to intialize the Trie
+    public Trie() {
+        root = new TrieNode();
+    }
+
+    // Insert a word into the Trie
+    public void insert(String word) {
+        TrieNode current = root;
+        for (char ch : word.toCharArray()) {
+            current = current.children.computeIfAbsent(ch, c -> new TrieNode());
+        }
+        current.isEndOfWord = true;
+    }
+
+    // Search for a word in the Trie
+    public boolean search(String word) {
+        TrieNode current = root;
+        for (char ch : word.toCharArray()) {
+            current = current.children.get(ch);
+            if (current == null) {
+                return false;
+            }
+        }
+        return current.isEndOfWord;
+    }
+
+    // Check if there is any word in the Trie that starts with the given prefix
+    public boolean startsWith(String prefix) {
+        TrieNode current = root;
+        for (char ch : prefix.toCharArray()) {
+            current = current.children.get(ch);
+            if (current == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Trie trie = new Trie();
+
+        trie.insert("cat");
+        trie.insert("cater");
+        trie.insert("car");
+        trie.insert("cart");
+
+        System.out.println(trie.search("cat")); // true
+        System.out.println(trie.search("can")); // false
+        System.out.println(trie.startsWith("car")); // true
+        System.out.println(trie.startsWith("bat")); // false
+    }
+}
