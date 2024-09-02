@@ -15,3 +15,13 @@
 
 // A trie is typically implemented with a root node that branches into child nodes, each representing a character.
 // A node may have multiple children, corresponding to the next possible characters in the words.
+
+import java.util.HashMap;
+import java.util.Map;
+
+class TrieNode {
+    Map<Character, TrieNode> children = new HashMap<>();
+    boolean isEndOfWord = false;
+
+    public TrieNode() {}
+}
