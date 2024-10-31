@@ -29,7 +29,11 @@ fun main() {
     }
     println()
 
-    // @TODO: Insertion
+    // Insertion
+    val insertedArray = oneDArray.toMutableList() // Convert to mutable list
+    insertedArray.add(60) // Add new element
+    println("After insertion: ${insertedArray.joinToString(", ")}")
+
     // @TODO: Deletion
     // @TODO: Searching
 }
