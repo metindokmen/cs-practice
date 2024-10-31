@@ -30,10 +30,15 @@ fun main() {
     println()
 
     // Insertion
+    // In Kotlin, arrays are fixed-size, so we create a new array for insertion
     val insertedArray = oneDArray.toMutableList() // Convert to mutable list
     insertedArray.add(60) // Add new element
     println("After insertion: ${insertedArray.joinToString(", ")}")
 
-    // @TODO: Deletion
+    // Deletion
+    // Since arrays are fixed-size, we convert to a mutable list again
+    insertedArray.removeAt(2) // Remove element at index 2
+    println("After deletion: ${insertedArray.joinToString(", ")}")
+
     // @TODO: Searching
 }
