@@ -16,3 +16,20 @@
 // - Storing data in a sequential manner.
 // - Implementing queues, stacks and other data structures
 // - Representing matrices and tables
+
+fun main() {
+    // Declare and initialize a one-dimensional array
+    val oneDArray = arrayOf(10, 20, 30, 40, 50)
+    println("One-dimensional Array: ${oneDArray.joinToString(", ")}")
+
+    // Traversal (iterating through elements)
+    println("Traversal of One-dimensional Array:")
+    for (element in oneDArray) {
+        print("$element")
+    }
+    println()
+
+    // @TODO: Insertion
+    // @TODO: Deletion
+    // @TODO: Searching
+}
