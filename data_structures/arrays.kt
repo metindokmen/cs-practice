@@ -12,3 +12,7 @@
 // - One-dimensional Array: A simple array with a single dimension.
 // - Multidimensional Array: An array with multiple dimensions, such as a matrix.
 
+// Applications of Array:
+// - Storing data in a sequential manner.
+// - Implementing queues, stacks and other data structures
+// - Representing matrices and tables
