@@ -49,4 +49,21 @@ fun main() {
         println("Element $searchElement not found in the array")
     }
 
+
+    // Multidimensional Array (e.g. a 2D Array representing a matrix)
+    val twoDArray = arrayOf(
+            arrayOf(1, 2, 3),
+            arrayOf(4, 5, 6),
+            arrayOf(7, 8, 9),
+    )
+
+    // Traversing a 2D array
+    println("\nTraversal of Two-dimensional Array (Matrix):")
+    for (row in twoDArray) {
+        for (element in row) {
+            print("$element ")
+        }
+    }
+    println()
+
 }
