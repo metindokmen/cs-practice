@@ -66,4 +66,7 @@ fun main() {
     }
     println()
 
+    // Access a specific element in a 2D array
+    val specificElement = twoDArray[1][2]
+    println("Element at [1][2] in Two-dimensional Array: $specificElement")
 }
