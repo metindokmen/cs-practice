@@ -40,5 +40,13 @@ fun main() {
     insertedArray.removeAt(2) // Remove element at index 2
     println("After deletion: ${insertedArray.joinToString(", ")}")
 
-    // @TODO: Searching
+    // Searching
+    val searchElement = 40
+    val indexOfElement = insertedArray.indexOf(searchElement)
+    if (!indexOfElement != -1) {
+        println("Element $searchElement found at index $indexOfElement")
+    } else {
+        println("Element $searchElement not found in the array")
+    }
+
 }
