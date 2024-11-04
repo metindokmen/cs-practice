@@ -78,5 +78,12 @@ class LinkedList<T> {
         }
     }
 
-    fun search() {}
+    fun search(value: T): Boolean {
+        var current = head
+        while (current != null) {
+            if (current.data == value) return true
+            current = current.next
+        }
+        return false
+    }
 }
