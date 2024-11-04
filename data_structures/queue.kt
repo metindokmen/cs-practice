@@ -37,4 +37,28 @@ class Queue<T>(private val capacity: Int) {
         println("Enqueued: $value")
         return true
     }
+
+    // Dequeue: Removes an returns the element at the front of the queue
+    fun dequeue(): T? {
+        if (isEmpty()) {
+            println("Queue is empty. Cannot dequeue.")
+            return null
+        }
+        val dequeuedValue = elements[front] as T
+        elements[front] = null
+        front = (front + 1) % capacity
+        size--
+        println("Dequeued: $dequeuedValue")
+        return dequeuedValue
+    }
+
+    // Peek: Retrieves the front element without removing it
+    fun peek(): T? {
+        if (isEmpty()) {
+            println("Queue is empty. Nothing to peek.")
+            return null
+        }
+        println("Peek: ${elements[front]}")
+        return elements[front] as T
+    }
 }
