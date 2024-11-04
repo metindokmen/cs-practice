@@ -7,3 +7,8 @@
 // - Peek: Retrieves the front element without removing it.
 // - isEmpty: Checks if the queue is empty
 // - isFull: Checks if the queue is full
+
+// Types of Queue:
+// - Circular Queue: Last element connects to the first element.
+// - Double-Ended Queue (Deque): Operations can be performed from both ends.
+// - Priority Queue: Elements are arranged based on priority.
