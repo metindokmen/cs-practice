@@ -12,3 +12,9 @@
 // - Circular Queue: Last element connects to the first element.
 // - Double-Ended Queue (Deque): Operations can be performed from both ends.
 // - Priority Queue: Elements are arranged based on priority.
+
+// Applications of Queue
+// - Job scheduling
+// - Message queing
+// - Simulation modeling
+// - Data buffering
