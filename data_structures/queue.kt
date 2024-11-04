@@ -18,3 +18,23 @@
 // - Message queing
 // - Simulation modeling
 // - Data buffering
+
+class Queue<T>(private val capacity: Int) {
+    private val elements: Array<Any?> = arrayOfNulls<Any?>(capacity)
+    private var front = 0
+    private var rear = -1
+    private var size = 0
+
+    // Enqueue: Adds an element to the rear of the queue
+    fun enqueue(value: T): Boolean {
+        if (isFull()) {
+            println("Queue is full. Cannot enqueue $value.")
+            return false
+        }
+        rear = (rear + 1) % capacity
+        elements[rear] = value
+        size++
+        println("Enqueued: $value")
+        return true
+    }
+}
