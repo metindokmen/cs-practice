@@ -5,3 +5,10 @@
 // - Dynamic: Linked Lists can be easily resized by adding or removing nodes.
 // - Non-contiguous: Nodes are stored in random memory locations and connected by pointers.
 // - Sequential access: Nodes can only be accessed sequentially, starting from the head of the list.
+
+// Operations on Linked List:
+// - Creation: Creating a new linked list or adding a new node to an existing list.
+// - Traversal: Iterating through the list and accessing each node.
+// - Insertion: Adding a new node at a specific position in the list.
+// - Deletion: Removing a node from the list.
+// - Search: Finding a node with a specific value in the list.
