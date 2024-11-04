@@ -23,21 +23,62 @@ class Stack<T> {
     private var top: Node<T>? = null
     private var size: Int = 0
 
-    // @TODO: Add an element to the top of the stack
-    fun push() {}
+    // Add an element to the top of the stack
+    fun push(value: T) {
+        val newNode = Node(value, top)
+        top = newNode
+        size++
+        println("Pushed: $value")
+    }
 
-    // @TODO: Remove and return the top element of the stack
-    fun pop() {}
+    // Remove and return the top element of the stack
+    fun pop(): T? {
+        if (isEmpty()) {
+            println("Stack is empty. Cannot pop.")
+            return null
+        }
+        val poppedValue = top?.value
+        top = top?.next
+        size--
+        println("Popped: $poppedValue")
+        return poppedValue
+    }
 
-    // @TODO: Return the top element without removing it
-    fun peek() {}
+    // Return the top element without removing it
+    fun peek(): T? {
+        if (isEmpty()) {
+            println("Stack is empty. Nothing to peek.")
+            return null
+        }
+        println("Peek: ${top?.value}")
+        return top?.value
+    }
 
-    // @TODO: Return the number of elements in the stack
-    fun size() {}
+    // Return the number of elements in the stack
+    fun size(): Int {
+        println("Stack size: $size")
+        return size
+    }
 
-    // @TODO: Check if the stack is empty
-    fun isEmpty() {}
+    // Check if the stack is empty
+    fun isEmpty(): Boolean {
+        val empty = size == 0
+        println("Is stack empty? $empty")
+        return empty
+    }
 
-    // @TODO: Display the stack elements
-    fun display() {}
+    // Display the stack elements
+    fun display() {
+        if (isEmpty()) {
+            println("Stack is empty.")
+            return
+        }
+        var current = top
+        print("Stack (top to bottom): ")
+        while (current != null) {
+            print("${current.value}")
+            current = current.next
+        }
+        println()
+    }
 }
