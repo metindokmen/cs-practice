@@ -17,3 +17,9 @@
 // - Singly Linked List: Each node points to the next node in the list.
 // - Doubly Linked List: Each node points to both the next and previous nodes in the list.
 // - Circular Linked List: The last node points back to the first node, forming a circular loop.
+
+// Applications of Linked List:
+// - Implementing queues and stacks
+// - Representing graphs and trees
+// - Maintaining ordered data
+// - Memory management
