@@ -82,3 +82,53 @@ class Stack<T> {
         println()
     }
 }
+
+
+// Implementation using MutableList
+class StackUsingList<T> {
+    private val stack = mutableListOf<T>()
+
+    fun push(value: T) {
+        stack.add(value)
+        println("Pushed: $value")
+    }
+
+    fun pop(): T? {
+        if (isEmpty()) {
+            println("Stack is empty. Cannot pop.")
+            return null
+        }
+        val poppedValue = stack.removeAt(stack.size - 1)
+        println("Popped: $poppedValue")
+        return poppedValue
+    }
+
+    fun peek(): T? {
+        if (isEmpty()) {
+            println("Stack is empty. Nothing to peek.")
+            return null
+        }
+        val topValue = stack[stack.size - 1]
+        println("Peek: $topValue")
+        return topValue
+    }
+
+    fun size(): Int {
+        println("Stack size: ${stack.size}")
+        return stack.size
+    }
+
+    fun isEmpty(): Boolean {
+        val empty = stack.isEmpty()
+        println("Is stack empty? $empty")
+        return empty
+    }
+
+    fun display() {
+        if (isEmpty()) {
+            println("Stack is empty.")
+            return
+        }
+        println("Stack (top to bottom): ${stack.reversed().joinToString(" ")}")
+    }
+}
