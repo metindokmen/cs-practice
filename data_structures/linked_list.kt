@@ -50,10 +50,33 @@ class LinkedList<T> {
         }
     }
 
-    // @TODO: traverse
-    fun traverse() {}
-    // @TODO: delete
-    fun delete() {}
-    // @TODO: search
+    fun traverse() {
+        var current = head
+        while (current != null) {
+            print("${current.data} -> ")
+            current = current.next
+        }
+        print("null")
+    }
+
+    fun delete(value: T) {
+        if (head == null) return
+
+        // If the node to be deleted is the head node
+        if (head?.data == value) {
+            head = head?.next
+            return
+        }
+
+        var current = head
+        while (current?.next != null && current.next?.data != value) {
+            current = current.next
+        }
+
+        if (current?.next != null) {
+            current.next = current.next?.next
+        }
+    }
+
     fun search() {}
 }
