@@ -12,3 +12,8 @@
 // - Insertion: Adding a new node at a specific position in the list.
 // - Deletion: Removing a node from the list.
 // - Search: Finding a node with a specific value in the list.
+
+// Types of Linked List:
+// - Singly Linked List: Each node points to the next node in the list.
+// - Doubly Linked List: Each node points to both the next and previous nodes in the list.
+// - Circular Linked List: The last node points back to the first node, forming a circular loop.
