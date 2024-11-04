@@ -51,6 +51,9 @@ class LinkedList<T> {
     }
 
     // @TODO: traverse
+    fun traverse() {}
     // @TODO: delete
+    fun delete() {}
     // @TODO: search
+    fun search() {}
 }
