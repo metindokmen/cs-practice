@@ -7,3 +7,9 @@
 // - Peek: Returns the element at the top of the stack without removing it.
 // - Size: Returns the number of elements in the stack.
 // - isEmpty: Checks if the stack is empty.
+
+// Applications of Stack:
+// - Function calls
+// - Expression evaluation
+// - Backtracking
+// - Undo/redo operations
