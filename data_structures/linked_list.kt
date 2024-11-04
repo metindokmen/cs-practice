@@ -23,3 +23,34 @@
 // - Representing graphs and trees
 // - Maintaining ordered data
 // - Memory management
+
+class Node<T>(var data: T) {
+    var next: Node<T>? = null
+}
+
+class LinkedList<T> {
+    private var head: Node<T>? = null
+
+    fun insertAtBeginning(data: T) {
+        val newNode = Node(data)
+        newNode.next = head
+        head = newNode
+    }
+
+    fun insertAtEnd(data: T) {
+        val newNode = Node(data)
+        if (head == null) {
+            head = newNode
+        } else {
+            var current = head
+            while (current?.next != null) {
+                current = current.next
+            }
+            current?.next = newNode
+        }
+    }
+
+    // @TODO: traverse
+    // @TODO: delete
+    // @TODO: search
+}
