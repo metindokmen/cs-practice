@@ -84,3 +84,53 @@ class Queue<T>(private val capacity: Int) {
         println()
     }
 }
+
+
+// Using ArrayDeque
+class QueueUsingArrayDeque<T> {
+    private val queue = ArrayDeque<T>()
+
+    // Enqueue: Adds an element to the rear of the queue
+    fun enqueue(value: T) {
+        queue.addLast(value)
+        println("Enqueued: $value")
+    }
+
+    // Dequeue: Removes and returns the element at the front of the queue
+    fun dequeue(): T? {
+        if (isEmpty()) {
+            println("Queue is empty. Cannot dequeue.")
+            return null
+        }
+        val dequeuedValue = queue.removeFirst()
+        println("Dequeued: $dequeuedValue")
+        return dequeuedValue
+    }
+
+    // Peek: Retrieves the front element without removing it
+    fun peek(): T? {
+        if (isEmpty()) {
+            println("Queue is empty. Nothing to peek.")
+            return null
+        }
+        val frontValue = queue.first()
+        println("Peek: $frontValue")
+        return frontValue
+    }
+
+    // isEmpty: Checks if the queue is empty
+    fun isEmpty(): Boolean {
+        val empty = queue.isEmpty()
+        println("Is queue empty? $empty")
+        return empty
+    }
+
+    // Display the queue elements
+    fun display() {
+        if (isEmpty()) {
+            println("Queue is empty.")
+            return
+        }
+        println("Queue (front to rear): ${queue.joinToString(" ")})
+    }
+}
