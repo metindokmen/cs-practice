@@ -132,3 +132,27 @@ class StackUsingList<T> {
         println("Stack (top to bottom): ${stack.reversed().joinToString(" ")}")
     }
 }
+
+fun main() {
+    val stack = Stack<Int>()
+
+    stack.push(10) // Pushed: 10
+    stack.push(20) // Pushed: 20
+    stack.push(30) // Pushed: 30
+
+    stack.display() // Stack (top to bottom): 30 20 10
+
+    stack.peek() // Peek: 30
+
+    stack.pop() // Popped: 30
+    stack.pop() // Popped: 20
+
+    stack.display() // Stack (top to bottom): 10
+
+    stack.size() // Stack size: 1
+    stack.isEmpty() // Is stack empty? false
+
+    stack.pop() // Popped: 10
+
+    stack.isEmpty() // Is stack empty? true
+}
