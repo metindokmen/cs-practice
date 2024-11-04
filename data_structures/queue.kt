@@ -134,3 +134,48 @@ class QueueUsingArrayDeque<T> {
         println("Queue (front to rear): ${queue.joinToString(" ")})
     }
 }
+
+// Queues are useful for managing job scheduling tasks
+fun jobScheduler(jobs: List<String>) {
+    val jobQueue = QueueUsingArrayDeque<String>()
+    jobs.forEach { jobQueue.enqueue(it) }
+
+    while (!jobQueue.isEmpty()) {
+        val currentJob = jobQueue.dequeue()
+        println("Processing job: $currentJob")
+    }
+}
+
+fun main() {
+    val queue = Queue<Int>(5)
+
+    queue.enqueue(10) // Enqueued: 10
+    queue.enqueue(20) // Enqueued: 20
+    queue.enqueue(30) // Enqueued: 30
+
+    queue.display() // Queue (front to rear): 10 20 30
+
+    queue.peek() // Peek: 10
+
+    queue.dequeue() // Dequeued: 10
+    queue.dequeue() // Dequeued: 20
+
+    queue.display() // Queue (front to rear): 30
+
+    println("Is queue empty? ${queue.isEmpty()}") // Is queue empty? false
+    println("Is queue fulll? ${queue.isFull()}") // Is queue full? false
+
+    val jobs = listOf("Job1", "Job2", "Job3")
+    jobScheduler(jobs)
+
+    // Enqueued: Job1
+    // Enqueued: Job2
+    // Enqueued: Job3
+    // Dequeued: Job1
+    // Processing job: Job1
+    // Dequeued: Job2
+    // Processing job: Job2
+    // Dequeued: Job3
+    // Processing job: Job3
+
+}
