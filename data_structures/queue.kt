@@ -61,4 +61,26 @@ class Queue<T>(private val capacity: Int) {
         println("Peek: ${elements[front]}")
         return elements[front] as T
     }
+
+    fun isEmpty(): Boolean {
+        return size == 0
+    }
+
+    fun isFull(): Boolean {
+        return size == capacity
+    }
+
+    fun display() {
+        if (isEmpty()) {
+            println("Queue is empty.")
+            return
+        }
+        print("Queue (front to rear): ")
+        var index = front
+        repeat(size) {
+            print("${elements[index]}")
+            index = (index + 1) % capacity
+        }
+        println()
+    }
 }
