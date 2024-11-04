@@ -113,3 +113,24 @@ class DoublyLinkedList<T> {
 
     // Other class methods can be implemented inside this scope
 }
+
+
+class CircularLinkedList<T> {
+    private var head: Node<T>? = null
+
+    // Insert at end and make it circular
+    fun insertAtEnd(data: T) {
+        val newNode = Node(data)
+        if (head == null) {
+            head = newNode
+            newNode.next = head
+        } else {
+            var current = head
+            while (current?.next != head) {
+                current = current?.next
+            }
+            current?.next = newNode
+            newNode.next = head
+        }
+    }
+}
