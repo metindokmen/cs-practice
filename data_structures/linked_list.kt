@@ -87,3 +87,29 @@ class LinkedList<T> {
         return false
     }
 }
+
+
+class DoublyNode<T>(var data: T) {
+    var next: DoublyNode<T>? = null
+    var prev: DoublyNode<T>? = null
+}
+
+class DoublyLinkedList<T> {
+    private var head: DoublyNode<T>? = null
+
+    fun insertAtEnd(data: T) {
+        val newNode = DoublyNode(data)
+        if (head == null) {
+            head = newNode
+        } else {
+            var current = head
+            while (current?.next != null) {
+                current = current.next
+            }
+            current?.next = newNode
+            newNode.prev = current
+        }
+    }
+
+    // Other class methods can be implemented inside this scope
+}
