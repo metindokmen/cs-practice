@@ -30,4 +30,22 @@ class HashTable<K, V>(private val capacity: Int) {
     // Hash function using Division Method
     private fun hash(key: K): Int = key.hashCode() % capacity
 
+    // Insert (Put) operation with Separate Chaining for collision resolution
+    fun put(key: K, value: V) {
+        val hashValue = hash(key)
+        val bucket = table[hashValue]
+
+        // Update value if key already exists
+        for (i in bucket.indices) {
+            if (bucket[i].first == key) {
+                bucket[i] = Pair(key, value)
+                return
+            }
+        }
+
+        // Add new key-value pair if no match found
+        bucket.add(Pair(key, value))
+    }
+
+
 }
