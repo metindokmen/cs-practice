@@ -15,3 +15,9 @@
 // Collision Resolution Techniques:
 // - Separate Chaining (Open Hashing): Stores colliding elements in a linked list at the corresponding hash value.
 // - Open Addressing (Closed Hashing): Uses various strategies to find an alternative location for colliding elements within the hash table.
+
+// Applications of Hashing:
+// - Efficiently storing and retrieving data in databases and file systems.
+// - Verifying passwords and digital signatures.
+// - Distributing requests across multiple servers.
+// - Generating secure hashes for data integrity and authentication.
