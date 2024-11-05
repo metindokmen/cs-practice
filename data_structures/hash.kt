@@ -21,3 +21,13 @@
 // - Verifying passwords and digital signatures.
 // - Distributing requests across multiple servers.
 // - Generating secure hashes for data integrity and authentication.
+
+
+// Custom Hash Table with Division Method and Separate Chaining
+class HashTable<K, V>(private val capacity: Int) {
+    private val table: Array<MutableList<Pair<K, V>>> = Array(capacity) { mutableListOf() }
+
+    // Hash function using Division Method
+    private fun hash(key: K): Int = key.hashCode() % capacity
+
+}
