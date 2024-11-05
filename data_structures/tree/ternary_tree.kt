@@ -18,4 +18,24 @@ class TernaryTree {
             preOrder(node.right)
         }
     }
+
+    // Insert a new node into the ternary tree
+    fun insert(value: Int) {
+        if (root == null) {
+            root = TernaryTreeNode(value)
+        } else {
+            insertRec(root, value)
+        }
+    }
+
+    private fun insertRec(node: TernaryTreeNode?, value: Int): TernaryTreeNode {
+        if (node == null) return TernaryTreeNode(value)
+
+        if (node.left == null) node.left = TernaryTreeNode(value)
+        else if (node.middle == null) node.middle = TernaryTreeNode(value)
+        else if (node.right == null) node.right = TernaryTreeNode(value)
+        else insertRec(node.left, value) // Keep adding to the left-most path if all are filled
+
+        return node
+    }
 }
