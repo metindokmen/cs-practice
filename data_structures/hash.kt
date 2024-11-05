@@ -47,5 +47,14 @@ class HashTable<K, V>(private val capacity: Int) {
         bucket.add(Pair(key, value))
     }
 
+    // Retrieve (Get) operation
+    fun get(key: K): V? {
+        val hashValue = hash(key)
+        val bucket = table[hashValue]
+        for (pair in bucket) {
+            if (pair.first == key) return pair.second
+        }
+        return null
+    }
 
 }
