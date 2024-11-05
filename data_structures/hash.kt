@@ -57,4 +57,19 @@ class HashTable<K, V>(private val capacity: Int) {
         return null
     }
 
+    // Remove operation
+    fun remove(key: K): Boolean {
+        val hashValue = hash(key)
+        val bucket = table[hashValue]
+        val iterator = bucket.iterator()
+
+        while (iterator.hasNext()) {
+            if (iterator.next().first == key) {
+                iterator.remove()
+                return true
+            }
+        }
+        return false
+    }
+
 }
