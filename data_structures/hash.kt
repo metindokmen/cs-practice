@@ -72,4 +72,14 @@ class HashTable<K, V>(private val capacity: Int) {
         return false
     }
 
+    // Display hash table
+    fun display() {
+        for (i in table.indices) {
+            print("Bucket $i: ")
+            for (pair in table[i]) {
+                print("(${pair.first} -> ${pair.second})")
+            }
+            println()
+        }
+    }
 }
