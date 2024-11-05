@@ -166,9 +166,12 @@ fun main() {
     hashTable.put("Bob", 30)
     hashTable.put("Charlie", 35)
 
-    println("Retrieve 'Alice': ${hashTable.get("Alice")}")
-    println("Retrieve 'Bob': ${hashTable.get("Bob")}")
+    println("Retrieve 'Alice': ${hashTable.get("Alice")}") // Retrieve 'Alice': 25
+    println("Retrieve 'Bob': ${hashTable.get("Bob")}") // Retrieve 'Bob': 30
 
     hashTable.remove("Charlie")
     hashTable.display()
+
+    // Key: Alice, Value: 25
+    // Key: Bob, Value: 30
 }
