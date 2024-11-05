@@ -158,3 +158,17 @@ class LinearProbingHashTable<K, V>(private val capacity: Int) {
         }
     }
 }
+
+fun main() {
+    val hashTable = LinearProbingHashTable<String, Int>(7)
+
+    hashTable.put("Alice", 25)
+    hashTable.put("Bob", 30)
+    hashTable.put("Charlie", 35)
+
+    println("Retrieve 'Alice': ${hashTable.get("Alice")}")
+    println("Retrieve 'Bob': ${hashTable.get("Bob")}")
+
+    hashTable.remove("Charlie")
+    hashTable.display()
+}
