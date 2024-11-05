@@ -104,3 +104,57 @@ fun main() {
     // Bucket 3:
     // Bucket 4:
 }
+
+
+// Example 2: Custom Hash Table with Open Addressing (Linear Probing)
+class LinearProbingHashTable<K, V>(private val capacity: Int) {
+    private val keys = arrayOfNulls<Any?>(capacity)
+    private val values = arrayOfNulls<Any?>(capacity)
+
+    // Hash function using Division Method
+    private fun hash(key: K): Int = key.hashCode() % capacity
+
+    // Insert (Put) operation with Linear Probing
+    fun put(key: K, value: V) {
+        var index = hash(key)
+        while (keys[index] != null && keys[index] != key) {
+            index = (index + 1) % capacity // Linear probing
+        }
+        keys[index] = key
+        values[index] = value
+    }
+
+    // Retrieve (Get) operation
+    fun get(key: K): V? {
+        var index = hash(key)
+        while (keys[index] != null) {
+            if (key[index] == key) {
+                return values[index] as V
+            }
+            index = (index + 1) % capacity
+        }
+        return null
+    }
+
+    // Remove operation
+    fun remove(key: K) {
+        var index = hash(key)
+        while (keys[index] != null) {
+            if (keys[index] == key) {
+                keys[index] = null
+                values[index] = null
+                return
+            }
+            index = (index + 1) % capacity
+        }
+    }
+
+    // Display hash table
+    fun display() {
+        for (i in keys.indices) {
+            if (keys[i] != null) {
+                println("Key: ${keys[i]}, Value: ${values[i]}")
+            }
+        }
+    }
+}
