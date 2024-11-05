@@ -83,3 +83,24 @@ class HashTable<K, V>(private val capacity: Int) {
         }
     }
 }
+
+fun main() {
+    val hashTable = HashTable<String, Int>(5)
+
+    hashTable.put("Alice", 25)
+    hashTable.put("Bob", 30)
+    hashTable.put("Charlie", 35)
+    hashTable.put("Dave", 40)
+
+    println("Retrieve 'Alice': ${hashTable.get("Alice")}") // Retrieve 'Alice': 25
+    println("Retrieve 'Bob': ${hashTable.get("Bob")}") // Retrieve 'Bob': 30
+
+    hashTable.remove("Charlie")
+    hashTable.display()
+
+    // Bucket 0: (Alice -> 25)
+    // Bucket 1: (Dave -> 40)
+    // Bucket 2: (Bob -> 30)
+    // Bucket 3:
+    // Bucket 4:
+}
