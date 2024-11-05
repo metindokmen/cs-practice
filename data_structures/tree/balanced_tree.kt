@@ -79,3 +79,15 @@ class AVLTree {
         }
     }
 }
+
+fun main() {
+    val avlTree = AVLTree()
+    avlTree.insert(10)
+    avlTree.insert(20)
+    avlTree.insert(30)
+    avlTree.insert(40)
+    avlTree.insert(50)
+
+    println("In-order Traversal of AVL Tree:")
+    avlTree.inOrder(avlTree.root) // Output: Balanced order of nodes
+}
