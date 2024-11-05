@@ -11,3 +11,7 @@
 // - Mid Square Method: Squares the input and takes the middle digits as the hash value.
 // - Folding Method: Divides the input into equal-sized blocks and adds them together to get the hash value.
 // - Multiplication Method: Multiplies the input by a constant and takes the fractional part as the hash value.
+
+// Collision Resolution Techniques:
+// - Separate Chaining (Open Hashing): Stores colliding elements in a linked list at the corresponding hash value.
+// - Open Addressing (Closed Hashing): Uses various strategies to find an alternative location for colliding elements within the hash table.
