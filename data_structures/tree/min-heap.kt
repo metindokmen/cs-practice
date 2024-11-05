@@ -61,3 +61,19 @@ class MinHeap {
         this[j] = temp
     }
 }
+
+fun main() {
+    val minHeap = MinHeap()
+    minHeap.insert(10)
+    minHeap.insert(4)
+    minHeap.insert(15)
+    minHeap.insert(1)
+    minHeap.insert(20)
+
+    println("Heap after insertions:")
+    minHeap.printHeap() // Output: [1, 4, 15, 10, 20]
+
+    println("Minimum element removed: ${minHeap.removeMin()}") // Output 1
+    println("Heap after removing min:")
+    minHeap.printHeap() // Output: [4, 10, 15, 20]
+}
