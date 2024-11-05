@@ -31,3 +31,15 @@ class UnbalancedTree {
         }
     }
 }
+
+fun main() {
+    val unbalancedTree = UnbalancedTree()
+    unbalancedTree.insert(10)
+    unbalancedTree.insert(20)
+    unbalancedTree.insert(30)
+    unbalancedTree.insert(40)
+    unbalancedTree.insert(50)
+
+    println("In-order Traversal of Unbalanced Tree:")
+    unbalancedTree.inOrder(unbalancedTree.root) // Output: 10 20 30 40 50 (Right-skewed)
+}
