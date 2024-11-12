@@ -26,3 +26,21 @@ class RoundRobinLoadBalancer(servers: List<Server>) {
         return server
     }
 }
+
+fun main() {
+    val servers = listOf(
+            Server("Server 1"),
+            Server("Server 2"),
+            Server("Server 3")
+    )
+
+    val loadBalancer = RoundRobinLoadBalancer(servers)
+
+    val requests = listOf("Request A", "Request B", "Request C", "Request D", "Request E")
+
+    // Distribute across servers
+    for (request in requests) {
+        val server = loadBalancer.getNextServer()
+        server.handleRequest(request)
+    }
+}
