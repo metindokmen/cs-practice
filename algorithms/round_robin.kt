@@ -5,3 +5,11 @@
 // This approach ensures even distribution of traffic across all servers
 // and is often used in scenarious like reverse-proxy load balancers
 // where each server in a replica set receives rougly the same amount of traffic over time.
+
+
+// Representative of each replica server
+class Server(val name: String) {
+    fun handleRequest(request: String) {
+        println("Request '$request' is handled by server: $name")
+    }
+}
