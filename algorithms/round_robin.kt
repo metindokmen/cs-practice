@@ -13,3 +13,16 @@ class Server(val name: String) {
         println("Request '$request' is handled by server: $name")
     }
 }
+
+// Reverse Proxy Server to Distribute Incoming Traffic Evenly
+class RoundRobinLoadBalancer(servers: List<Server>) {
+    private val servers = servers.toList()  // Copy of the server list
+    private var currentIndex = 0            // Track the next server to handle a request
+
+    // Select the next server and handle the request
+    fun getNextServer(): Server {
+        val server = servers[currentIndex]
+        currentIndex = (currentIndex + 1) % servers.size    // Move to the next server
+        return server
+    }
+}
