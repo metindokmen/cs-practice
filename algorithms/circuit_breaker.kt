@@ -59,3 +59,20 @@ class CircuitBreaker(
         failureCount = 0
     }
 }
+
+fun main() {
+    val circuitBreaker = CircuitBreaker()
+
+    repeat(5) {
+        circuitBreaker.call {
+            throw Exception("Fail!")
+        }
+    }
+
+    Thread.sleep(6000)
+
+    circuitBreaker.call {
+        println("Trying recovery operation...")
+        "Recovered!"
+    }
+}
